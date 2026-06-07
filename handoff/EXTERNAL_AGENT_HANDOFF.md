@@ -6,15 +6,15 @@ You are not maintaining this playbook repository. Your task is to read the gover
 
 ## What To Read
 
-Read these files from this playbook:
+Read only the governance files needed for your current task:
 
-- `governance/VALUES.md`
-- `governance/ORCHESTRATOR_WORKFLOW.md`
-- `governance/AGENT_ROLES.md`
-- `governance/PROJECT_BOOTSTRAP.md`
-- `governance/GOVERNANCE_AUDIT.md`
+- Agent workflow or operating rules: `governance/ORCHESTRATOR_WORKFLOW.md`
+- Values and principles: `governance/VALUES.md`
+- Specialist roles: `governance/AGENT_ROLES.md`
+- New project setup: `governance/PROJECT_BOOTSTRAP.md`
+- Governance drift review: `governance/GOVERNANCE_AUDIT.md`
 
-Read `AGENTS.md` only for the guest gate. Do not follow the maintainer instructions in the rest of `AGENTS.md`.
+Do not read unrelated governance files just because they exist.
 
 ## What To Do In Your Project
 

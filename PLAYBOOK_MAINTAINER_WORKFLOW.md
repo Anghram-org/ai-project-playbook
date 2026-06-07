@@ -46,17 +46,19 @@ For each requested change:
 
 ## Instruction Hygiene
 
-Do not clutter instruction files with duplicate, upstream, or premature rules. Thin routing and absence of duplicate instructions are critical to making the playbook usable.
+Do not clutter instruction files with duplicate, upstream, premature, or task-irrelevant rules. Thin routing and absence of duplicate instructions are critical to making the playbook usable.
 
 Before adding or changing instructions:
 
-- Identify which existing required-reading path and audience the rule belongs to.
-- Put the rule in the latest appropriate file on that path, where the agent has the right context to apply it.
+- Identify which existing required-reading path, audience, and task the rule belongs to.
+- Put the rule in the latest appropriate file on that path, where the agent has the right context and task need to apply it.
+- Split instructions by task. Do not make an agent read rules for work it is not doing.
+- If only some agents or tasks need a rule, put it behind the narrow route that selects those agents or tasks.
 - Do not repeat, summarize, or cross-reference a downstream rule from an upstream file unless the upstream file must change the reader's routing decision.
-- Do not repeat governance rules inside handoff instructions when the handoff already requires reading the governance file that contains them.
+- Do not repeat governance rules inside handoff instructions when the handoff can route the agent to the governance file that contains them.
 - Use audit files for verification questions, not as a second place to state operating rules.
 - Treat unnecessary instruction text as a defect, even when the text is technically correct.
-- After editing, trace each read path and remove anything the same agent would read twice without needing a different action.
+- After editing, trace each affected read path and remove anything the same agent would read twice or read without needing for its selected task.
 
 ## Git Discipline
 

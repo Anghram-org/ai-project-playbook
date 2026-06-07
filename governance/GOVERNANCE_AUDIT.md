@@ -29,6 +29,7 @@ Check:
 - Do agents define acceptance criteria for vague or tactical requests before implementation?
 - Does the project require orchestration before implementation?
 - Are routing instructions thin, with operating rules placed in the files where agents need them?
+- Are instructions split by task so agents do not read rules for work they are not doing?
 - Are duplicate instructions absent along each required agent read path?
 - Are handoff, audit, and routing files free of repeated downstream rules?
 - Are impact analysis rules present for shared components, APIs, data, auth, permissions, and config?

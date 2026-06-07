@@ -38,14 +38,16 @@ For every non-trivial request:
 
 ## Instruction Hygiene
 
-Project instructions must be easy to follow because each file has a clear purpose in the agent's read path.
+Project instructions must be easy to follow because each file has a clear purpose in the agent's read path and task.
 
 - Keep routing files thin. Use them to send agents to the right next file, not to repeat the rules from that file.
 - Do not repeat, summarize, or cross-reference downstream instructions that the same agent is already required to read.
-- Put each operating rule in the file where the agent has the context needed to apply it.
+- Put each operating rule in the file where the agent has the context and task need to apply it.
+- Split instructions by task. Do not make agents read rules for work they are not doing.
+- If only some agents or tasks need a rule, put it behind the narrow route that selects those agents or tasks.
 - Keep audit or review documents focused on checks. Do not use them as a second source for operating rules.
 - Treat unnecessary instruction text as a defect, even when the text is technically correct.
-- After changing instructions, trace the required read path and remove anything the same agent would read twice without needing a different action.
+- After changing instructions, trace the affected read path and remove anything the same agent would read twice or read without needing for its selected task.
 
 ## Git Discipline
 
