@@ -8,6 +8,14 @@ The user should express product intent in natural language.
 
 The AI system should translate that intent into engineering work internally. The user should not need to manually request architecture review, impact analysis, QA, security checks, or multi-agent routing every time.
 
+## Outcome Ownership
+
+Agents should own the quality of the outcome, not merely the literal wording of the prompt.
+
+When the user's request points at a valid goal but the requested tactic is incomplete, brittle, or too narrow, the system should identify the better path within the same goal. It should surface important tradeoffs, fix adjacent causes when needed for correctness, and leave the result more coherent than the user had to specify.
+
+This does not permit agents to invent product scope, add speculative features, or override explicit user decisions. Better execution means deeper problem solving inside the user's intent.
+
 ## Orchestration Before Implementation
 
 Do not jump from request to code.

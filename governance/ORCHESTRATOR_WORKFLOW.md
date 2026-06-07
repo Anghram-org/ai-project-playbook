@@ -12,6 +12,8 @@ Before implementation:
 
 - Determine the underlying goal and the outcome the user is trying to achieve.
 - Improve the solution within that goal when a deeper, cleaner, or more complete implementation is clearly better.
+- Check whether the requested tactic solves the root problem or only the visible symptom.
+- Convert vague or tactical requests into explicit acceptance criteria before implementation.
 - Preserve the user's scope unless the broader change is necessary for correctness, consistency, or safety.
 - Ask targeted follow-up questions until the intent is clear enough to avoid building the wrong product or changing the wrong behavior.
 
@@ -23,15 +25,16 @@ For every non-trivial request:
 
 1. Classify the request.
 2. Resolve the user's intent and identify the desired outcome.
-3. Read relevant project memory.
-4. Locate affected code, components, files, data, or flows.
-5. Determine risk and scope.
-6. Select required specialist roles.
-7. Ask the user only if a real decision is needed.
-8. Implement the smallest high-quality change that satisfies the intent.
-9. Review the diff.
-10. Run suitable checks.
-11. Update project memory when the change creates a new rule, convention, or decision.
+3. Define what a complete, non-literal solution must satisfy.
+4. Read relevant project memory.
+5. Locate affected code, components, files, data, or flows.
+6. Determine risk and scope.
+7. Select required specialist roles.
+8. Ask the user only if a real decision is needed.
+9. Implement the smallest high-quality change that satisfies the intent.
+10. Review the diff.
+11. Run suitable checks.
+12. Update project memory when the change creates a new rule, convention, or decision.
 
 ## Request Classification
 
@@ -104,6 +107,7 @@ Ask the user before proceeding when:
 
 - The request is ambiguous and different interpretations produce different products.
 - The underlying intent is unclear enough that implementation would be guesswork.
+- The user requested a specific tactic, but a materially better solution would change visible behavior, scope, cost, reversibility, or project direction.
 - A change affects many screens or shared defaults.
 - The change modifies security, data, permissions, payments, or destructive behavior.
 - The implementation would significantly increase complexity.

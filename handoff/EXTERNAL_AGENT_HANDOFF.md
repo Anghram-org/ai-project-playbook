@@ -34,6 +34,8 @@ The local `AGENTS.md` should contain the operating rules that agents in your pro
 Do:
 
 - Translate the playbook's general principles into project-specific rules.
+- Require local agents to solve for the user's intended outcome, not only the literal tactic requested.
+- Add guidance for converting vague or tactical requests into acceptance criteria and root-cause checks.
 - Keep orchestration, implementation, review, QA, and security responsibilities distinct.
 - Add local build, test, lint, typecheck, and verification commands.
 - Record project-specific architecture, product scope, and decisions in local files.
@@ -44,6 +46,7 @@ Do not:
 - Copy every playbook file verbatim into the project.
 - Treat this playbook as application code.
 - Import maintainer-only instructions from this repository into your project.
+- Let project agents use "deeper intent" as an excuse for speculative features, unrelated refactors, or overriding explicit user decisions.
 - Add speculative processes, roles, or documents that do not help the current project.
 - Skip local project context because the playbook contains generic guidance.
 

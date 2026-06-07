@@ -25,6 +25,8 @@ Check:
 
 - Do instructions require agents to resolve user intent before implementation?
 - Do agents improve solutions within the user's goal without adding speculative scope?
+- Do instructions require agents to distinguish root problems from requested tactics or visible symptoms?
+- Do agents define acceptance criteria for vague or tactical requests before implementation?
 - Does the project require orchestration before implementation?
 - Are impact analysis rules present for shared components, APIs, data, auth, permissions, and config?
 - Are ask-the-user gates clear?

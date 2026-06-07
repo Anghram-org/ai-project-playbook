@@ -35,13 +35,14 @@ For each requested change:
 
 1. Identify whether the request affects maintainer guidance, external-agent handoff guidance, or reusable governance rules.
 2. Resolve the user's intent and the documentation outcome they are trying to achieve.
-3. Read the affected files before editing.
-4. Decide whether the change is a source rule, handoff guidance, or an example.
-5. Improve the documentation within the user's goal, choosing the smallest set of files that keeps the repository consistent.
-6. Ask focused questions before editing if the intent is unclear enough that the change would be guesswork.
-7. Check for duplicate or conflicting wording.
-8. If a source governance rule changes, consider whether `handoff/EXTERNAL_AGENT_HANDOFF.md` or `governance/GOVERNANCE_AUDIT.md` also needs an update.
-9. Report what changed and which audience it affects.
+3. Identify the stronger reusable rule behind the request, including any consequences the user may not have spelled out.
+4. Read the affected files before editing.
+5. Decide whether the change is a source rule, handoff guidance, audit criterion, or example.
+6. Improve the documentation within the user's goal, choosing the smallest set of files that keeps the repository consistent.
+7. Ask focused questions before editing if the intent is unclear enough that the change would be guesswork.
+8. Check for duplicate or conflicting wording.
+9. If a source governance rule changes, consider whether `handoff/EXTERNAL_AGENT_HANDOFF.md` or `governance/GOVERNANCE_AUDIT.md` also needs an update.
+10. Report what changed and which audience it affects.
 
 ## Repository Layers
 

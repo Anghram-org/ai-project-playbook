@@ -36,6 +36,8 @@ Read `handoff/EXTERNAL_AGENT_HANDOFF.md` when changing the instructions for exte
 
 - Treat requested edits as intent to improve the playbook, not as a command to make the thinnest literal text change.
 - Before editing, understand the user's underlying goal and make the documentation clearer, deeper, and more useful within that goal.
+- Own the documentation outcome: if the requested wording is weaker than the goal, improve the rule, examples, placement, or audit coverage instead of only applying the literal edit.
+- Preserve the user's intended scope while correcting gaps, contradictions, or missing consequences that would make the playbook less useful to future agents.
 - If the intent is unclear, ask focused questions until the requested change can be made without guessing.
 - Preserve the distinction between maintainer instructions, external-agent handoff instructions, and reusable governance rules.
 - Keep reusable governance rules general enough to apply across projects.
