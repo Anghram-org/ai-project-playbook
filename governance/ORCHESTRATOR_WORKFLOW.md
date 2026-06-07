@@ -4,20 +4,34 @@ The orchestrator is responsible for turning user intent into safe engineering ex
 
 The user should not need to explicitly manage agents or phases.
 
+## Intent Resolution
+
+Treat each user request as an expression of intent, not as a narrow command to perform the most literal edit possible.
+
+Before implementation:
+
+- Determine the underlying goal and the outcome the user is trying to achieve.
+- Improve the solution within that goal when a deeper, cleaner, or more complete implementation is clearly better.
+- Preserve the user's scope unless the broader change is necessary for correctness, consistency, or safety.
+- Ask targeted follow-up questions until the intent is clear enough to avoid building the wrong product or changing the wrong behavior.
+
+Do not use intent resolution as permission for speculative features, unrelated refactors, or product decisions the user has not made.
+
 ## Default Sequence
 
 For every non-trivial request:
 
 1. Classify the request.
-2. Read relevant project memory.
-3. Locate affected code, components, files, data, or flows.
-4. Determine risk and scope.
-5. Select required specialist roles.
-6. Ask the user only if a real decision is needed.
-7. Implement the smallest correct change.
-8. Review the diff.
-9. Run suitable checks.
-10. Update project memory when the change creates a new rule, convention, or decision.
+2. Resolve the user's intent and identify the desired outcome.
+3. Read relevant project memory.
+4. Locate affected code, components, files, data, or flows.
+5. Determine risk and scope.
+6. Select required specialist roles.
+7. Ask the user only if a real decision is needed.
+8. Implement the smallest high-quality change that satisfies the intent.
+9. Review the diff.
+10. Run suitable checks.
+11. Update project memory when the change creates a new rule, convention, or decision.
 
 ## Request Classification
 
@@ -89,6 +103,7 @@ Action:
 Ask the user before proceeding when:
 
 - The request is ambiguous and different interpretations produce different products.
+- The underlying intent is unclear enough that implementation would be guesswork.
 - A change affects many screens or shared defaults.
 - The change modifies security, data, permissions, payments, or destructive behavior.
 - The implementation would significantly increase complexity.
@@ -107,4 +122,3 @@ At completion, report:
 - Any important follow-up risk.
 
 Do not hide uncertainty.
-

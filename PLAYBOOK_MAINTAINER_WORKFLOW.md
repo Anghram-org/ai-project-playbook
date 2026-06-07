@@ -34,12 +34,14 @@ Do not use this repository to:
 For each requested change:
 
 1. Identify whether the request affects maintainer guidance, external-agent handoff guidance, or reusable governance rules.
-2. Read the affected files before editing.
-3. Decide whether the change is a source rule, handoff guidance, or an example.
-4. Update the smallest set of files that keeps the repository consistent.
-5. Check for duplicate or conflicting wording.
-6. If a source governance rule changes, consider whether `handoff/EXTERNAL_AGENT_HANDOFF.md` or `governance/GOVERNANCE_AUDIT.md` also needs an update.
-7. Report what changed and which audience it affects.
+2. Resolve the user's intent and the documentation outcome they are trying to achieve.
+3. Read the affected files before editing.
+4. Decide whether the change is a source rule, handoff guidance, or an example.
+5. Improve the documentation within the user's goal, choosing the smallest set of files that keeps the repository consistent.
+6. Ask focused questions before editing if the intent is unclear enough that the change would be guesswork.
+7. Check for duplicate or conflicting wording.
+8. If a source governance rule changes, consider whether `handoff/EXTERNAL_AGENT_HANDOFF.md` or `governance/GOVERNANCE_AUDIT.md` also needs an update.
+9. Report what changed and which audience it affects.
 
 ## Repository Layers
 

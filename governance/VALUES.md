@@ -19,9 +19,9 @@ First determine:
 - Whether the change is local, shared, architectural, risky, or ambiguous.
 - Which specialist agents or review phases are needed.
 
-## Small Correct Changes
+## Small High-Quality Changes
 
-Prefer the smallest change that correctly satisfies the request.
+Prefer the smallest high-quality change that fully satisfies the user's intent.
 
 Avoid speculative architecture, unrelated refactoring, unnecessary dependencies, and broad rewrites.
 
@@ -81,4 +81,3 @@ Security-sensitive work should trigger a security review phase.
 Each project may have its own architecture, design system, dependencies, and constraints.
 
 Agents must read and follow local project context before applying generic best practices.
-

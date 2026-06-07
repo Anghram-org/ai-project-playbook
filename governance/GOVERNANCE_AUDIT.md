@@ -23,6 +23,8 @@ Read:
 
 Check:
 
+- Do instructions require agents to resolve user intent before implementation?
+- Do agents improve solutions within the user's goal without adding speculative scope?
 - Does the project require orchestration before implementation?
 - Are impact analysis rules present for shared components, APIs, data, auth, permissions, and config?
 - Are ask-the-user gates clear?
@@ -65,4 +67,3 @@ Compare project instructions and workflow with the governance values.
 Report alignment, drift, risks, and recommended updates.
 Do not edit files until you identify which changes are mechanical and which need my decision.
 ```
-
