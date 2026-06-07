@@ -44,6 +44,26 @@ For each requested change:
 9. If a source governance rule changes, consider whether `handoff/EXTERNAL_AGENT_HANDOFF.md` or `governance/GOVERNANCE_AUDIT.md` also needs an update.
 10. Report what changed and which audience it affects.
 
+## Instruction Hygiene
+
+Do not clutter instruction files with duplicate, upstream, or premature rules. Thin routing and absence of duplicate instructions are critical to making the playbook usable.
+
+Before adding or changing instructions:
+
+- Identify which existing required-reading path and audience the rule belongs to.
+- Put the rule in the latest appropriate file on that path, where the agent has the right context to apply it.
+- Do not repeat, summarize, or cross-reference a downstream rule from an upstream file unless the upstream file must change the reader's routing decision.
+- Do not repeat governance rules inside handoff instructions when the handoff already requires reading the governance file that contains them.
+- Use audit files for verification questions, not as a second place to state operating rules.
+- Treat unnecessary instruction text as a defect, even when the text is technically correct.
+- After editing, trace each read path and remove anything the same agent would read twice without needing a different action.
+
+## Git Discipline
+
+- Check the working tree before editing. If it contains changes unrelated to the current request, stop and warn the operator instead of mixing work.
+- Do not commit or push unless the operator explicitly asks for that git action.
+- When the operator asks for commits, keep each commit scoped to one task. Do not bundle unrelated documentation changes together.
+
 ## Repository Layers
 
 ### Maintainer Layer

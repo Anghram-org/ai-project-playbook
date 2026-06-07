@@ -28,10 +28,16 @@ Check:
 - Do instructions require agents to distinguish root problems from requested tactics or visible symptoms?
 - Do agents define acceptance criteria for vague or tactical requests before implementation?
 - Does the project require orchestration before implementation?
+- Are routing instructions thin, with operating rules placed in the files where agents need them?
+- Are duplicate instructions absent along each required agent read path?
+- Are handoff, audit, and routing files free of repeated downstream rules?
 - Are impact analysis rules present for shared components, APIs, data, auth, permissions, and config?
 - Are ask-the-user gates clear?
 - Are review and QA mandatory phases?
 - Are security-sensitive changes escalated?
+- Do agents avoid commits and pushes unless the operator explicitly requested them?
+- Do commit rules require one task per commit and prohibit bundling unrelated work?
+- Do dirty working tree rules require agents to stop and warn before mixing unrelated changes?
 - Are project memory files current?
 - Do local project rules conflict with governance values?
 - Are agents overloaded with too many responsibilities?

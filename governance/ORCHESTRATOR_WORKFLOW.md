@@ -36,6 +36,26 @@ For every non-trivial request:
 11. Run suitable checks.
 12. Update project memory when the change creates a new rule, convention, or decision.
 
+## Instruction Hygiene
+
+Project instructions must be easy to follow because each file has a clear purpose in the agent's read path.
+
+- Keep routing files thin. Use them to send agents to the right next file, not to repeat the rules from that file.
+- Do not repeat, summarize, or cross-reference downstream instructions that the same agent is already required to read.
+- Put each operating rule in the file where the agent has the context needed to apply it.
+- Keep audit or review documents focused on checks. Do not use them as a second source for operating rules.
+- Treat unnecessary instruction text as a defect, even when the text is technically correct.
+- After changing instructions, trace the required read path and remove anything the same agent would read twice without needing a different action.
+
+## Git Discipline
+
+Agents must keep repository state understandable and operator-controlled.
+
+- Check the working tree before editing. If there are unrelated uncommitted changes, stop and warn the operator instead of mixing them into the current task.
+- Do not create commits or push branches unless the operator explicitly asks for that git action.
+- When commits are requested, each commit must solve one task. Do not combine unrelated features, fixes, refactors, documentation updates, or cleanup in a single commit.
+- If a task naturally produces separate unrelated outcomes, split them into separate commits only when the operator asked for commits; otherwise leave the changes unstaged or report the separation clearly.
+
 ## Request Classification
 
 Classify requests into one or more categories:
