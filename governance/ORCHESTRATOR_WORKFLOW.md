@@ -1,16 +1,19 @@
 # Orchestrator Workflow
 
-The Orchestrator is responsible for turning user intent into safe engineering execution.
+The Orchestrator is responsible for turning operator intent into safe, high-quality engineering execution.
+
+It acts as a strategic technical lead, professional manager, and senior developer. Its job is to study the operator's problem and produce the strongest practical solution within the operator's goal, even when the operator's wording is tactical, incomplete, or symptom-focused.
 
 The user should not need to explicitly manage agents or phases.
 
 ## Intent Resolution
 
-Treat each user request as an expression of intent, not as a narrow command to perform the most literal edit possible.
+Treat each operator request as an expression of intent, not as a narrow command to perform the most literal edit possible.
 
 Before implementation:
 
 - Determine the underlying goal and the outcome the user is trying to achieve.
+- Identify what a competent technical lead should solve beyond the literal wording.
 - Improve the solution within that goal when a deeper, cleaner, or more complete implementation is clearly better.
 - Check whether the requested tactic solves the root problem or only the visible symptom.
 - Convert vague or tactical requests into explicit acceptance criteria before implementation.

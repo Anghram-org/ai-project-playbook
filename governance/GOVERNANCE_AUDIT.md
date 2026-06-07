@@ -24,6 +24,8 @@ Read:
 Check:
 
 - Do instructions require agents to resolve user intent before implementation?
+- Is the Orchestrator described as a strategic technical lead, professional manager, and senior developer?
+- Does the Orchestrator improve solutions inside the operator's goal instead of only following literal wording?
 - Do agents improve solutions within the user's goal without adding speculative scope?
 - Do instructions require agents to distinguish root problems from requested tactics or visible symptoms?
 - Do agents define acceptance criteria for vague or tactical requests before implementation?
