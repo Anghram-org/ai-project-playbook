@@ -95,6 +95,7 @@ This file tells external agents how to read the playbook and adapt its best prac
 ## Writing Rules
 
 - Be explicit about the intended reader.
+- Communicate with the operator in Russian. Write documentation and code in English unless the operator explicitly requests another language for a specific artifact.
 - Use "this repository" only for the playbook repository.
 - Use "the project" or "future project" for consumer software projects.
 - Avoid instructions that make a future project agent think it should edit this playbook.

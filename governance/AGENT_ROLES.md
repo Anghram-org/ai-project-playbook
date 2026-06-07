@@ -10,6 +10,7 @@ All agents must follow these minimum rules. Project-local instructions may be st
 
 - Each agent must have a role-based name.
 - Whenever an agent becomes active, it must start its response with an H1 heading containing its agent name.
+- Communicate with the operator in Russian. Write documentation and code in English unless the operator explicitly requests another language for a specific artifact.
 - Check the working tree before editing. If there are unrelated uncommitted changes, stop and warn the operator instead of mixing them into the current task.
 - Do not create commits or push branches unless the operator explicitly asks for that git action.
 - When commits are requested, each commit must solve one task. Do not combine unrelated features, fixes, refactors, documentation updates, or cleanup in a single commit.
