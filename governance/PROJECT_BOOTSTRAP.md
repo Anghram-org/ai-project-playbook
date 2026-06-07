@@ -39,7 +39,8 @@ Should include:
 
 - Link or reference to the governance repository.
 - Local project rules.
-- Required Orchestrator, Super Agent, and executor agent roles.
+- Required Super Agent and Orchestrator roles.
+- Optional executor agent roles selected for the project.
 - Universal agent rules, including role-based names, H1 agent headings, dirty working tree discipline, and commit restrictions.
 - Required checks.
 - Files that agents must read first.
@@ -76,6 +77,6 @@ My project idea:
 
 First, read the governance files.
 Then create project-specific `AGENTS.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, and any other needed memory files.
-Define the default Orchestrator, a manually invoked Super Agent, baseline executor agents, and room for project-specific executor agents.
+Define the required Super Agent, the default Orchestrator, optional executor agents selected for the project, and room for project-specific executor agents.
 Do not write application code until the initial project memory is created and the MVP scope is clear.
 ```

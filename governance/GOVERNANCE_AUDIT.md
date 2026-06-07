@@ -37,7 +37,9 @@ Check:
 - Are executor agents forbidden from changing instructions directly?
 - Does every agent have a role-based name?
 - Does every active agent start with an H1 heading containing its agent name?
-- Are required executor roles present while leaving room for useful project-specific executor agents?
+- Are only Super Agent and Orchestrator treated as required roles?
+- Are executor roles treated as optional catalog entries selected only when useful?
+- Is there a template for adding project-specific executor agents?
 - Are routing instructions thin, with operating rules placed in the files where agents need them?
 - Are instructions split by task so agents do not read rules for work they are not doing?
 - Are duplicate instructions absent along each required agent read path?

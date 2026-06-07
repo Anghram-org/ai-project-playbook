@@ -35,7 +35,7 @@ At minimum, define:
 
 - The default Orchestrator workflow from `governance/ORCHESTRATOR_WORKFLOW.md`.
 - The manually invoked Super Agent model from `governance/AGENT_ROLES.md`.
-- Baseline executor agents and any useful project-specific executor agents.
+- Any optional executor agents that are useful for the project.
 - Universal agent rules and agent-specific boundaries.
 
 ## How To Adapt The Playbook
@@ -59,6 +59,7 @@ Do not:
 - Let project agents use "deeper intent" as an excuse for speculative features, unrelated refactors, or overriding explicit user decisions.
 - Add speculative processes, roles, or documents that do not help the current project.
 - Lock the project into only the roles listed in this playbook when a new executor role would make recurring work clearer.
+- Treat optional executor agents as required in every project.
 - Let the Orchestrator or executor agents edit instructions directly.
 - Skip local project context because the playbook contains generic guidance.
 
