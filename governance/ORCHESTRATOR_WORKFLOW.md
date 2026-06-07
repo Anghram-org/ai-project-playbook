@@ -1,6 +1,6 @@
 # Orchestrator Workflow
 
-The orchestrator is responsible for turning user intent into safe engineering execution.
+The Orchestrator is responsible for turning user intent into safe engineering execution.
 
 The user should not need to explicitly manage agents or phases.
 
@@ -29,34 +29,23 @@ For every non-trivial request:
 4. Read relevant project memory.
 5. Locate affected code, components, files, data, or flows.
 6. Determine risk and scope.
-7. Select required specialist roles.
+7. Select required executor agents.
 8. Ask the user only if a real decision is needed.
 9. Implement the smallest high-quality change that satisfies the intent.
 10. Review the diff.
 11. Run suitable checks.
-12. Update project memory when the change creates a new rule, convention, or decision.
+12. Update non-instruction project memory when the change creates a new decision, command, architectural note, product fact, or discovered constraint.
 
-## Instruction Hygiene
+## Agent Routing
 
-Project instructions must be easy to follow because each file has a clear purpose in the agent's read path and task.
+The Orchestrator is active by default for every non-trivial request. It may delegate scoped work to executor agents, but it remains accountable for the outcome.
 
-- Keep routing files thin. Use them to send agents to the right next file, not to repeat the rules from that file.
-- Do not repeat, summarize, or cross-reference downstream instructions that the same agent is already required to read.
-- Put each operating rule in the file where the agent has the context and task need to apply it.
-- Split instructions by task. Do not make agents read rules for work they are not doing.
-- If only some agents or tasks need a rule, put it behind the narrow route that selects those agents or tasks.
-- Keep audit or review documents focused on checks. Do not use them as a second source for operating rules.
-- Treat unnecessary instruction text as a defect, even when the text is technically correct.
-- After changing instructions, trace the affected read path and remove anything the same agent would read twice or read without needing for its selected task.
-
-## Git Discipline
-
-Agents must keep repository state understandable and operator-controlled.
-
-- Check the working tree before editing. If there are unrelated uncommitted changes, stop and warn the operator instead of mixing them into the current task.
-- Do not create commits or push branches unless the operator explicitly asks for that git action.
-- When commits are requested, each commit must solve one task. Do not combine unrelated features, fixes, refactors, documentation updates, or cleanup in a single commit.
-- If a task naturally produces separate unrelated outcomes, split them into separate commits only when the operator asked for commits; otherwise leave the changes unstaged or report the separation clearly.
+- Use the required executor agents from `governance/AGENT_ROLES.md` as the baseline.
+- Add optional executor agents only when a recurring responsibility needs a named owner.
+- Apply the universal agent rules from `governance/AGENT_ROLES.md`.
+- Keep executor agents scoped to implementation, review, QA, security, support, infrastructure, documentation, or other specialist work.
+- Escalate instruction changes, governance changes, role changes, memory-routing changes, and recurring workflow failures to the Super Agent authority defined in `governance/AGENT_ROLES.md`.
+- Do not edit instruction or routing files while acting as the Orchestrator.
 
 ## Request Classification
 
@@ -134,7 +123,7 @@ Ask the user before proceeding when:
 - The change modifies security, data, permissions, payments, or destructive behavior.
 - The implementation would significantly increase complexity.
 - A dependency or platform choice is required.
-- The project memory conflicts with the request.
+- Project memory or instructions conflict with the request.
 
 Questions should be short and decision-focused.
 

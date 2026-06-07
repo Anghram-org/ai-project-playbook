@@ -1,64 +1,59 @@
 # Playbook Maintainer Workflow
 
-Use this workflow when the agent is editing this playbook repository.
+Use this workflow only when editing this playbook repository.
 
-The playbook maintainer's responsibility is to improve the instructions that other agents will consume later. It should not behave as if it is inside one of those future product repositories.
+The maintainer's job is to improve the reusable instructions that other agents will consume later. Do not behave as if this repository is one of those future product repositories.
 
-This repository does not need multiple maintainer agents. Use one maintainer workflow and keep specialist role definitions inside the consumer-facing governance files for future projects.
+This repository needs one maintainer workflow. Keep specialist role definitions in the consumer-facing governance files.
 
 ## Goal
 
-Maintain a reusable governance package for AI-built software projects.
-
-This includes:
+Maintain a reusable governance package for AI-built software projects:
 
 - Values and operating principles.
 - Orchestrator workflow rules.
 - Specialist agent role definitions.
 - Project bootstrap guidance.
 - Audit guidance.
-- Handoff guidance that future project agents can use.
+- External-agent handoff guidance.
 
 ## Non-Goals
 
-Do not use this repository to:
+Do not use this repository for:
 
-- Build an application.
-- Choose a tech stack for a specific product.
-- Store product-specific requirements.
-- Store one project's private architecture decisions.
-- Force every future project to copy the same files verbatim.
+- Building an application.
+- Choosing a tech stack for a specific product.
+- Storing product-specific requirements.
+- Storing one project's private architecture decisions.
+- Requiring every future project to copy the same files verbatim.
 
-## Maintainer Flow
-
-For each requested change:
+## Change Flow
 
 1. Identify whether the request affects maintainer guidance, external-agent handoff guidance, or reusable governance rules.
 2. Resolve the user's intent and the documentation outcome they are trying to achieve.
 3. Identify the stronger reusable rule behind the request, including any consequences the user may not have spelled out.
 4. Read the affected files before editing.
-5. Decide whether the change is a source rule, handoff guidance, audit criterion, or example.
-6. Improve the documentation within the user's goal, choosing the smallest set of files that keeps the repository consistent.
-7. Ask focused questions before editing if the intent is unclear enough that the change would be guesswork.
-8. Check for duplicate or conflicting wording.
-9. If a source governance rule changes, consider whether `handoff/EXTERNAL_AGENT_HANDOFF.md` or `governance/GOVERNANCE_AUDIT.md` also needs an update.
-10. Report what changed and which audience it affects.
+5. Classify the change as maintainer rule, source governance rule, handoff guidance, audit criterion, or example.
+6. Ask focused questions before editing if the intent is unclear enough that the change would be guesswork.
+7. Edit the smallest set of files that keeps the repository consistent.
+8. Check for duplicate or conflicting wording along the affected read path.
+9. When source governance changes, consider whether `handoff/EXTERNAL_AGENT_HANDOFF.md` or `governance/GOVERNANCE_AUDIT.md` also needs an update.
+10. Report what changed, what was checked, and which audience is affected.
 
 ## Instruction Hygiene
 
-Do not clutter instruction files with duplicate, upstream, premature, or task-irrelevant rules. Thin routing and absence of duplicate instructions are critical to making the playbook usable.
+Do not clutter instruction files with duplicate, upstream, premature, or task-irrelevant rules. Thin routing and absence of duplicate instructions are required for the playbook to stay usable.
 
 Before adding or changing instructions:
 
-- Identify which existing required-reading path, audience, and task the rule belongs to.
-- Put the rule in the latest appropriate file on that path, where the agent has the right context and task need to apply it.
-- Split instructions by task. Do not make an agent read rules for work it is not doing.
-- If only some agents or tasks need a rule, put it behind the narrow route that selects those agents or tasks.
+- Identify the required-reading path, audience, and task that need the rule.
+- Put the rule in the narrowest appropriate file on that path, where the reader has the context to apply it.
+- Split instructions by task so agents do not read rules for work they are not doing.
 - Do not repeat, summarize, or cross-reference a downstream rule from an upstream file unless the upstream file must change the reader's routing decision.
-- Do not repeat governance rules inside handoff instructions when the handoff can route the agent to the governance file that contains them.
-- Use audit files for verification questions, not as a second place to state operating rules.
+- Keep handoff files focused on routing and adaptation; do not restate governance rules there.
+- Use audit files for verification questions, not as another source of operating rules.
 - Treat unnecessary instruction text as a defect, even when the text is technically correct.
-- After editing, trace each affected read path and remove anything the same agent would read twice or read without needing for its selected task.
+- After editing, trace each affected read path and remove anything the same reader would read twice or without task need.
 
 ## Git Discipline
 
@@ -70,16 +65,16 @@ Before adding or changing instructions:
 
 ### Maintainer Layer
 
-Files for the agent editing this repository:
+Read by agents editing this repository:
 
 - `AGENTS.md`
 - `PLAYBOOK_MAINTAINER_WORKFLOW.md`
 
-These files should explain how to maintain the playbook itself with a single maintainer workflow.
+These files explain how to maintain the playbook itself.
 
 ### Governance Source Layer
 
-Files consumed by future project orchestrators:
+Read by future project agents:
 
 - `governance/VALUES.md`
 - `governance/ORCHESTRATOR_WORKFLOW.md`
@@ -87,15 +82,15 @@ Files consumed by future project orchestrators:
 - `governance/PROJECT_BOOTSTRAP.md`
 - `governance/GOVERNANCE_AUDIT.md`
 
-These files should describe reusable standards for AI-assisted projects.
+These files describe reusable standards for AI-assisted projects.
 
 ### External-Agent Handoff Layer
 
-Files read by agents that consume this playbook from another project:
+Read by agents consuming this playbook from another project:
 
 - `handoff/EXTERNAL_AGENT_HANDOFF.md`
 
-This file should tell external agents how to read the playbook and adapt its best practices into their own project.
+This file tells external agents how to read the playbook and adapt its best practices into their own project.
 
 ## Writing Rules
 

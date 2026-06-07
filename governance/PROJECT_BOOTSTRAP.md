@@ -4,7 +4,7 @@ Use this process when starting a new AI-assisted software project.
 
 ## Inputs
 
-The orchestrator should read:
+The Orchestrator should read:
 
 1. This governance repository.
 2. The user's project idea.
@@ -39,6 +39,8 @@ Should include:
 
 - Link or reference to the governance repository.
 - Local project rules.
+- Required Orchestrator, Super Agent, and executor agent roles.
+- Universal agent rules, including role-based names, H1 agent headings, dirty working tree discipline, and commit restrictions.
 - Required checks.
 - Files that agents must read first.
 - Ask-the-user gates specific to the project.
@@ -74,6 +76,6 @@ My project idea:
 
 First, read the governance files.
 Then create project-specific `AGENTS.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, and any other needed memory files.
+Define the default Orchestrator, a manually invoked Super Agent, baseline executor agents, and room for project-specific executor agents.
 Do not write application code until the initial project memory is created and the MVP scope is clear.
 ```
-

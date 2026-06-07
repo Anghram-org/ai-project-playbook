@@ -27,7 +27,15 @@ Check:
 - Do agents improve solutions within the user's goal without adding speculative scope?
 - Do instructions require agents to distinguish root problems from requested tactics or visible symptoms?
 - Do agents define acceptance criteria for vague or tactical requests before implementation?
-- Does the project require orchestration before implementation?
+- Does the project require default Orchestrator routing before implementation?
+- Is the Super Agent manually invoked instead of active by default?
+- Is the Super Agent the only role allowed to create, edit, reorganize, or delete agent instructions, governance rules, role definitions, and memory routing?
+- Is the Orchestrator forbidden from changing instructions?
+- Do explicit instruction-change requests activate the Super Agent instead of granting instruction-edit authority to the Orchestrator?
+- Are executor agents forbidden from changing instructions directly?
+- Does every agent have a role-based name?
+- Does every active agent start with an H1 heading containing its agent name?
+- Are required executor roles present while leaving room for useful project-specific executor agents?
 - Are routing instructions thin, with operating rules placed in the files where agents need them?
 - Are instructions split by task so agents do not read rules for work they are not doing?
 - Are duplicate instructions absent along each required agent read path?
