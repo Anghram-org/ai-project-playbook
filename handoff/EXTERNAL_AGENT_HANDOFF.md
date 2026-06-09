@@ -6,6 +6,15 @@ You are not maintaining this playbook repository. Your task is to read the gover
 
 Do not copy this playbook verbatim. Build a local agent system that fits the project.
 
+## First Decision
+
+Classify your situation before reading further:
+
+- New project bootstrap: no local project memory exists yet. Read `governance/PROJECT_BOOTSTRAP.md`, then read the governance files it requires.
+- Existing project retrofit: local project files exist, but agent instructions are missing, weak, or not aligned with this playbook. Read `governance/PROJECT_RETROFIT.md`, then read the governance files it requires.
+- Governance audit: the operator asks whether a project still follows this playbook. Read `governance/GOVERNANCE_AUDIT.md` and its listed inputs.
+- Ordinary product or code work: first follow the project's local `AGENTS.md`. If no adequate local `AGENTS.md` exists, stop ordinary implementation and bootstrap or retrofit project-local instructions first.
+
 ## What To Read
 
 Read only the governance files needed for your current task:
@@ -14,6 +23,7 @@ Read only the governance files needed for your current task:
 - Values and principles: `governance/VALUES.md`
 - Agent role model: `governance/AGENT_ROLES.md`
 - New project setup: `governance/PROJECT_BOOTSTRAP.md`
+- Existing project adaptation: `governance/PROJECT_RETROFIT.md`
 - Governance drift review: `governance/GOVERNANCE_AUDIT.md`
 
 Do not read unrelated governance files just because they exist.
@@ -27,6 +37,8 @@ Create or update project-local memory files as needed:
 - `ARCHITECTURE.md`
 - `DESIGN_SYSTEM.md` for UI projects
 
+For new project bootstrap or existing project retrofit, creating or repairing local project memory is the task. Do not proceed to application code until the local agent system and minimum project context are usable.
+
 Do not create changelog files or decision catalogs by default. Add project memory only when it gives future agents current context they would otherwise have to rediscover.
 
 The local `AGENTS.md` should contain the operating rules that agents in your project must follow. It should reference this playbook as governance context, but it should also include project-specific rules, commands, risks, and ask-the-user gates.
@@ -34,9 +46,10 @@ The local `AGENTS.md` should contain the operating rules that agents in your pro
 At minimum, define:
 
 - The default Orchestrator workflow from `governance/ORCHESTRATOR_WORKFLOW.md`.
-- The manually invoked Super Agent model from `governance/AGENT_ROLES.md`.
+- The full canonical Super Agent and Orchestrator role text from `templates/core/`.
 - Any optional executor agents that are useful for the project.
 - Universal agent rules and agent-specific boundaries.
+- How agents are represented in the local toolchain: platform-native agent definitions when available, or named sections/phases in `AGENTS.md` when no callable agent mechanism exists.
 
 ## How To Adapt The Playbook
 
@@ -47,9 +60,11 @@ Do:
 - Add guidance for converting vague or tactical requests into acceptance criteria and root-cause checks.
 - Keep default orchestration, manually invoked Super Agent work, implementation, review, QA, and security responsibilities distinct.
 - Adapt the Super Agent authority, executor boundaries, naming rules, H1 heading rule, dirty working tree rule, and commit restrictions from `governance/AGENT_ROLES.md`.
+- Use `templates/project/` as starting points for local project memory and `templates/executors/CUSTOM_AGENT_TEMPLATE.md` for project-specific executor agents.
 - Add local build, test, lint, typecheck, and verification commands.
 - Record project-specific architecture, product scope, commands, constraints, and other current context in local files when that context helps future agents.
 - Ask the user only for real product, security, cost, scope, or reversibility decisions.
+- Make the result immediately usable by the next agent that opens the project.
 
 Do not:
 
@@ -62,9 +77,11 @@ Do not:
 - Treat optional executor agents as required in every project.
 - Let the Orchestrator or executor agents edit instructions directly.
 - Skip local project context because the playbook contains generic guidance.
+- Create standalone agent `.md` files and claim they are callable agents unless the local platform explicitly loads that format.
+- Leave agent definitions as abstract advice when the project has a native agent configuration format.
 
 ## Expected Result
 
-After using this playbook, your project should have clear local agent instructions and project memory.
+After using this playbook, your project should have clear local agent instructions, project memory, and a working route for future agents to follow.
 
 The result should not be a clone of this repository. It should be a project-specific adaptation of the best practices found here.

@@ -23,9 +23,13 @@ These files are the reusable best practices for future AI-built projects:
 - `governance/ORCHESTRATOR_WORKFLOW.md`
 - `governance/AGENT_ROLES.md`
 - `governance/PROJECT_BOOTSTRAP.md`
+- `governance/PROJECT_RETROFIT.md`
 - `governance/GOVERNANCE_AUDIT.md`
+- `templates/`
 
 They are not working rules for maintaining this repository. They are the playbook content that external agents adapt into their own projects.
+
+`templates/` contains portable source templates for core agents, project memory, prompts, and custom executor agents.
 
 ## Maintainer Instructions
 
@@ -42,5 +46,6 @@ Use these in future AI-built software projects:
 
 - the `governance/` files listed above
 - `handoff/EXTERNAL_AGENT_HANDOFF.md`
+- `templates/` when creating or retrofitting project-local instructions
 
 These files define how project agents should plan, implement, review, and verify product work.

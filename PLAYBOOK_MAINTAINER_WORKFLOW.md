@@ -14,8 +14,10 @@ Maintain a reusable governance package for AI-built software projects:
 - Orchestrator workflow rules.
 - Specialist agent role definitions.
 - Project bootstrap guidance.
+- Existing project retrofit guidance.
 - Audit guidance.
 - External-agent handoff guidance.
+- Portable templates for core agents, project memory, prompts, and executor agents.
 
 ## Non-Goals
 
@@ -80,7 +82,9 @@ Read by future project agents:
 - `governance/ORCHESTRATOR_WORKFLOW.md`
 - `governance/AGENT_ROLES.md`
 - `governance/PROJECT_BOOTSTRAP.md`
+- `governance/PROJECT_RETROFIT.md`
 - `governance/GOVERNANCE_AUDIT.md`
+- `templates/`
 
 These files describe reusable standards for AI-assisted projects.
 

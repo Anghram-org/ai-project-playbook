@@ -1,0 +1,100 @@
+# Project Retrofit
+
+Use this process when an existing software project needs to adopt this playbook, repair weak local agent instructions, or update after this playbook changes.
+
+The retrofit task is complete only when the project keeps its useful local context while gaining clear core roles, current project memory, thin routing, and alignment with current governance values.
+
+## Inputs
+
+Read:
+
+1. This file, `governance/VALUES.md`, `governance/ORCHESTRATOR_WORKFLOW.md`, and `governance/AGENT_ROLES.md`.
+2. `governance/GOVERNANCE_AUDIT.md` when the project already has local agent instructions.
+3. Existing project memory, instruction files, agent definitions, commands, and source layout.
+
+## Operator Consent Gate
+
+Before changing roles, instruction files, workflow rules, or memory routing, ask whether the operator approves those changes.
+
+If the operator does not approve instruction changes, perform only a read-only audit and report recommended updates.
+
+## Retrofit Sequence
+
+1. Confirm the target project root.
+2. Inspect existing local instructions, memory files, agent definitions, commands, and source layout.
+3. Identify the local agent mechanism supported by the project or toolchain using the Agent Creation Procedure in `governance/AGENT_ROLES.md`.
+4. Ask the operator about current project goals, recurring workflows, known agent failures, and roles or processes that must be preserved.
+5. Audit current instructions against `governance/GOVERNANCE_AUDIT.md`.
+6. Merge the canonical Super Agent and Orchestrator from `templates/core/` into the local agent mechanism.
+7. Preserve useful local executor roles, but repair their triggers, responsibilities, boundaries, required inputs, expected output, handoffs, and checks.
+8. Recommend missing executor agents based on the project and create only the ones useful now.
+9. Update project memory so `AGENTS.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, and `DESIGN_SYSTEM.md` when present reflect current project truth.
+10. Make routing thin by removing duplicate, stale, or conflicting instruction text along each read path.
+11. Report changed files, preserved roles, removed or rewritten conflicts, remaining unknowns, and future first-read instructions.
+
+## Merge Policy
+
+Use careful merge by default:
+
+- Preserve project-specific roles, commands, constraints, architecture facts, and ask-the-user gates that are still valid.
+- Replace or rewrite only instruction text that conflicts with this playbook, duplicates a narrower rule, routes readers to the wrong place, or claims agents exist without a usable mechanism.
+- Do not fully replace the project's role model unless the operator explicitly asks for replacement.
+- Do not leave bracket placeholders in final files. Replace unknown values with explicit `Unknown` or `Needs operator decision` entries.
+
+## Core Role Injection
+
+Every retrofitted project must include:
+
+- The full canonical Super Agent text from `templates/core/SUPER_AGENT.md`.
+- The full canonical Orchestrator text from `templates/core/ORCHESTRATOR.md`.
+
+Adapt only local links, commands, file names, and project-specific constraints. Do not weaken the Super Agent's instruction authority or the Orchestrator's ordinary-work accountability.
+
+Do not inject these roles by creating standalone `.md` files unless the local platform explicitly loads that path and format as agent definitions. If no native callable agent mechanism exists, inject them as sections or phases in `AGENTS.md`.
+
+## Executor Agent Recommendation
+
+Recommend executor agents after reading the project and asking the operator about recurring work.
+
+Use the optional executor catalog in `governance/AGENT_ROLES.md` as a starter set, not a fixed list. Use `templates/executors/CUSTOM_AGENT_TEMPLATE.md` for any project-specific executor agent.
+
+Create an executor only when it has:
+
+- A recurring trigger.
+- Clear responsibilities and boundaries.
+- Required inputs.
+- Expected output.
+- Handoffs back to Orchestrator or Super Agent.
+- Checks or verification expectations.
+
+## Retrofit Definition Of Done
+
+- The operator approved instruction changes, or the output is explicitly audit-only.
+- `AGENTS.md` defines or routes to the default Orchestrator and manually invoked Super Agent.
+- Agent definitions are represented in a locally usable mechanism.
+- Existing useful roles are preserved or migrated.
+- Conflicting, duplicate, stale, and overloaded routing is removed or reported.
+- Project memory reflects current project scope, architecture, commands, risks, and constraints.
+- Governance values are present in local operating rules without copying this repository verbatim.
+- Future agents know which files to read first and which commands to run.
+
+## Retrofit Prompt
+
+Use this prompt when adapting an existing project:
+
+```text
+Use the attached governance repository as the source of truth for AI development workflow.
+
+Retrofit this existing project to follow the playbook.
+
+First, read `handoff/EXTERNAL_AGENT_HANDOFF.md`, then read the governance files required for existing project retrofit.
+Inspect existing project memory, instruction files, agent definitions, commands, and source layout before proposing changes.
+Ask whether I approve changes to roles, instruction files, workflow rules, and memory routing.
+If approved, merge the canonical Super Agent and Orchestrator from `templates/core/` into the local agent mechanism without destroying useful project-specific roles.
+Do not create standalone agent `.md` files unless the local platform explicitly loads that path and format as agent definitions.
+Ask me about current project goals, recurring workflows, known agent failures, and roles that must be preserved.
+Recommend missing executor agents and create only the ones that are useful now.
+Update project memory and instructions so they reflect current architecture, commands, risks, and governance values.
+Audit routing and keep it thin.
+Do not write application code as part of this retrofit unless I explicitly ask for it separately.
+```

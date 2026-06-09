@@ -13,6 +13,7 @@ Read:
 - Governance `VALUES.md`
 - Governance `ORCHESTRATOR_WORKFLOW.md`
 - Governance `AGENT_ROLES.md`
+- Governance `PROJECT_RETROFIT.md` when auditing an existing project against a newer playbook
 - Project `AGENTS.md`
 - Project `PROJECT_SPEC.md`
 - Project `ARCHITECTURE.md`
@@ -30,16 +31,22 @@ Check:
 - Do agents define acceptance criteria for vague or tactical requests before implementation?
 - Does the project require default Orchestrator routing before implementation?
 - Is the Super Agent manually invoked instead of active by default?
+- Does the project include the canonical Super Agent and Orchestrator role authority from `templates/core/`?
 - Is the Super Agent the only role allowed to create, edit, reorganize, or delete agent instructions, governance rules, role definitions, and memory routing?
 - Is the Orchestrator forbidden from changing instructions?
 - Do explicit instruction-change requests activate the Super Agent instead of granting instruction-edit authority to the Orchestrator?
 - Are executor agents forbidden from changing instructions directly?
+- Does the project explain how agents are represented in the local toolchain?
+- Are platform-native agent definitions used when available?
+- Are standalone agent `.md` files absent unless the platform explicitly loads them as agent definitions?
+- Does each available executor agent define trigger, responsibilities, boundaries, inputs, output, handoffs, and checks?
 - Does every agent have a role-based name?
 - Does every active agent start with an H1 heading containing its agent name?
 - Are only Super Agent and Orchestrator treated as required roles?
 - Are executor roles treated as optional catalog entries selected only when useful?
 - Is there a template for adding project-specific executor agents?
 - Are routing instructions thin, with operating rules placed in the files where agents need them?
+- For retrofitted projects, did the migration preserve useful local roles while removing conflicts and duplicate routing?
 - Are instructions split by task so agents do not read rules for work they are not doing?
 - Are duplicate instructions absent along each required agent read path?
 - Are handoff, audit, and routing files free of repeated downstream rules?
@@ -53,6 +60,8 @@ Check:
 - Are project memory files current?
 - Do local project rules conflict with governance values?
 - Are agents overloaded with too many responsibilities?
+- For new projects, is bootstrap complete before application code starts?
+- For projects updated after playbook changes, were new governance values propagated into local operating rules?
 
 ## Output Format
 
