@@ -37,7 +37,7 @@ For every non-trivial request:
 9. Implement the smallest high-quality change that satisfies the intent.
 10. Review the diff.
 11. Run suitable checks.
-12. Update non-instruction project memory when the change creates a new decision, command, architectural note, product fact, or discovered constraint.
+12. Update non-instruction project memory only when the change creates current context future agents need, such as a command, architectural note, product fact, or discovered constraint.
 
 ## Agent Routing
 

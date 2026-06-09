@@ -25,9 +25,9 @@ Create or update project-local memory files as needed:
 - `AGENTS.md`
 - `PROJECT_SPEC.md`
 - `ARCHITECTURE.md`
-- `DECISIONS.md`
 - `DESIGN_SYSTEM.md` for UI projects
-- `CHANGELOG.md` when useful
+
+Do not create changelog files or decision catalogs by default. Add project memory only when it gives future agents current context they would otherwise have to rediscover.
 
 The local `AGENTS.md` should contain the operating rules that agents in your project must follow. It should reference this playbook as governance context, but it should also include project-specific rules, commands, risks, and ask-the-user gates.
 
@@ -48,7 +48,7 @@ Do:
 - Keep default orchestration, manually invoked Super Agent work, implementation, review, QA, and security responsibilities distinct.
 - Adapt the Super Agent authority, executor boundaries, naming rules, H1 heading rule, dirty working tree rule, and commit restrictions from `governance/AGENT_ROLES.md`.
 - Add local build, test, lint, typecheck, and verification commands.
-- Record project-specific architecture, product scope, and decisions in local files.
+- Record project-specific architecture, product scope, commands, constraints, and other current context in local files when that context helps future agents.
 - Ask the user only for real product, security, cost, scope, or reversibility decisions.
 
 Do not:

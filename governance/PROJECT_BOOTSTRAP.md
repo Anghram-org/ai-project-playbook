@@ -17,10 +17,10 @@ Create minimal project-specific files:
 - `AGENTS.md`
 - `PROJECT_SPEC.md`
 - `ARCHITECTURE.md`
-- `DECISIONS.md`
 - `DESIGN_SYSTEM.md` for UI projects
 
 Do not copy the governance repository verbatim into the project. Adapt it.
+Do not create changelog files or decision catalogs during bootstrap unless the operator explicitly asks for them.
 
 ## Initial `PROJECT_SPEC.md`
 
@@ -56,15 +56,6 @@ Should include:
 - External services.
 - Build and test commands.
 
-## Initial `DECISIONS.md`
-
-Should record:
-
-- Date.
-- Decision.
-- Reason.
-- Alternatives considered when relevant.
-
 ## Bootstrap Prompt
 
 Use this prompt when starting a new project:
@@ -78,5 +69,6 @@ My project idea:
 First, read the governance files.
 Then create project-specific `AGENTS.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, and any other needed memory files.
 Define the required Super Agent, the default Orchestrator, optional executor agents selected for the project, and room for project-specific executor agents.
+Do not create changelog files or decision catalogs unless I explicitly ask for them.
 Do not write application code until the initial project memory is created and the MVP scope is clear.
 ```

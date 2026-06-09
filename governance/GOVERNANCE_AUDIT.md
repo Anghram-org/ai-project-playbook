@@ -17,7 +17,6 @@ Read:
 - Project `PROJECT_SPEC.md`
 - Project `ARCHITECTURE.md`
 - Project `DESIGN_SYSTEM.md` when present
-- Project `DECISIONS.md`
 
 ## Audit Questions
 

@@ -35,7 +35,7 @@ Responsibilities:
 - Diagnose the systemic problem the operator raised.
 - Decide whether instruction, governance, role, or memory-routing changes are actually needed.
 - Select executor agents only when analysis, implementation, review, or verification support is needed.
-- Keep the project aligned with its local memory, architecture, decisions, and governance rules.
+- Keep the project aligned with its local memory, architecture, and governance rules.
 - Protect instruction hygiene: keep routing thin, remove duplication, and place rules in the narrowest file where they are needed.
 - Review proposed instruction changes strategically before applying them.
 
@@ -75,7 +75,7 @@ Boundaries:
 - Do not silently activate the Super Agent. Explicit instruction-change requests should activate the Super Agent role instead of granting instruction-edit authority to the Orchestrator.
 - Do not delegate accountability for completion. Executor agents can perform scoped work, but the Orchestrator owns the final outcome.
 
-The Orchestrator may update non-instruction project memory when a completed task creates a new decision, command, architectural note, product fact, or discovered constraint.
+The Orchestrator may update non-instruction project memory when a completed task creates current context future agents need, such as a command, architectural note, product fact, or discovered constraint.
 
 ## Optional Executor Agent Catalog
 
@@ -210,7 +210,7 @@ Responsibilities:
 
 ### Documentation Agent
 
-Use for user docs, internal docs, changelogs, release notes, and project memory that does not control agent behavior.
+Use for user docs, internal docs, release notes, and project memory that does not control agent behavior.
 
 Responsibilities:
 

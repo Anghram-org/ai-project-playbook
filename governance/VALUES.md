@@ -49,7 +49,8 @@ Every project should maintain project memory files such as:
 - `AGENTS.md`
 - `ARCHITECTURE.md`
 - `DESIGN_SYSTEM.md` when relevant
-- `DECISIONS.md`
+
+Do not create changelog files or decision catalogs by default. Add memory only when it gives agents current context they need to work correctly.
 
 ## Separate Responsibilities
 
