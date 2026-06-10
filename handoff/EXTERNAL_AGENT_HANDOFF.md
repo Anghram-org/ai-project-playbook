@@ -49,7 +49,7 @@ At minimum, define:
 - The full canonical Super Agent and Orchestrator role text from `templates/core/`.
 - Any optional executor agents that are useful for the project.
 - Universal agent rules and agent-specific boundaries.
-- How agents are represented in the local toolchain: platform-native agent definitions when available, or named sections/phases in `AGENTS.md` when no callable agent mechanism exists.
+- How agents are represented in the local toolchain: `.codex/agents/*.toml` for Codex projects, other platform-native agent definitions when available, or named sections/phases in `AGENTS.md` only when no callable agent mechanism exists.
 
 ## How To Adapt The Playbook
 
@@ -61,6 +61,7 @@ Do:
 - Keep default orchestration, manually invoked Super Agent work, implementation, review, QA, and security responsibilities distinct.
 - Adapt the Super Agent authority, executor boundaries, naming rules, H1 heading rule, dirty working tree rule, and commit restrictions from `governance/AGENT_ROLES.md`.
 - Use `templates/project/` as starting points for local project memory and `templates/executors/CUSTOM_AGENT_TEMPLATE.md` for project-specific executor agents.
+- For Codex projects, use `templates/codex_agents/` to create separate `.codex/agents/*.toml` files and keep `AGENTS.md` as a thin router.
 - Add local build, test, lint, typecheck, and verification commands.
 - Record project-specific architecture, product scope, commands, constraints, and other current context in local files when that context helps future agents.
 - Ask the user only for real product, security, cost, scope, or reversibility decisions.
@@ -79,6 +80,7 @@ Do not:
 - Skip local project context because the playbook contains generic guidance.
 - Create standalone agent `.md` files and claim they are callable agents unless the local platform explicitly loads that format.
 - Leave agent definitions as abstract advice when the project has a native agent configuration format.
+- Paste full agent prompts into `AGENTS.md` when a native callable agent mechanism is available.
 
 ## Expected Result
 

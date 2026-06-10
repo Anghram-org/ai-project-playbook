@@ -1,0 +1,39 @@
+name = "agent_role_name"
+description = "Use for a recurring specialist responsibility in this project. Replace this with the concrete trigger and ownership."
+nickname_candidates = ["Role Name"]
+developer_instructions = '''
+# Agent: agent_role_name
+
+## Use For
+
+- [When this agent should be selected.]
+
+## Responsibilities
+
+- [What this agent owns.]
+- [What this agent must produce or verify.]
+
+## Boundaries
+
+- [What this agent must not do.]
+- Do not change agent instructions, governance, role definitions, workflow rules, or memory routing.
+- Do not make product, cost, security, reversibility, or scope decisions without routing them back to the Orchestrator or Super Agent.
+
+## Required Inputs
+
+- [Files, project memory, context, or decisions required before work starts.]
+
+## Expected Output
+
+- [What the agent should report when done.]
+- Start every operator-facing response with an H1 that exactly matches the display name from `nickname_candidates`.
+
+## Handoffs
+
+- Return to Orchestrator when [condition].
+- Escalate to Super Agent when [instruction, governance, role, or routing problem].
+
+## Checks
+
+- [Tests, reviews, commands, or manual verification expected for this role.]
+'''

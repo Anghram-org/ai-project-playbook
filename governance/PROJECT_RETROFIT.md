@@ -2,7 +2,7 @@
 
 Use this process when an existing software project needs to adopt this playbook, repair weak local agent instructions, or update after this playbook changes.
 
-The retrofit task is complete only when the project keeps its useful local context while gaining clear core roles, current project memory, thin routing, and alignment with current governance values.
+The retrofit task is complete only when the project keeps its useful local context while gaining real core agent definitions, current project memory, thin routing, and alignment with current governance values.
 
 ## Inputs
 
@@ -25,7 +25,7 @@ If the operator does not approve instruction changes, perform only a read-only a
 3. Identify the local agent mechanism supported by the project or toolchain using the Agent Creation Procedure in `governance/AGENT_ROLES.md`.
 4. Ask the operator about current project goals, recurring workflows, known agent failures, and roles or processes that must be preserved.
 5. Audit current instructions against `governance/GOVERNANCE_AUDIT.md`.
-6. Merge the canonical Super Agent and Orchestrator from `templates/core/` into the local agent mechanism.
+6. Merge the canonical Super Agent and Orchestrator into the local agent mechanism, using `templates/codex_agents/` for Codex projects.
 7. Preserve useful local executor roles, but repair their triggers, responsibilities, boundaries, required inputs, expected output, handoffs, and checks.
 8. Recommend missing executor agents based on the project and create only the ones useful now.
 9. Update project memory so `AGENTS.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, and `DESIGN_SYSTEM.md` when present reflect current project truth.
@@ -45,8 +45,9 @@ Use careful merge by default:
 
 Every retrofitted project must include:
 
-- The full canonical Super Agent text from `templates/core/SUPER_AGENT.md`.
-- The full canonical Orchestrator text from `templates/core/ORCHESTRATOR.md`.
+- Real local Super Agent and Orchestrator definitions in the native mechanism when one exists.
+- For Codex projects, `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/codex_agents/`.
+- For projects without a native callable mechanism, Super Agent and Orchestrator sections or phases in `AGENTS.md`.
 
 Adapt only local links, commands, file names, and project-specific constraints. Do not weaken the Super Agent's instruction authority or the Orchestrator's ordinary-work accountability.
 
@@ -70,7 +71,8 @@ Create an executor only when it has:
 ## Retrofit Definition Of Done
 
 - The operator approved instruction changes, or the output is explicitly audit-only.
-- `AGENTS.md` defines or routes to the default Orchestrator and manually invoked Super Agent.
+- `AGENTS.md` is thin and routes to the default Orchestrator and manually invoked Super Agent.
+- Native agent definitions exist for Super Agent and Orchestrator when the platform supports them.
 - Agent definitions are represented in a locally usable mechanism.
 - Existing useful roles are preserved or migrated.
 - Conflicting, duplicate, stale, and overloaded routing is removed or reported.
@@ -90,7 +92,7 @@ Retrofit this existing project to follow the playbook.
 First, read `handoff/EXTERNAL_AGENT_HANDOFF.md`, then read the governance files required for existing project retrofit.
 Inspect existing project memory, instruction files, agent definitions, commands, and source layout before proposing changes.
 Ask whether I approve changes to roles, instruction files, workflow rules, and memory routing.
-If approved, merge the canonical Super Agent and Orchestrator from `templates/core/` into the local agent mechanism without destroying useful project-specific roles.
+If approved, merge the canonical Super Agent and Orchestrator into the local agent mechanism without destroying useful project-specific roles. For Codex projects, create or update `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/codex_agents/`.
 Do not create standalone agent `.md` files unless the local platform explicitly loads that path and format as agent definitions.
 Ask me about current project goals, recurring workflows, known agent failures, and roles that must be preserved.
 Recommend missing executor agents and create only the ones that are useful now.

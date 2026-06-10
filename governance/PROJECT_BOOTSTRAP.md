@@ -2,14 +2,14 @@
 
 Use this process when starting a new AI-assisted software project.
 
-The bootstrap task is complete only when a future agent can open the project, read local instructions, understand the product context, and know how to route ordinary work without rereading this playbook.
+The bootstrap task is complete only when a future agent can open the project, read thin local routing instructions, find real agent definitions, understand the product context, and know how to route ordinary work without rereading this playbook.
 
 ## Inputs
 
 The Orchestrator should read:
 
 1. This file, `governance/VALUES.md`, `governance/ORCHESTRATOR_WORKFLOW.md`, and `governance/AGENT_ROLES.md`.
-2. `templates/core/SUPER_AGENT.md`, `templates/core/ORCHESTRATOR.md`, `templates/executors/CUSTOM_AGENT_TEMPLATE.md`, and the project templates in `templates/project/`.
+2. `templates/codex_agents/`, `templates/core/`, `templates/executors/`, and the project templates in `templates/project/`.
 3. The user's project idea.
 4. Any existing project files.
 
@@ -30,7 +30,7 @@ The Orchestrator should read:
 
 Create minimal project-specific files:
 
-- `AGENTS.md`
+- `AGENTS.md` as a thin router
 - `PROJECT_SPEC.md`
 - `ARCHITECTURE.md`
 - `DESIGN_SYSTEM.md` for UI projects
@@ -45,11 +45,13 @@ Use the templates in `templates/project/` as starting points, not as literal fin
 Agent definitions must be usable by future agents in the local project.
 
 - If the platform has a native callable agent format, create or update agents in that format.
+- In Codex projects, create `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/codex_agents/`.
 - If no native callable agent format exists, define agents as named sections or phases inside the project `AGENTS.md`.
 - Do not create standalone agent `.md` files unless the local platform explicitly loads that path and format as agent definitions.
 - Do not treat this playbook's markdown templates as callable agents. They are source text for the local mechanism.
 - Do not claim an executor agent exists unless the local instructions explain how it is selected, what it may do, what it must not do, and what it reports back.
 - Keep the Super Agent and Orchestrator required. Add executor agents only when they are useful for the project.
+- Keep `AGENTS.md` thin when native agent files exist. It should route to agent definitions, not contain their full prompts.
 
 ## Operator Questionnaire
 
@@ -81,7 +83,7 @@ Should include:
 
 - Link or reference to the governance repository.
 - Local project rules.
-- Required Super Agent and Orchestrator roles.
+- Paths to required Super Agent and Orchestrator definitions.
 - Optional executor agent roles selected for the project.
 - Universal agent rules, including role-based names, H1 agent headings, dirty working tree discipline, and commit restrictions.
 - Required checks.
@@ -90,10 +92,12 @@ Should include:
 
 Use `templates/project/AGENTS_TEMPLATE.md` as the starting point.
 
-Transfer the full canonical core role text from:
+For Codex projects, create:
 
-- `templates/core/SUPER_AGENT.md`
-- `templates/core/ORCHESTRATOR.md`
+- `.codex/agents/agent_super_agent.toml` from `templates/codex_agents/agent_super_agent.toml`
+- `.codex/agents/agent_orchestrator.toml` from `templates/codex_agents/agent_orchestrator.toml`
+
+For non-Codex native mechanisms, transfer the full canonical core role text from `templates/core/` into that mechanism.
 
 Adapt only local links, commands, file names, and project-specific constraints. Do not weaken the Super Agent's instruction authority or the Orchestrator's ordinary-work accountability.
 
@@ -143,8 +147,8 @@ Create an executor only when it has:
 
 Before application code starts:
 
-- `AGENTS.md` exists and defines the default Orchestrator and manually invoked Super Agent.
-- The canonical Super Agent and Orchestrator from `templates/core/` were transferred into the local agent mechanism.
+- `AGENTS.md` exists as a thin router and points to the default Orchestrator and manually invoked Super Agent.
+- The canonical Super Agent and Orchestrator were created as real local agent definitions in the native mechanism when available.
 - Agent definitions are represented in a locally usable mechanism.
 - Optional executor agents are selected only when useful and have clear boundaries.
 - `PROJECT_SPEC.md` captures the MVP, non-goals, user flows, and constraints.
@@ -167,7 +171,8 @@ My project idea:
 First, read `handoff/EXTERNAL_AGENT_HANDOFF.md`, then read the governance files and templates required for bootstrap.
 Then inspect the target project and ask me for product, stack, constraint, security, recurring-work, and agent-support details that cannot be discovered locally.
 Create project-specific `AGENTS.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, and any other needed memory files from `templates/project/`.
-Transfer the canonical Super Agent and Orchestrator from `templates/core/` into the local agent mechanism.
+For Codex projects, create `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/codex_agents/`.
+For non-Codex native mechanisms, transfer the canonical Super Agent and Orchestrator from `templates/core/` into the local agent mechanism.
 Recommend optional executor agents and create only the ones that are useful now.
 Use platform-native agent definitions when available. If no native callable agent format exists, define agents as named sections or phases inside `AGENTS.md`.
 Do not create standalone agent `.md` files unless the local platform explicitly loads that path and format as agent definitions.

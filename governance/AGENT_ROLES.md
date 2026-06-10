@@ -10,30 +10,33 @@ Transfer the required core agents from `templates/core/` when bootstrapping or r
 
 Project-local instructions must explain how these roles are represented in the actual project toolchain.
 
+- For Codex projects, the native agent mechanism is `.codex/agents/*.toml`. Create separate agent TOML files there.
 - Use platform-native callable agent definitions when the platform supports them.
-- If the platform has no callable agent mechanism, model agents as named sections, modes, or phases in `AGENTS.md`.
+- If the platform has no callable agent mechanism, model agents as named sections, modes, or phases in `AGENTS.md`; this is a fallback, not the default for Codex.
 - Do not create standalone agent `.md` files unless the platform explicitly loads that path and format as executable or selectable agent definitions.
 - Markdown files in this playbook's `templates/` directory are source templates only. Copying a template into a project does not create a callable agent unless the local platform explicitly treats that copied file as an agent definition.
 - Do not describe an executor as available unless its trigger, responsibilities, boundaries, required inputs, expected output, handoffs, and checks are defined.
-- Keep agent definitions close to the files future agents actually read. Avoid hidden or disconnected role documents.
+- Keep `AGENTS.md` as a thin router. Do not paste full agent prompts into `AGENTS.md` when a native agent mechanism is available.
+- Keep agent definitions close to the files future agents actually read or the native agent mechanism the runtime loads. Avoid hidden or disconnected role documents.
 
 ## Agent Creation Procedure
 
 When bootstrapping or retrofitting a project, create agents in this order:
 
 1. Inspect the target project for a native agent mechanism, such as a documented agents directory, config manifest, plugin definition, command registry, or sub-agent tool.
-2. If a native mechanism exists, create or update agents only in that mechanism and in the exact format it requires.
-3. If no native mechanism exists, do not create separate agent files. Represent Super Agent, Orchestrator, and executor agents as named sections, modes, or phases in the project `AGENTS.md`.
-4. Use `templates/core/` and `templates/executors/` only as source text for the chosen local mechanism.
-5. After creating or updating agents, record the chosen mechanism in local `AGENTS.md` so future agents know whether roles are callable agents or instruction sections.
-6. If the platform mechanism is unclear, ask the operator before creating agent files.
+2. In Codex projects, create `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/codex_agents/`.
+3. If another native mechanism exists, create or update agents only in that mechanism and in the exact format it requires.
+4. If no native mechanism exists, do not create separate agent files. Represent Super Agent, Orchestrator, and executor agents as named sections, modes, or phases in the project `AGENTS.md`.
+5. Use `templates/codex_agents/`, `templates/core/`, and `templates/executors/` only as source text for the chosen local mechanism.
+6. After creating or updating agents, record the chosen mechanism in local `AGENTS.md` so future agents know whether roles are callable agents or instruction sections.
+7. If the platform mechanism is unclear, ask the operator before creating agent files.
 
 ## Universal Agent Rules
 
 All agents must follow these minimum rules. Project-local instructions may be stricter, but they must not grant instruction-edit authority to any non-Super agent.
 
 - Each agent must have a role-based name.
-- Whenever an agent becomes active, it must start its response with an H1 heading containing its agent name.
+- Whenever an agent becomes active, it must start its operator-facing response with an H1 heading that exactly matches the selected display name from `nickname_candidates` or the project's equivalent display-name field.
 - Communicate with the operator in Russian. Write documentation and code in English unless the operator explicitly requests another language for a specific artifact.
 - Check the working tree before editing. If there are unrelated uncommitted changes, stop and warn the operator instead of mixing them into the current task.
 - Do not create commits or push branches unless the operator explicitly asks for that git action.
@@ -54,13 +57,19 @@ Invoke the Super Agent only when the operator explicitly asks it to solve a prob
 
 Only the Super Agent may create, edit, reorganize, or delete project agent instructions, governance files, workflow rules, role definitions, memory routing, or other instructions that control future agent behavior.
 
+The Super Agent is a system-maintenance and refactor agent, not a general implementation worker. Its goal is to make future agents handle similar work correctly without the operator having to restate the same correction.
+
 Responsibilities:
 
-- Diagnose the systemic problem the operator raised.
+- Inspect the current project structure before proposing changes.
+- Diagnose the systemic problem behind the operator's complaint.
 - Decide whether instruction, governance, role, or memory-routing changes are actually needed.
+- Distinguish instruction gaps from structural refactor needs, such as duplicated rules, misplaced authority, weak routing, overloaded roles, bad handoffs, or the wrong agent mechanism.
 - Select executor agents only when analysis, implementation, review, or verification support is needed.
 - Keep the project aligned with its local memory, architecture, and governance rules.
 - Protect instruction hygiene: keep routing thin, remove duplication, and place rules in the narrowest file where they are needed.
+- Prefer deleting, merging, moving, or strengthening existing instructions before adding new instruction text.
+- Keep worker prompts execution-focused and keep system-level reasoning in the Super Agent.
 - Review proposed instruction changes strategically before applying them.
 
 Boundaries:
@@ -70,6 +79,8 @@ Boundaries:
 - Do not use instruction authority to override explicit operator decisions about product scope, cost, risk, or direction.
 
 The Super Agent should think in systems. It should repair weak rules, conflicting read paths, and missing governance only when that is the real problem.
+
+Before finishing a Super Agent task, verify that the updated routing is thin, agent definitions live in the native mechanism when one exists, handoffs preserve the target agent's output contract, and no non-Super role gained instruction-edit authority.
 
 ### Orchestrator
 

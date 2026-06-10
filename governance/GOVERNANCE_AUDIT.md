@@ -38,14 +38,16 @@ Check:
 - Are executor agents forbidden from changing instructions directly?
 - Does the project explain how agents are represented in the local toolchain?
 - Are platform-native agent definitions used when available?
+- For Codex projects, do Super Agent and Orchestrator exist as `.codex/agents/*.toml` instead of only prose in `AGENTS.md`?
 - Are standalone agent `.md` files absent unless the platform explicitly loads them as agent definitions?
 - Does each available executor agent define trigger, responsibilities, boundaries, inputs, output, handoffs, and checks?
 - Does every agent have a role-based name?
-- Does every active agent start with an H1 heading containing its agent name?
+- Does every active agent start operator-facing responses with an H1 heading that exactly matches its selected display name from `nickname_candidates` or the project's equivalent display-name field?
 - Are only Super Agent and Orchestrator treated as required roles?
 - Are executor roles treated as optional catalog entries selected only when useful?
 - Is there a template for adding project-specific executor agents?
 - Are routing instructions thin, with operating rules placed in the files where agents need them?
+- Is `AGENTS.md` a thin router instead of a dump of full agent prompts when native agent files exist?
 - For retrofitted projects, did the migration preserve useful local roles while removing conflicts and duplicate routing?
 - Are instructions split by task so agents do not read rules for work they are not doing?
 - Are duplicate instructions absent along each required agent read path?
