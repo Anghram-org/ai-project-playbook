@@ -13,28 +13,28 @@ The agent performing bootstrap should read:
 3. The user's project idea.
 4. Any existing project files.
 
-## Mandatory Questionnaire Gate
+## Minimal Description Gate
 
-Before creating or updating `AGENTS.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, `DESIGN_SYSTEM.md`, or local agent definitions, the agent performing bootstrap must ask the operator for missing bootstrap details unless the current request already provides enough project context.
+Before creating or updating `AGENTS.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, `DESIGN_SYSTEM.md`, or local agent definitions, the agent performing bootstrap must ensure there is a short project description unless the current request already provides enough project context.
 
-The questionnaire is a pre-write gate, not optional discovery. It must cover the areas in Operator Questionnaire that cannot be discovered locally.
+The pre-write gate should be lightweight. Ask for one short project description that can be written into `PROJECT_SPEC.md`. The operator is not expected to know MVP scope, stack, UI, security, integrations, recurring work, or agent-support needs at bootstrap time.
 
-Do not use placeholder-only bootstrap files as a substitute for asking the operator. `Unknown` and `Needs operator decision` entries are allowed only after the agent performing bootstrap has asked the relevant questions and the operator has not answered them, or when the operator explicitly asks to scaffold with unknowns without answering first.
+Do not use placeholder-only bootstrap files as a substitute for the short description. In final project files, write only known facts and useful current context. Omit undecided details instead of adding placeholder notes or speculative questions.
 
-If no project idea or equivalent product context was provided, stop after asking the questionnaire unless the operator explicitly requested scaffold-with-unknowns.
+If no project idea or equivalent product context was provided, stop after asking for the short description unless the operator explicitly requests an empty scaffold.
 
 ## Bootstrap Sequence
 
 1. Confirm the target project root.
 2. Inspect existing files before writing new memory.
 3. Identify the local agent mechanism supported by the project or toolchain using the Agent Creation Procedure in `governance/AGENT_ROLES.md`.
-4. Ask the operator about product purpose, users, MVP, non-goals, stack constraints, UI needs, data, security, integrations, recurring work, and desired agent support.
-5. After the questionnaire has been answered or explicitly deferred by the operator, follow `templates/PROJECT_SKELETON_USAGE.md`: copy `templates/project_skeleton/` into the project root and adapt the copied files to the operator's answers.
+4. Ask the operator for a short project description only if it was not already provided.
+5. After the short description is available or explicitly deferred by the operator, follow `templates/PROJECT_SKELETON_USAGE.md`: copy `templates/project_skeleton/` into the project root and adapt the copied files to the known context.
 6. Preserve the copied canonical Super Agent and Orchestrator in the local agent mechanism.
-7. Recommend optional executor agents based on the project and create only the ones useful now.
-8. Add project-specific commands, risks, first-read files, and ask-the-user gates.
-9. Stop before application implementation if MVP scope, architecture, or agent routing is still unclear.
-10. Report what was created, what remains unknown, which executor agents were selected, and which file future agents should read first.
+7. Recommend optional executor agents only when the short description and repository inspection show a clear recurring need now.
+8. Add project-specific commands, risks, first-read files, and ask-the-user gates that are already known.
+9. Stop before application implementation if the initial project memory or agent routing is still unclear.
+10. Report what was created, which executor agents were selected, and which file future agents should read first.
 
 ## Create Project Memory
 
@@ -47,7 +47,7 @@ Create minimal project-specific files:
 
 Do not copy the governance repository verbatim into the project. Adapt it.
 Do not create changelog files or decision catalogs during bootstrap unless the operator explicitly asks for them.
-Do not leave bracket placeholders in final files. After the Mandatory Questionnaire Gate has been satisfied, replace still-unknown values with explicit `Unknown` or `Needs operator decision` entries.
+Do not leave bracket placeholders in final files. After the Minimal Description Gate has been satisfied, remove unused placeholders and omit undecided details until agents discover them during project work.
 Use `templates/project_skeleton/` as the concrete starting structure, not prose descriptions as a substitute for real files.
 Remove `DESIGN_SYSTEM.md` when the project has no UI.
 
@@ -64,27 +64,20 @@ Agent definitions must be usable by future agents in the local project.
 - Keep the Super Agent and Orchestrator required. Add executor agents only when they are useful for the project.
 - Keep `AGENTS.md` thin when native agent files exist. It should route to agent definitions, not contain their full prompts.
 
-## Operator Questionnaire
+## Operator Input
 
-Ask only for information that cannot be discovered locally. Cover:
+Ask only for a concise project description unless the operator has already provided one. Use it to seed `PROJECT_SPEC.md`.
 
-- Product purpose, target users, MVP scope, non-goals, and key user flows.
-- Preferred or required tech stack, hosting, platforms, and timeline constraints.
-- Whether the project has UI, and if so the expected design-system needs.
-- Data, authentication, authorization, payments, secrets, file uploads, integrations, and other security-sensitive areas.
-- Expected recurring work such as frontend, backend, data, infra, support, documentation, QA, security, or release operations.
-- Known risks, operator preferences, and decisions that should become ask-the-user gates.
+Example prompt:
+
+> Briefly describe what this project should become and who it is for. One or two sentences are enough; we will develop the details iteratively.
 
 ## Initial `PROJECT_SPEC.md`
 
 Should include:
 
-- Project purpose.
-- Target users.
-- MVP scope.
-- Non-goals.
-- Key user flows.
-- Known constraints.
+- Short project description.
+- Current known scope or context, if any.
 
 Use `templates/project_skeleton/PROJECT_SPEC.md` as the starting point.
 
@@ -141,7 +134,7 @@ Use `templates/project_skeleton/DESIGN_SYSTEM.md` as the starting point.
 
 ## Executor Agent Recommendation
 
-Recommend executor agents after the operator questionnaire and repository inspection.
+Recommend executor agents after the short project description and repository inspection.
 
 Use the optional executor catalog in `governance/AGENT_ROLES.md` as a starter set, not a fixed list. Use `templates/executors/CUSTOM_AGENT_TEMPLATE.md` for any project-specific executor agent.
 
@@ -162,11 +155,11 @@ Before application code starts:
 - The canonical Super Agent and Orchestrator were created as real local agent definitions in the native mechanism when available.
 - Agent definitions are represented in a locally usable mechanism.
 - Optional executor agents are selected only when useful and have clear boundaries.
-- `PROJECT_SPEC.md` captures the MVP, non-goals, user flows, and constraints.
+- `PROJECT_SPEC.md` captures the short project description and any currently known scope details.
 - `ARCHITECTURE.md` captures the stack, modules, data flow, external services, and commands as far as they are known.
 - `DESIGN_SYSTEM.md` exists for UI projects, or its absence is intentional.
 - Governance values are present in local operating rules without copying this repository verbatim.
-- Unknown product or architecture decisions are listed instead of silently guessed.
+- Undecided product or architecture details are omitted instead of silently guessed.
 - Future agents know which files to read first and which commands to run.
 
 ## Bootstrap Prompt

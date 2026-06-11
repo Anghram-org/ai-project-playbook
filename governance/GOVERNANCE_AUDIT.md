@@ -65,7 +65,7 @@ Check:
 - Do local project rules conflict with governance values?
 - Are agents overloaded with too many responsibilities?
 - For new projects, is bootstrap complete before application code starts?
-- For new projects, did the operator questionnaire happen before project memory files and local agent definitions were created, unless the operator explicitly deferred it or requested scaffold-with-unknowns?
+- For new projects, did the operator provide or explicitly defer a short project description before project memory files and local agent definitions were created?
 - For new projects, was `templates/project_skeleton/` copied and adapted instead of generating project structure from prose descriptions?
 - For projects updated after playbook changes, were new governance values propagated into local operating rules?
 

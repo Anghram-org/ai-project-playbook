@@ -1,29 +1,9 @@
 # Project Spec
 
-## Purpose
+## Short Description
 
-ADAPT: what the project is for.
+ADAPT: one or two sentences describing what the project should become and who it is for.
 
-## Target Users
+## Current Scope
 
-ADAPT: who the project serves.
-
-## MVP Scope
-
-ADAPT: the smallest useful product scope.
-
-## Non-Goals
-
-ADAPT: what should not be built yet.
-
-## Key User Flows
-
-ADAPT: primary workflows the product must support.
-
-## Known Constraints
-
-ADAPT: product, technical, legal, security, cost, timeline, or operational constraints.
-
-## Open Questions
-
-ADAPT: unknowns that need operator decisions.
+ADAPT: known scope or context. Remove this section if there is nothing useful to write yet.

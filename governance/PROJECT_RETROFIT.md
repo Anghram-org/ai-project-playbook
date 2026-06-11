@@ -32,7 +32,7 @@ If the operator does not approve instruction changes, perform only a read-only a
 9. Recommend missing executor agents based on the project and create only the ones useful now.
 10. Update project memory so `AGENTS.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, and `DESIGN_SYSTEM.md` when present reflect current project truth.
 11. Make routing thin by removing duplicate, stale, or conflicting instruction text along each read path.
-12. Report changed files, preserved roles, removed or rewritten conflicts, remaining unknowns, and future first-read instructions.
+12. Report changed files, preserved roles, removed or rewritten conflicts, and future first-read instructions.
 
 ## Merge Policy
 
@@ -42,7 +42,7 @@ Use careful merge by default:
 - Use `templates/project_skeleton/` as a comparison target, not as a reason to replace the project wholesale.
 - Replace or rewrite only instruction text that conflicts with this playbook, duplicates a narrower rule, routes readers to the wrong place, or claims agents exist without a usable mechanism.
 - Do not fully replace the project's role model unless the operator explicitly asks for replacement.
-- Do not leave bracket placeholders in final files. Replace unknown values with explicit `Unknown` or `Needs operator decision` entries.
+- Do not leave bracket placeholders in final files. Remove unused placeholders and omit undecided details until agents discover them during project work.
 
 ## Core Role Injection
 

@@ -17,4 +17,4 @@ When copying or comparing the skeleton, include hidden paths such as `project_sk
 - `executors/`: supporting template for project-specific executor agents, used only when a recurring executor is actually needed.
 - `prompts/`: operator prompts for new project bootstrap and existing project retrofit.
 
-Do not generate project structure from prose descriptions when the skeleton can be copied or merged. Adapt `ADAPT` markers and placeholders to the project and replace unknown values with explicit `Unknown` or `Needs operator decision` entries. Do not create standalone agent `.md` files unless the target platform explicitly loads that path and format as agent definitions.
+Do not generate project structure from prose descriptions when the skeleton can be copied or merged. Adapt `ADAPT` markers and placeholders to known project context, and omit undecided details from final project files. Do not create standalone agent `.md` files unless the target platform explicitly loads that path and format as agent definitions.

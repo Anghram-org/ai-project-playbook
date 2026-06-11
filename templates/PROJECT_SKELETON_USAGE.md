@@ -8,10 +8,10 @@ The transferable skeleton is `templates/project_skeleton/`. Treat it as the desi
 
 1. Confirm the target project root.
 2. Inspect the target root before writing files.
-3. Ask the operator for missing product, stack, UI, data, security, integration, recurring-work, and agent-support details before copying files, unless the current request already provides enough context.
+3. Ask the operator for a short project description before copying files, unless the current request already provides enough context.
 4. Copy the contents of `templates/project_skeleton/` into the target project root, including hidden paths such as `.codex/agents/`.
-5. Adapt every `ADAPT` marker to the operator's answers.
-6. Replace still-unknown values with `Unknown` or `Needs operator decision` only after asking, or when the operator explicitly requested scaffold-with-unknowns.
+5. Adapt every `ADAPT` marker to known project context.
+6. Remove unused placeholders and omit undecided details from final project files.
 7. Remove `DESIGN_SYSTEM.md` when the project has no UI.
 8. Do not write application code until project memory, routing, and core agent definitions are usable.
 

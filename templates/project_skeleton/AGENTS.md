@@ -11,7 +11,7 @@
 
 - Governance source: ADAPT: path or URL to the playbook source.
 - Project type: ADAPT.
-- Primary stack: ADAPT or `Unknown`.
+- Primary stack: ADAPT: include only when known.
 - Agent mechanism: Codex native callable agents in `.codex/agents/*.toml`.
 - Non-Codex projects: ADAPT this file to the local native agent mechanism, or use `AGENTS.md` sections only when no callable mechanism exists.
 
@@ -40,15 +40,17 @@ Add executor agents only when a recurring responsibility has a clear trigger, bo
 
 ## Commands
 
-- Install: ADAPT or `Unknown`.
-- Build: ADAPT or `Unknown`.
-- Test: ADAPT or `Unknown`.
-- Lint: ADAPT or `Unknown`.
-- Typecheck: ADAPT or `Unknown`.
+- Install: ADAPT.
+- Build: ADAPT.
+- Test: ADAPT.
+- Lint: ADAPT.
+- Typecheck: ADAPT.
+
+Remove commands that are not known yet.
 
 ## Ask-The-User Gates
 
-- ADAPT: decisions that affect product behavior, scope, data, security, cost, reversibility, external services, or global design.
+ADAPT: include only known gates for decisions that affect product behavior, scope, data, security, cost, reversibility, external services, or global design. Remove this section if no gates are known yet.
 
 ## Routing
 
