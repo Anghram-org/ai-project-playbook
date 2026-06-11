@@ -30,6 +30,10 @@ Do not read unrelated governance files just because they exist.
 
 ## What To Do In Your Project
 
+For a new project, copy and adapt `templates/project_skeleton/` by following `templates/PROJECT_SKELETON_USAGE.md`.
+
+For an existing project, compare the current project to `templates/project_skeleton/` and merge the missing or corrected pieces by following `templates/PROJECT_SKELETON_USAGE.md`.
+
 Create or update project-local memory files as needed:
 
 - `AGENTS.md`
@@ -41,7 +45,7 @@ For new project bootstrap or existing project retrofit, creating or repairing lo
 
 Do not create changelog files or decision catalogs by default. Add project memory only when it gives future agents current context they would otherwise have to rediscover.
 
-The local `AGENTS.md` should contain the operating rules that agents in your project must follow. It should reference this playbook as governance context, but it should also include project-specific rules, commands, risks, and ask-the-user gates.
+The local instruction system should contain the operating rules that agents in your project must follow. In Codex projects, keep `AGENTS.md` as a thin router to project memory and `.codex/agents/*.toml`; put role-specific workflow inside the native agent definitions.
 
 At minimum, define:
 

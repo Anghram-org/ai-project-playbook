@@ -8,6 +8,8 @@ The primary transferable artifact is `project_skeleton/`. It is the complete bas
 
 Read `PROJECT_SKELETON_USAGE.md` before copying or merging the skeleton.
 
+When copying or comparing the skeleton, include hidden paths such as `project_skeleton/.codex/agents/`.
+
 ## Contents
 
 - `project_skeleton/`: concrete starting structure for a consuming project. New projects copy it and adapt it; existing projects compare it with their current structure and merge only the missing or corrected pieces.

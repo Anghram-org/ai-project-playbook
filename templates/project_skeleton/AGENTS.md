@@ -13,6 +13,7 @@
 - Project type: ADAPT.
 - Primary stack: ADAPT or `Unknown`.
 - Agent mechanism: Codex native callable agents in `.codex/agents/*.toml`.
+- Non-Codex projects: ADAPT this file to the local native agent mechanism, or use `AGENTS.md` sections only when no callable mechanism exists.
 
 ## Universal Rules
 
