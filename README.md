@@ -29,7 +29,7 @@ These files are the reusable best practices for future AI-built projects:
 
 They are not working rules for maintaining this repository. They are the playbook content that external agents adapt into their own projects.
 
-`templates/` contains portable source templates for core agents, project memory, prompts, and custom executor agents.
+`templates/` contains the portable project skeleton, prompts, and custom executor-agent template.
 
 ## Maintainer Instructions
 

@@ -4,7 +4,7 @@ Use these roles as a baseline for project-local agent instructions. A project ma
 
 The role model is intentionally open. Every project needs the core agents below. Executor agents are optional and should be added only when they make recurring work clearer, safer, or easier to verify.
 
-Transfer the required core agents from `templates/core/` when bootstrapping or retrofitting a project. Treat the role descriptions in this file as the canonical governance source and the templates as the portable project-local text.
+Transfer the required core agents from `templates/project_skeleton/` when bootstrapping or retrofitting a project.
 
 ## Agent Implementation Contract
 
@@ -24,10 +24,10 @@ Project-local instructions must explain how these roles are represented in the a
 When bootstrapping or retrofitting a project, create agents in this order:
 
 1. Inspect the target project for a native agent mechanism, such as a documented agents directory, config manifest, plugin definition, command registry, or sub-agent tool.
-2. In Codex projects, create `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/codex_agents/`.
+2. In Codex projects, create `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/project_skeleton/.codex/agents/`.
 3. If another native mechanism exists, create or update agents only in that mechanism and in the exact format it requires.
 4. If no native mechanism exists, do not create separate agent files. Represent Super Agent, Orchestrator, and executor agents as named sections, modes, or phases in the project `AGENTS.md`.
-5. Use `templates/codex_agents/`, `templates/core/`, and `templates/executors/` only as source text for the chosen local mechanism.
+5. Use `templates/project_skeleton/` as the default source and `templates/executors/` only for optional project-specific executor agents.
 6. After creating or updating agents, record the chosen mechanism in local `AGENTS.md` so future agents know whether roles are callable agents or instruction sections.
 7. If the platform mechanism is unclear, ask the operator before creating agent files.
 
@@ -256,39 +256,4 @@ Responsibilities:
 
 ## Agent Definition Template
 
-Use `templates/executors/CUSTOM_AGENT_TEMPLATE.md` when adding a project-specific executor agent. The inline template below shows the required shape.
-
-```md
-### [Role Name] Agent
-
-Use for:
-
-- [When this agent should be selected.]
-
-Responsibilities:
-
-- [What this agent owns.]
-- [What this agent must produce or verify.]
-
-Boundaries:
-
-- [What this agent must not do.]
-- Do not change agent instructions, governance, role definitions, workflow rules, or memory routing.
-
-Required inputs:
-
-- [Files, project memory, context, or decisions required before work starts.]
-
-Expected output:
-
-- [What the agent should report when done.]
-
-Handoffs:
-
-- [When to return to Orchestrator.]
-- [When to escalate to Super Agent.]
-
-Checks:
-
-- [Tests, reviews, commands, or manual verification expected for this role.]
-```
+Use `templates/executors/CUSTOM_AGENT_TEMPLATE.md` when adding a project-specific executor agent.

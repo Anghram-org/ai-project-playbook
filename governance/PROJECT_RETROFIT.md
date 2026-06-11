@@ -10,7 +10,8 @@ Read:
 
 1. This file, `governance/VALUES.md`, `governance/ORCHESTRATOR_WORKFLOW.md`, and `governance/AGENT_ROLES.md`.
 2. `governance/GOVERNANCE_AUDIT.md` when the project already has local agent instructions.
-3. Existing project memory, instruction files, agent definitions, commands, and source layout.
+3. `templates/PROJECT_SKELETON_USAGE.md` and `templates/project_skeleton/` as the target structure to compare against.
+4. Existing project memory, instruction files, agent definitions, commands, and source layout.
 
 ## Operator Consent Gate
 
@@ -25,18 +26,20 @@ If the operator does not approve instruction changes, perform only a read-only a
 3. Identify the local agent mechanism supported by the project or toolchain using the Agent Creation Procedure in `governance/AGENT_ROLES.md`.
 4. Ask the operator about current project goals, recurring workflows, known agent failures, and roles or processes that must be preserved.
 5. Audit current instructions against `governance/GOVERNANCE_AUDIT.md`.
-6. Merge the canonical Super Agent and Orchestrator into the local agent mechanism, using `templates/codex_agents/` for Codex projects.
-7. Preserve useful local executor roles, but repair their triggers, responsibilities, boundaries, required inputs, expected output, handoffs, and checks.
-8. Recommend missing executor agents based on the project and create only the ones useful now.
-9. Update project memory so `AGENTS.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, and `DESIGN_SYSTEM.md` when present reflect current project truth.
-10. Make routing thin by removing duplicate, stale, or conflicting instruction text along each read path.
-11. Report changed files, preserved roles, removed or rewritten conflicts, remaining unknowns, and future first-read instructions.
+6. Follow `templates/PROJECT_SKELETON_USAGE.md`: compare the existing project to `templates/project_skeleton/` and merge the missing or corrected structure without overwriting useful local context.
+7. Merge the canonical Super Agent and Orchestrator into the local agent mechanism, using `templates/project_skeleton/.codex/agents/` for Codex projects.
+8. Preserve useful local executor roles, but repair their triggers, responsibilities, boundaries, required inputs, expected output, handoffs, and checks.
+9. Recommend missing executor agents based on the project and create only the ones useful now.
+10. Update project memory so `AGENTS.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, and `DESIGN_SYSTEM.md` when present reflect current project truth.
+11. Make routing thin by removing duplicate, stale, or conflicting instruction text along each read path.
+12. Report changed files, preserved roles, removed or rewritten conflicts, remaining unknowns, and future first-read instructions.
 
 ## Merge Policy
 
 Use careful merge by default:
 
 - Preserve project-specific roles, commands, constraints, architecture facts, and ask-the-user gates that are still valid.
+- Use `templates/project_skeleton/` as a comparison target, not as a reason to replace the project wholesale.
 - Replace or rewrite only instruction text that conflicts with this playbook, duplicates a narrower rule, routes readers to the wrong place, or claims agents exist without a usable mechanism.
 - Do not fully replace the project's role model unless the operator explicitly asks for replacement.
 - Do not leave bracket placeholders in final files. Replace unknown values with explicit `Unknown` or `Needs operator decision` entries.
@@ -46,7 +49,7 @@ Use careful merge by default:
 Every retrofitted project must include:
 
 - Real local Super Agent and Orchestrator definitions in the native mechanism when one exists.
-- For Codex projects, `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/codex_agents/`.
+- For Codex projects, `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/project_skeleton/.codex/agents/`.
 - For projects without a native callable mechanism, Super Agent and Orchestrator sections or phases in `AGENTS.md`.
 
 Adapt only local links, commands, file names, and project-specific constraints. Do not weaken the Super Agent's instruction authority or the Orchestrator's ordinary-work accountability.
@@ -82,21 +85,4 @@ Create an executor only when it has:
 
 ## Retrofit Prompt
 
-Use this prompt when adapting an existing project:
-
-```text
-Use the attached governance repository as the source of truth for AI development workflow.
-
-Retrofit this existing project to follow the playbook.
-
-First, read `handoff/EXTERNAL_AGENT_HANDOFF.md`, then read the governance files required for existing project retrofit.
-Inspect existing project memory, instruction files, agent definitions, commands, and source layout before proposing changes.
-Ask whether I approve changes to roles, instruction files, workflow rules, and memory routing.
-If approved, merge the canonical Super Agent and Orchestrator into the local agent mechanism without destroying useful project-specific roles. For Codex projects, create or update `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/codex_agents/`.
-Do not create standalone agent `.md` files unless the local platform explicitly loads that path and format as agent definitions.
-Ask me about current project goals, recurring workflows, known agent failures, and roles that must be preserved.
-Recommend missing executor agents and create only the ones that are useful now.
-Update project memory and instructions so they reflect current architecture, commands, risks, and governance values.
-Audit routing and keep it thin.
-Do not write application code as part of this retrofit unless I explicitly ask for it separately.
-```
+Use `templates/prompts/EXISTING_PROJECT_RETROFIT_PROMPT.md` when adapting an existing project.

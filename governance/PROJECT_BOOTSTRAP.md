@@ -6,12 +6,22 @@ The bootstrap task is complete only when a future agent can open the project, re
 
 ## Inputs
 
-The Orchestrator should read:
+The agent performing bootstrap should read:
 
 1. This file, `governance/VALUES.md`, `governance/ORCHESTRATOR_WORKFLOW.md`, and `governance/AGENT_ROLES.md`.
-2. `templates/codex_agents/`, `templates/core/`, `templates/executors/`, and the project templates in `templates/project/`.
+2. `templates/PROJECT_SKELETON_USAGE.md` and `templates/project_skeleton/`, plus `templates/executors/` only when a project-specific executor is needed.
 3. The user's project idea.
 4. Any existing project files.
+
+## Mandatory Questionnaire Gate
+
+Before creating or updating `AGENTS.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, `DESIGN_SYSTEM.md`, or local agent definitions, the agent performing bootstrap must ask the operator for missing bootstrap details unless the current request already provides enough project context.
+
+The questionnaire is a pre-write gate, not optional discovery. It must cover the areas in Operator Questionnaire that cannot be discovered locally.
+
+Do not use placeholder-only bootstrap files as a substitute for asking the operator. `Unknown` and `Needs operator decision` entries are allowed only after the agent performing bootstrap has asked the relevant questions and the operator has not answered them, or when the operator explicitly asks to scaffold with unknowns without answering first.
+
+If no project idea or equivalent product context was provided, stop after asking the questionnaire unless the operator explicitly requested scaffold-with-unknowns.
 
 ## Bootstrap Sequence
 
@@ -19,8 +29,8 @@ The Orchestrator should read:
 2. Inspect existing files before writing new memory.
 3. Identify the local agent mechanism supported by the project or toolchain using the Agent Creation Procedure in `governance/AGENT_ROLES.md`.
 4. Ask the operator about product purpose, users, MVP, non-goals, stack constraints, UI needs, data, security, integrations, recurring work, and desired agent support.
-5. Create or update the minimum project memory files using `templates/project/` as starting points.
-6. Transfer the canonical Super Agent and Orchestrator from `templates/core/` into the local agent mechanism.
+5. After the questionnaire has been answered or explicitly deferred by the operator, follow `templates/PROJECT_SKELETON_USAGE.md`: copy `templates/project_skeleton/` into the project root and adapt the copied files to the operator's answers.
+6. Preserve the copied canonical Super Agent and Orchestrator in the local agent mechanism.
 7. Recommend optional executor agents based on the project and create only the ones useful now.
 8. Add project-specific commands, risks, first-read files, and ask-the-user gates.
 9. Stop before application implementation if MVP scope, architecture, or agent routing is still unclear.
@@ -37,15 +47,16 @@ Create minimal project-specific files:
 
 Do not copy the governance repository verbatim into the project. Adapt it.
 Do not create changelog files or decision catalogs during bootstrap unless the operator explicitly asks for them.
-Do not leave bracket placeholders in final files. Replace unknown values with explicit `Unknown` or `Needs operator decision` entries.
-Use the templates in `templates/project/` as starting points, not as literal final files.
+Do not leave bracket placeholders in final files. After the Mandatory Questionnaire Gate has been satisfied, replace still-unknown values with explicit `Unknown` or `Needs operator decision` entries.
+Use `templates/project_skeleton/` as the concrete starting structure, not prose descriptions as a substitute for real files.
+Remove `DESIGN_SYSTEM.md` when the project has no UI.
 
 ## Local Agent Mechanism
 
 Agent definitions must be usable by future agents in the local project.
 
 - If the platform has a native callable agent format, create or update agents in that format.
-- In Codex projects, create `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/codex_agents/`.
+- In Codex projects, create `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/project_skeleton/.codex/agents/`.
 - If no native callable agent format exists, define agents as named sections or phases inside the project `AGENTS.md`.
 - Do not create standalone agent `.md` files unless the local platform explicitly loads that path and format as agent definitions.
 - Do not treat this playbook's markdown templates as callable agents. They are source text for the local mechanism.
@@ -75,29 +86,29 @@ Should include:
 - Key user flows.
 - Known constraints.
 
-Use `templates/project/PROJECT_SPEC_TEMPLATE.md` as the starting point.
+Use `templates/project_skeleton/PROJECT_SPEC.md` as the starting point.
 
 ## Initial `AGENTS.md`
 
 Should include:
 
 - Link or reference to the governance repository.
-- Local project rules.
+- True universal rules.
+- Instruction authority boundary.
 - Paths to required Super Agent and Orchestrator definitions.
 - Optional executor agent roles selected for the project.
-- Universal agent rules, including role-based names, H1 agent headings, dirty working tree discipline, and commit restrictions.
 - Required checks.
 - Files that agents must read first.
 - Ask-the-user gates specific to the project.
 
-Use `templates/project/AGENTS_TEMPLATE.md` as the starting point.
+Use `templates/project_skeleton/AGENTS.md` as the starting point.
 
 For Codex projects, create:
 
-- `.codex/agents/agent_super_agent.toml` from `templates/codex_agents/agent_super_agent.toml`
-- `.codex/agents/agent_orchestrator.toml` from `templates/codex_agents/agent_orchestrator.toml`
+- `.codex/agents/agent_super_agent.toml` from `templates/project_skeleton/.codex/agents/agent_super_agent.toml`
+- `.codex/agents/agent_orchestrator.toml` from `templates/project_skeleton/.codex/agents/agent_orchestrator.toml`
 
-For non-Codex native mechanisms, transfer the full canonical core role text from `templates/core/` into that mechanism.
+For non-Codex native mechanisms, adapt the core role text from `templates/project_skeleton/.codex/agents/` into that mechanism.
 
 Adapt only local links, commands, file names, and project-specific constraints. Do not weaken the Super Agent's instruction authority or the Orchestrator's ordinary-work accountability.
 
@@ -111,7 +122,7 @@ Should include:
 - External services.
 - Build and test commands.
 
-Use `templates/project/ARCHITECTURE_TEMPLATE.md` as the starting point.
+Use `templates/project_skeleton/ARCHITECTURE.md` as the starting point.
 
 ## Initial `DESIGN_SYSTEM.md`
 
@@ -126,7 +137,7 @@ Should include:
 - Accessibility requirements.
 - Visual verification expectations.
 
-Use `templates/project/DESIGN_SYSTEM_TEMPLATE.md` as the starting point.
+Use `templates/project_skeleton/DESIGN_SYSTEM.md` as the starting point.
 
 ## Executor Agent Recommendation
 
@@ -160,22 +171,4 @@ Before application code starts:
 
 ## Bootstrap Prompt
 
-Use this prompt when starting a new project:
-
-```text
-Use the attached governance repository as the source of truth for AI development workflow.
-
-My project idea:
-[describe the project]
-
-First, read `handoff/EXTERNAL_AGENT_HANDOFF.md`, then read the governance files and templates required for bootstrap.
-Then inspect the target project and ask me for product, stack, constraint, security, recurring-work, and agent-support details that cannot be discovered locally.
-Create project-specific `AGENTS.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, and any other needed memory files from `templates/project/`.
-For Codex projects, create `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/codex_agents/`.
-For non-Codex native mechanisms, transfer the canonical Super Agent and Orchestrator from `templates/core/` into the local agent mechanism.
-Recommend optional executor agents and create only the ones that are useful now.
-Use platform-native agent definitions when available. If no native callable agent format exists, define agents as named sections or phases inside `AGENTS.md`.
-Do not create standalone agent `.md` files unless the local platform explicitly loads that path and format as agent definitions.
-Do not create changelog files or decision catalogs unless I explicitly ask for them.
-Do not write application code until the initial project memory is created and the MVP scope is clear.
-```
+Use `templates/prompts/NEW_PROJECT_BOOTSTRAP_PROMPT.md` when starting a new project.

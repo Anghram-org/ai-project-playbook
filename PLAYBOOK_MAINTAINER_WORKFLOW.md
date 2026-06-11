@@ -17,7 +17,7 @@ Maintain a reusable governance package for AI-built software projects:
 - Existing project retrofit guidance.
 - Audit guidance.
 - External-agent handoff guidance.
-- Portable templates for core agents, project memory, prompts, and executor agents.
+- A portable project skeleton, prompts, and optional executor-agent templates.
 
 ## Non-Goals
 

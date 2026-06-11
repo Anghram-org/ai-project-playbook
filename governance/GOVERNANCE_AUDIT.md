@@ -31,7 +31,7 @@ Check:
 - Do agents define acceptance criteria for vague or tactical requests before implementation?
 - Does the project require default Orchestrator routing before implementation?
 - Is the Super Agent manually invoked instead of active by default?
-- Does the project include the canonical Super Agent and Orchestrator role authority from `templates/core/`?
+- Does the project include the canonical Super Agent and Orchestrator role authority from `templates/project_skeleton/`?
 - Is the Super Agent the only role allowed to create, edit, reorganize, or delete agent instructions, governance rules, role definitions, and memory routing?
 - Is the Orchestrator forbidden from changing instructions?
 - Do explicit instruction-change requests activate the Super Agent instead of granting instruction-edit authority to the Orchestrator?
@@ -48,6 +48,8 @@ Check:
 - Is there a template for adding project-specific executor agents?
 - Are routing instructions thin, with operating rules placed in the files where agents need them?
 - Is `AGENTS.md` a thin router instead of a dump of full agent prompts when native agent files exist?
+- Does `AGENTS.md` avoid role-specific workflow rules disguised as universal rules?
+- Is instruction authority separated from ordinary project-file edit authority?
 - For retrofitted projects, did the migration preserve useful local roles while removing conflicts and duplicate routing?
 - Are instructions split by task so agents do not read rules for work they are not doing?
 - Are duplicate instructions absent along each required agent read path?
@@ -63,6 +65,8 @@ Check:
 - Do local project rules conflict with governance values?
 - Are agents overloaded with too many responsibilities?
 - For new projects, is bootstrap complete before application code starts?
+- For new projects, did the operator questionnaire happen before project memory files and local agent definitions were created, unless the operator explicitly deferred it or requested scaffold-with-unknowns?
+- For new projects, was `templates/project_skeleton/` copied and adapted instead of generating project structure from prose descriptions?
 - For projects updated after playbook changes, were new governance values propagated into local operating rules?
 
 ## Output Format

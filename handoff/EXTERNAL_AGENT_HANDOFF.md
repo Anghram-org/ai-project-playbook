@@ -45,10 +45,10 @@ The local `AGENTS.md` should contain the operating rules that agents in your pro
 
 At minimum, define:
 
-- The default Orchestrator workflow from `governance/ORCHESTRATOR_WORKFLOW.md`.
-- The full canonical Super Agent and Orchestrator role text from `templates/core/`.
+- The default Orchestrator workflow through the local Orchestrator agent definition.
+- The canonical Super Agent and Orchestrator role text in the local agent mechanism.
 - Any optional executor agents that are useful for the project.
-- Universal agent rules and agent-specific boundaries.
+- Universal rules, instruction authority, and agent-specific boundaries.
 - How agents are represented in the local toolchain: `.codex/agents/*.toml` for Codex projects, other platform-native agent definitions when available, or named sections/phases in `AGENTS.md` only when no callable agent mechanism exists.
 
 ## How To Adapt The Playbook
@@ -60,8 +60,10 @@ Do:
 - Add guidance for converting vague or tactical requests into acceptance criteria and root-cause checks.
 - Keep default orchestration, manually invoked Super Agent work, implementation, review, QA, and security responsibilities distinct.
 - Adapt the Super Agent authority, executor boundaries, naming rules, H1 heading rule, dirty working tree rule, and commit restrictions from `governance/AGENT_ROLES.md`.
-- Use `templates/project/` as starting points for local project memory and `templates/executors/CUSTOM_AGENT_TEMPLATE.md` for project-specific executor agents.
-- For Codex projects, use `templates/codex_agents/` to create separate `.codex/agents/*.toml` files and keep `AGENTS.md` as a thin router.
+- For new projects, follow `templates/PROJECT_SKELETON_USAGE.md`: copy `templates/project_skeleton/` and adapt it after the operator answers the bootstrap questions.
+- For existing projects, follow `templates/PROJECT_SKELETON_USAGE.md`: compare `templates/project_skeleton/` with the current structure and merge only the missing or corrected pieces.
+- Use `templates/executors/CUSTOM_AGENT_TEMPLATE.md` for project-specific executor agents.
+- For Codex projects, use `templates/project_skeleton/.codex/agents/` to create separate `.codex/agents/*.toml` files and keep `AGENTS.md` as a thin router.
 - Add local build, test, lint, typecheck, and verification commands.
 - Record project-specific architecture, product scope, commands, constraints, and other current context in local files when that context helps future agents.
 - Ask the user only for real product, security, cost, scope, or reversibility decisions.

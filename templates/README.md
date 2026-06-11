@@ -1,19 +1,18 @@
 # Templates
 
-These files are portable source templates for projects that consume this playbook.
+These files support projects that consume this playbook.
 
 They are not active instructions for maintaining this repository. External agents use them when bootstrapping a new project or retrofitting an existing project.
 
-Markdown templates are not callable agents by themselves. They are source text. A consuming project must place their content into its native agent mechanism, or into named sections/phases of `AGENTS.md` when no native callable mechanism exists.
+The primary transferable artifact is `project_skeleton/`. It is the complete base structure to copy into a new project or compare against an existing project.
 
-For Codex projects, use the TOML files in `codex_agents/` to create separate `.codex/agents/*.toml` agent definitions. Do not paste those full prompts into `AGENTS.md`.
+Read `PROJECT_SKELETON_USAGE.md` before copying or merging the skeleton.
 
 ## Contents
 
-- `core/`: canonical project-local Super Agent and Orchestrator role text.
-- `codex_agents/`: ready Codex `.codex/agents/*.toml` source templates.
-- `executors/`: template for project-specific executor agents.
-- `project/`: starting points for project memory files.
+- `project_skeleton/`: concrete starting structure for a consuming project. New projects copy it and adapt it; existing projects compare it with their current structure and merge only the missing or corrected pieces.
+- `PROJECT_SKELETON_USAGE.md`: instructions for agents that copy or merge `project_skeleton/`.
+- `executors/`: supporting template for project-specific executor agents, used only when a recurring executor is actually needed.
 - `prompts/`: operator prompts for new project bootstrap and existing project retrofit.
 
-Do not copy these files blindly. Adapt placeholders to the project and replace unknown values with explicit `Unknown` or `Needs operator decision` entries. Do not create standalone agent `.md` files from these templates unless the target platform explicitly loads that path and format as agent definitions.
+Do not generate project structure from prose descriptions when the skeleton can be copied or merged. Adapt `ADAPT` markers and placeholders to the project and replace unknown values with explicit `Unknown` or `Needs operator decision` entries. Do not create standalone agent `.md` files unless the target platform explicitly loads that path and format as agent definitions.
