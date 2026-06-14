@@ -32,7 +32,7 @@ For every non-trivial request:
 4. Read relevant project memory.
 5. Locate affected code, components, files, data, or flows.
 6. Determine risk and scope.
-7. Select optional executor agents when specialist work is useful.
+7. Use optional executor agents when specialist work is useful. In Codex subagent workflows, spawn them by custom agent `name`.
 8. Ask the user only if a real decision is needed.
 9. Implement the smallest high-quality change that satisfies the intent.
 10. Review the diff.
@@ -41,13 +41,13 @@ For every non-trivial request:
 
 ## Agent Routing
 
-The Orchestrator is active by default for every non-trivial request. It may delegate scoped work to executor agents, but it remains accountable for the outcome.
+The Orchestrator is active by default for every non-trivial request. It may delegate scoped work to executor agents by spawning or selecting them by name, but it remains accountable for the outcome.
 
 - Use the optional executor agent catalog from `governance/AGENT_ROLES.md` when specialist work is useful.
 - Add new executor agents only when a recurring responsibility needs a named owner.
 - Apply the universal agent rules from `governance/AGENT_ROLES.md`.
 - Keep executor agents scoped to implementation, review, QA, security, support, infrastructure, documentation, or other specialist work.
-- Escalate instruction changes, governance changes, role changes, memory-routing changes, and recurring workflow failures to the Super Agent authority defined in `governance/AGENT_ROLES.md`.
+- Route instruction changes, governance changes, role changes, memory-routing changes, and recurring workflow failures to the `agent_super_agent` authority defined in `governance/AGENT_ROLES.md`.
 - Do not edit instruction or routing files while acting as the Orchestrator.
 
 ## Request Classification

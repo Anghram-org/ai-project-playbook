@@ -34,7 +34,7 @@ If no project idea or equivalent product context was provided, stop after asking
 7. Recommend optional executor agents only when the short description and repository inspection show a clear recurring need now.
 8. Add project-specific commands, risks, first-read files, and ask-the-user gates that are already known.
 9. Stop before application implementation if the initial project memory or agent routing is still unclear.
-10. Report what was created, which executor agents were selected, and which file future agents should read first.
+10. Report what was created, which executor agents should be used, and which file future agents should read first.
 
 ## Create Project Memory
 
@@ -60,7 +60,7 @@ Agent definitions must be usable by future agents in the local project.
 - If no native callable agent format exists, define agents as named sections or phases inside the project `AGENTS.md`.
 - Do not create standalone agent `.md` files unless the local platform explicitly loads that path and format as agent definitions.
 - Do not treat this playbook's markdown templates as callable agents. They are source text for the local mechanism.
-- Do not claim an executor agent exists unless the local instructions explain how it is selected, what it may do, what it must not do, and what it reports back.
+- Do not claim an executor agent exists unless the local instructions explain how it is used for routing, how it is spawned or selected by name, what it may do, what it must not do, and what it reports back.
 - Keep the Super Agent and Orchestrator required. Add executor agents only when they are useful for the project.
 - Keep `AGENTS.md` thin when native agent files exist. It should route to agent definitions, not contain their full prompts.
 
@@ -89,7 +89,7 @@ Should include:
 - True universal rules.
 - Instruction authority boundary.
 - Paths to required Super Agent and Orchestrator definitions.
-- Optional executor agent roles selected for the project.
+- Optional executor agent roles used for the project.
 - Required checks.
 - Files that agents must read first.
 - Ask-the-user gates specific to the project.
@@ -151,10 +151,10 @@ Create an executor only when it has:
 
 Before application code starts:
 
-- `AGENTS.md` exists as a thin router and points to the default Orchestrator and manually invoked Super Agent.
+- `AGENTS.md` exists as a thin router and points to the default Orchestrator and explicitly requested `agent_super_agent`.
 - The canonical Super Agent and Orchestrator were created as real local agent definitions in the native mechanism when available.
 - Agent definitions are represented in a locally usable mechanism.
-- Optional executor agents are selected only when useful and have clear boundaries.
+- Optional executor agents are used only when useful and have clear boundaries.
 - `PROJECT_SPEC.md` captures the short project description and any currently known scope details.
 - `ARCHITECTURE.md` captures the stack, modules, data flow, external services, and commands as far as they are known.
 - `DESIGN_SYSTEM.md` exists for UI projects, or its absence is intentional.

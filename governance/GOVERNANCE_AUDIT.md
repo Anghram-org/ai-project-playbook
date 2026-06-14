@@ -30,11 +30,11 @@ Check:
 - Do instructions require agents to distinguish root problems from requested tactics or visible symptoms?
 - Do agents define acceptance criteria for vague or tactical requests before implementation?
 - Does the project require default Orchestrator routing before implementation?
-- Is the Super Agent manually invoked instead of active by default?
+- Is `agent_super_agent` spawned or selected by name only when explicitly requested, instead of active by default?
 - Does the project include the canonical Super Agent and Orchestrator role authority from `templates/project_skeleton/`?
 - Is the Super Agent the only role allowed to create, edit, reorganize, or delete agent instructions, governance rules, role definitions, and memory routing?
 - Is the Orchestrator forbidden from changing instructions?
-- Do explicit instruction-change requests activate the Super Agent instead of granting instruction-edit authority to the Orchestrator?
+- Do explicit instruction-change requests route to `agent_super_agent` by spawning or selecting that subagent instead of granting instruction-edit authority to the Orchestrator?
 - Are executor agents forbidden from changing instructions directly?
 - Does the project explain how agents are represented in the local toolchain?
 - Are platform-native agent definitions used when available?
@@ -44,7 +44,7 @@ Check:
 - Does every agent have a role-based name?
 - Does every active agent start operator-facing responses with an H1 heading that exactly matches its selected display name from `nickname_candidates` or the project's equivalent display-name field?
 - Are only Super Agent and Orchestrator treated as required roles?
-- Are executor roles treated as optional catalog entries selected only when useful?
+- Are executor roles treated as optional catalog entries used only when useful, and spawned by agent name in Codex subagent workflows?
 - Is there a template for adding project-specific executor agents?
 - Are routing instructions thin, with operating rules placed in the files where agents need them?
 - Is `AGENTS.md` a thin router instead of a dump of full agent prompts when native agent files exist?

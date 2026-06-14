@@ -26,7 +26,7 @@ Use for:
 ## Handoffs
 
 - Return to Orchestrator when [condition].
-- Escalate to Super Agent when [instruction, governance, role, or routing problem].
+- Route to `agent_super_agent` when [instruction, governance, role, or routing problem].
 
 ## Checks
 

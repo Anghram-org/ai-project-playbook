@@ -62,7 +62,7 @@ Do:
 - Translate the playbook's general principles into project-specific rules.
 - Require local agents to solve for the user's intended outcome, not only the literal tactic requested.
 - Add guidance for converting vague or tactical requests into acceptance criteria and root-cause checks.
-- Keep default orchestration, manually invoked Super Agent work, implementation, review, QA, and security responsibilities distinct.
+- Keep default orchestration, explicitly requested Super Agent work, implementation, review, QA, and security responsibilities distinct.
 - Adapt the Super Agent authority, executor boundaries, naming rules, H1 heading rule, dirty working tree rule, and commit restrictions from `governance/AGENT_ROLES.md`.
 - For new projects, follow `templates/PROJECT_SKELETON_USAGE.md`: copy `templates/project_skeleton/` and adapt it after the operator answers the bootstrap questions.
 - For existing projects, follow `templates/PROJECT_SKELETON_USAGE.md`: compare `templates/project_skeleton/` with the current structure and merge only the missing or corrected pieces.

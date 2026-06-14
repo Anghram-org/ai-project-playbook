@@ -9,6 +9,7 @@ Codex agent definitions live in `.codex/agents/`.
 - Use `agent_orchestrator` for ordinary non-trivial playbook maintenance work.
 - Use `agent_super_agent` only for instruction-system, role-system, memory-routing, governance, or recurring workflow failures.
 - Use `agent_custom_agent_blueprint` when designing a new project-specific executor agent.
+- Every spawned or selected agent must start operator-facing responses with an H1 heading that matches its selected `nickname_candidates` display name.
 
 ## External Agent Route
 

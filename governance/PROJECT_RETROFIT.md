@@ -74,7 +74,7 @@ Create an executor only when it has:
 ## Retrofit Definition Of Done
 
 - The operator approved instruction changes, or the output is explicitly audit-only.
-- `AGENTS.md` is thin and routes to the default Orchestrator and manually invoked Super Agent.
+- `AGENTS.md` is thin and routes to the default Orchestrator and explicitly requested `agent_super_agent`.
 - Native agent definitions exist for Super Agent and Orchestrator when the platform supports them.
 - Agent definitions are represented in a locally usable mechanism.
 - Existing useful roles are preserved or migrated.

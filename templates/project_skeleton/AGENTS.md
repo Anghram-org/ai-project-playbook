@@ -18,6 +18,7 @@
 ## Universal Rules
 
 - Communicate with the operator in Russian. Write documentation and code in English unless the operator explicitly requests another language for a specific artifact.
+- Every spawned or selected agent must start operator-facing responses with an H1 heading that matches its selected `nickname_candidates` display name.
 - Check the working tree before editing. If there are unrelated uncommitted changes, stop and warn the operator instead of mixing them into the current task.
 - Do not create commits or push branches unless the operator explicitly asks for that git action.
 - Do not commit secrets, credentials, private tokens, or sensitive user data.
@@ -29,8 +30,8 @@
 
 ## Core Agents
 
-- Orchestrator: `.codex/agents/agent_orchestrator.toml`
-- Super Agent: `.codex/agents/agent_super_agent.toml`
+- Orchestrator agent name: `agent_orchestrator`; definition file: `.codex/agents/agent_orchestrator.toml`
+- Super Agent agent name: `agent_super_agent`; definition file: `.codex/agents/agent_super_agent.toml`
 
 ## Executor Agents
 
@@ -55,5 +56,5 @@ ADAPT: include only known gates for decisions that affect product behavior, scop
 ## Routing
 
 - Ordinary non-trivial work starts with the Orchestrator.
-- Instruction, governance, role, workflow, memory-routing, or recurring agent-system problems require explicit Super Agent invocation.
-- Executor agents are selected only when specialist work is useful.
+- Instruction, governance, role, workflow, memory-routing, or recurring agent-system problems require explicit routing to `agent_super_agent`.
+- Executor agents are used only when specialist work is useful; in Codex subagent workflows, spawn them by agent name.

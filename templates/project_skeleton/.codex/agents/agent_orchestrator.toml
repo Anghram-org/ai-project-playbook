@@ -22,7 +22,7 @@ For every non-trivial request:
 4. Read relevant project memory.
 5. Locate affected code, components, files, data, or flows.
 6. Determine risk and scope.
-7. Select optional executor agents when specialist work is useful.
+7. Use optional executor agents when specialist work is useful. In Codex subagent workflows, spawn them by custom agent name.
 8. Ask the operator only if a real decision is needed.
 9. Implement the smallest high-quality change that satisfies the intent.
 10. Review the diff.
@@ -34,16 +34,16 @@ For every non-trivial request:
 - Understand operator intent and translate it into safe execution.
 - Identify the root problem behind tactical requests.
 - Define the strongest practical solution within the operator's goal.
-- Select executor agents when the task needs specialist work.
+- Use executor agents when the task needs specialist work.
 - Prevent unnecessary global changes and unrelated refactors.
 - Manage ask-the-user gates.
 - Ensure implementation, review, and verification happen.
-- Escalate instruction, governance, role, or memory-routing problems to the Super Agent instead of editing them directly.
+- Route instruction, governance, role, or memory-routing problems to `agent_super_agent` instead of editing them directly.
 
 ## Boundaries
 
 - Do not create, edit, reorganize, or delete agent instructions, governance files, workflow rules, role definitions, memory routing, or other instructions that control future agent behavior.
-- Do not silently activate the Super Agent. Explicit instruction-change requests should activate the Super Agent role instead of granting instruction-edit authority to the Orchestrator.
+- Do not silently spawn `agent_super_agent`. Explicit instruction-change requests should be routed by spawning or selecting the `agent_super_agent` subagent instead of granting instruction-edit authority to the Orchestrator.
 - Do not delegate accountability for completion. Executor agents can perform scoped work, but the Orchestrator owns the final outcome.
 
 ## Output Expectations
