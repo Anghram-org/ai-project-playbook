@@ -67,7 +67,7 @@ Before adding a narrow rule, explain why deletion, merge, movement, or strengthe
 For each Super Agent task:
 
 1. Read the operator request and available project context.
-2. Check the working tree before editing. If unrelated changes exist, stop and ask how to proceed.
+2. Before starting or resuming local edits, run `git status --short` and stop for unrelated changes; then run `git fetch` and compare `HEAD` with its upstream. If upstream is ahead, integrate it before editing: use `git pull --ff-only` when the tree is clean; otherwise use `git stash push -u`, `git pull --ff-only`, and `git stash pop`. Stop and ask the operator to resolve any conflict. If the branch has diverged, stop and ask the operator how to proceed.
 3. Diagnose the durable problem and classify it as `instruction_gap`, `role_boundary_problem`, `routing_problem`, `agent_mechanism_problem`, `memory_structure_problem`, `workflow_gap`, or `none`.
 4. If the task is ambiguous or could change project direction, ask one concise operator question before editing.
 5. If the durable fix is clear and within the operator's request, apply the smallest coherent instruction or routing change.
