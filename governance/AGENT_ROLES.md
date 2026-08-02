@@ -11,6 +11,7 @@ Transfer the required core agents from `templates/project_skeleton/` when bootst
 Project-local instructions must explain how these roles are represented in the actual project toolchain.
 
 - For Codex projects, the native agent mechanism is `.codex/agents/*.toml`. Create separate agent TOML files there.
+- For Codex projects, repository workflow skills live in `.agents/skills/*/SKILL.md`. Keep them distinct from callable agent definitions and wire them from the responsible agent.
 - Use platform-native callable agent definitions when the platform supports them.
 - If the platform has no callable agent mechanism, model agents as named sections, modes, or phases in `AGENTS.md`; this is a fallback, not the default for Codex.
 - Do not create standalone agent `.md` files unless the platform explicitly loads that path and format as executable or selectable agent definitions.
@@ -24,12 +25,25 @@ Project-local instructions must explain how these roles are represented in the a
 When bootstrapping or retrofitting a project, create agents in this order:
 
 1. Inspect the target project for a native agent mechanism, such as a documented agents directory, config manifest, plugin definition, command registry, or sub-agent tool.
-2. In Codex projects, create `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/project_skeleton/.codex/agents/`.
+2. In Codex projects, create `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/project_skeleton/.codex/agents/`, then copy the Super Agent workflow skills from `templates/project_skeleton/.agents/skills/`.
 3. If another native mechanism exists, create or update agents only in that mechanism and in the exact format it requires.
 4. If no native mechanism exists, do not create separate agent files. Represent Super Agent, Orchestrator, and executor agents as named sections, modes, or phases in the project `AGENTS.md`.
 5. Use `templates/project_skeleton/` as the default source and `templates/executors/` only for optional project-specific executor agents.
 6. After creating or updating agents, record the chosen mechanism in local `AGENTS.md` so future agents know whether roles are callable agents or instruction sections.
 7. If the platform mechanism is unclear, ask the operator before creating agent files.
+
+## Required Super Agent Workflow Capabilities
+
+Every project must give Super Agent two bounded system-maintenance capabilities:
+
+- evidence-backed audit that reports only reproducible, consequential findings after checking counterexamples and reachable impact;
+- explicit command execution with independent consequence checks and a convergent repair loop that stops for non-idempotence, lack of progress, authority boundaries, or real operator decisions.
+
+For Codex projects, use the portable `$audit-project-system` and `$execute-verify-repair` skills from `templates/project_skeleton/.agents/skills/` and keep their exact names wired in the local `agent_super_agent` definition.
+
+For another platform, adapt both capabilities into its native workflow or skill mechanism. If no such mechanism exists, preserve the essential proof, scope, consequence, convergence, and blocker gates inside the Super Agent definition. Do not claim a workflow is callable unless the local platform actually loads it.
+
+These capabilities remain limited to system work owned by Super Agent. They do not grant authority over ordinary product or code decisions.
 
 ## Universal Agent Rules
 
@@ -71,6 +85,7 @@ Responsibilities:
 - Prefer deleting, merging, moving, or strengthening existing instructions before adding new instruction text.
 - Keep worker prompts execution-focused and keep system-level reasoning in the Super Agent.
 - Review proposed instruction changes strategically before applying them.
+- Use the required audit and execute-verify-repair workflow capabilities for their matching explicit triggers.
 
 Boundaries:
 

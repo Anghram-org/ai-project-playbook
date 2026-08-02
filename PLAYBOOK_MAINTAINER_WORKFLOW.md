@@ -74,6 +74,15 @@ Read by agents editing this repository:
 
 These files explain how to maintain the playbook itself.
 
+### Maintainer Workflow Skill Layer
+
+Read by Playbook Super Agent for recurring system work:
+
+- `.agents/skills/audit-project-system/`
+- `.agents/skills/execute-verify-repair/`
+
+These copies strengthen playbook maintenance audits and explicit execute-verify-repair cycles. Portable consumer variants live under `templates/project_skeleton/.agents/skills/`; changes intended for future projects must trace both audiences instead of assuming the maintainer copies propagate automatically.
+
 ### Governance Source Layer
 
 Read by future project agents:

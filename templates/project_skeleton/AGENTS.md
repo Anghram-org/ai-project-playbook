@@ -13,6 +13,7 @@
 - Project type: ADAPT.
 - Primary stack: ADAPT: include only when known.
 - Agent mechanism: Codex native callable agents in `.codex/agents/*.toml`.
+- Workflow skill mechanism: Codex repository skills in `.agents/skills/*/SKILL.md`; ADAPT to the native workflow mechanism on other platforms and remove this claim when unsupported.
 - Non-Codex projects: ADAPT this file to the local native agent mechanism, or use `AGENTS.md` sections only when no callable mechanism exists.
 
 ## Universal Rules

@@ -14,7 +14,9 @@ Read:
 - Governance `ORCHESTRATOR_WORKFLOW.md`
 - Governance `AGENT_ROLES.md`
 - Governance `PROJECT_RETROFIT.md` when auditing an existing project against a newer playbook
+- Portable core agent definitions and Super Agent workflow skills under `templates/project_skeleton/`
 - Project `AGENTS.md`
+- Project native agent definitions and workflow skills
 - Project `PROJECT_SPEC.md`
 - Project `ARCHITECTURE.md`
 - Project `DESIGN_SYSTEM.md` when present
@@ -39,6 +41,10 @@ Check:
 - Does the project explain how agents are represented in the local toolchain?
 - Are platform-native agent definitions used when available?
 - For Codex projects, do Super Agent and Orchestrator exist as `.codex/agents/*.toml` instead of only prose in `AGENTS.md`?
+- For Codex projects, do `$audit-project-system` and `$execute-verify-repair` exist under `.agents/skills/` and remain wired from `agent_super_agent`?
+- For other platforms, are equivalent audit and execute-verify-repair capabilities implemented in the native workflow mechanism without falsely claiming callable skills?
+- Does the audit capability require reproducible consequences and counterexample checks before reporting a finding?
+- Does the execute-verify-repair capability independently verify consequences and stop on non-idempotence, lack of progress, authority boundaries, or a real operator decision?
 - Are standalone agent `.md` files absent unless the platform explicitly loads them as agent definitions?
 - Does each available executor agent define trigger, responsibilities, boundaries, inputs, output, handoffs, and checks?
 - Does every agent have a role-based name?

@@ -27,7 +27,7 @@ If the operator does not approve instruction changes, perform only a read-only a
 4. Ask the operator about current project goals, recurring workflows, known agent failures, and roles or processes that must be preserved.
 5. Audit current instructions against `governance/GOVERNANCE_AUDIT.md`.
 6. Follow `templates/PROJECT_SKELETON_USAGE.md`: compare the existing project to `templates/project_skeleton/` and merge the missing or corrected structure without overwriting useful local context.
-7. Merge the canonical Super Agent and Orchestrator into the local agent mechanism, using `templates/project_skeleton/.codex/agents/` for Codex projects.
+7. Merge the canonical Super Agent, Orchestrator, and required Super Agent workflow capabilities into the local mechanisms, using `templates/project_skeleton/.codex/agents/` and `templates/project_skeleton/.agents/skills/` for Codex projects.
 8. Preserve useful local executor roles, but repair their triggers, responsibilities, boundaries, required inputs, expected output, handoffs, and checks.
 9. Recommend missing executor agents based on the project and create only the ones useful now.
 10. Update project memory so `AGENTS.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, and `DESIGN_SYSTEM.md` when present reflect current project truth.
@@ -50,7 +50,9 @@ Every retrofitted project must include:
 
 - Real local Super Agent and Orchestrator definitions in the native mechanism when one exists.
 - For Codex projects, `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/project_skeleton/.codex/agents/`.
+- For Codex projects, `.agents/skills/audit-project-system/` and `.agents/skills/execute-verify-repair/` from `templates/project_skeleton/.agents/skills/`, wired from `agent_super_agent`.
 - For projects without a native callable mechanism, Super Agent and Orchestrator sections or phases in `AGENTS.md`.
+- For platforms without a native skill mechanism, equivalent proof, consequence, convergence, and blocker gates inside the Super Agent workflow without claiming callable skills exist.
 
 Adapt only local links, commands, file names, and project-specific constraints. Do not weaken the Super Agent's instruction authority or the Orchestrator's ordinary-work accountability.
 
@@ -76,6 +78,7 @@ Create an executor only when it has:
 - The operator approved instruction changes, or the output is explicitly audit-only.
 - `AGENTS.md` is thin and routes to the default Orchestrator and explicitly requested `agent_super_agent`.
 - Native agent definitions exist for Super Agent and Orchestrator when the platform supports them.
+- Required Super Agent audit and execute-verify-repair capabilities exist in the local workflow mechanism and are reachable through their canonical triggers.
 - Agent definitions are represented in a locally usable mechanism.
 - Existing useful roles are preserved or migrated.
 - Conflicting, duplicate, stale, and overloaded routing is removed or reported.

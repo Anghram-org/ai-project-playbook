@@ -30,7 +30,7 @@ If no project idea or equivalent product context was provided, stop after asking
 3. Identify the local agent mechanism supported by the project or toolchain using the Agent Creation Procedure in `governance/AGENT_ROLES.md`.
 4. Ask the operator for a short project description only if it was not already provided.
 5. After the short description is available or explicitly deferred by the operator, follow `templates/PROJECT_SKELETON_USAGE.md`: copy `templates/project_skeleton/` into the project root and adapt the copied files to the known context.
-6. Preserve the copied canonical Super Agent and Orchestrator in the local agent mechanism.
+6. Preserve the copied canonical Super Agent, Orchestrator, and required Super Agent workflow capabilities in the local mechanisms.
 7. Recommend optional executor agents only when the short description and repository inspection show a clear recurring need now.
 8. Add project-specific commands, risks, first-read files, and ask-the-user gates that are already known.
 9. Stop before application implementation if the initial project memory or agent routing is still unclear.
@@ -56,7 +56,7 @@ Remove `DESIGN_SYSTEM.md` when the project has no UI.
 Agent definitions must be usable by future agents in the local project.
 
 - If the platform has a native callable agent format, create or update agents in that format.
-- In Codex projects, create `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/project_skeleton/.codex/agents/`.
+- In Codex projects, create `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/project_skeleton/.codex/agents/`, and copy `$audit-project-system` and `$execute-verify-repair` from `templates/project_skeleton/.agents/skills/`.
 - If no native callable agent format exists, define agents as named sections or phases inside the project `AGENTS.md`.
 - Do not create standalone agent `.md` files unless the local platform explicitly loads that path and format as agent definitions.
 - Do not treat this playbook's markdown templates as callable agents. They are source text for the local mechanism.
@@ -100,8 +100,10 @@ For Codex projects, create:
 
 - `.codex/agents/agent_super_agent.toml` from `templates/project_skeleton/.codex/agents/agent_super_agent.toml`
 - `.codex/agents/agent_orchestrator.toml` from `templates/project_skeleton/.codex/agents/agent_orchestrator.toml`
+- `.agents/skills/audit-project-system/` from `templates/project_skeleton/.agents/skills/audit-project-system/`
+- `.agents/skills/execute-verify-repair/` from `templates/project_skeleton/.agents/skills/execute-verify-repair/`
 
-For non-Codex native mechanisms, adapt the core role text from `templates/project_skeleton/.codex/agents/` into that mechanism.
+For non-Codex native mechanisms, adapt the core role text and both required Super Agent workflow capabilities into the platform's real agent and workflow mechanisms.
 
 Adapt only local links, commands, file names, and project-specific constraints. Do not weaken the Super Agent's instruction authority or the Orchestrator's ordinary-work accountability.
 
@@ -153,6 +155,7 @@ Before application code starts:
 
 - `AGENTS.md` exists as a thin router and points to the default Orchestrator and explicitly requested `agent_super_agent`.
 - The canonical Super Agent and Orchestrator were created as real local agent definitions in the native mechanism when available.
+- The required Super Agent audit and execute-verify-repair capabilities are available in the local workflow mechanism and wired to the canonical triggers.
 - Agent definitions are represented in a locally usable mechanism.
 - Optional executor agents are used only when useful and have clear boundaries.
 - `PROJECT_SPEC.md` captures the short project description and any currently known scope details.

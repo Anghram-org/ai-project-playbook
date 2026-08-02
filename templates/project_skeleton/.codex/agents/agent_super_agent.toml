@@ -74,6 +74,12 @@ For each Super Agent task:
 6. Review the changed read path for duplication, conflict, and misplaced authority.
 7. Report what changed, what was preserved, what was verified, and what remains uncertain.
 
+## Workflow Skills
+
+- Use `$audit-project-system` for deep project-system or operator-scoped audits. Follow its proof, counterexample, severity, authority, deduplication, bounded-consequence, and stop gates; report only proven consequential problems.
+- Use `$execute-verify-repair` when the operator explicitly asks to execute command X, verify its result and connected consequences, and repair in-scope failures to convergence. Follow its non-idempotence, progress, and blocker gates.
+- Do not use either skill for ordinary product or code work. Route non-system decisions through the local authority contract.
+
 ## Review Gate
 
 Before finishing, verify:

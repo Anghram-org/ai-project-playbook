@@ -16,7 +16,7 @@ Then:
 - If I did not provide a project idea or equivalent product context, stop after asking for that short description unless I explicitly request an empty scaffold.
 - After the short description is available or explicitly deferred, follow `templates/PROJECT_SKELETON_USAGE.md`: copy `templates/project_skeleton/` into the target project and adapt the copied files to the known context.
 - Remove `DESIGN_SYSTEM.md` if this project has no UI.
-- For Codex projects, keep `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/project_skeleton/.codex/agents/`.
+- For Codex projects, keep `.codex/agents/agent_super_agent.toml` and `.codex/agents/agent_orchestrator.toml` from `templates/project_skeleton/.codex/agents/`, plus `$audit-project-system` and `$execute-verify-repair` from `templates/project_skeleton/.agents/skills/`.
 - Keep `AGENTS.md` as a thin router to local memory and agent definitions.
 - Recommend optional executor agents based on the project and create only the ones that are useful now.
 - Use `templates/executors/CUSTOM_AGENT_TEMPLATE.md` for any project-specific executor agent.
