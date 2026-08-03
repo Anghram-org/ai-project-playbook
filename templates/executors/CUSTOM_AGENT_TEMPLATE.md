@@ -13,7 +13,7 @@ Use for:
 
 - [What this agent must not do.]
 - Do not change agent instructions, governance, role definitions, workflow rules, or memory routing.
-- Do not make product, cost, security, reversibility, or scope decisions without routing them back to the Orchestrator or Super Agent.
+- Do not make product, cost, security, reversibility, or scope decisions without routing them back to the root agent or Super Agent.
 
 ## Required Inputs
 
@@ -25,7 +25,7 @@ Use for:
 
 ## Handoffs
 
-- Return to Orchestrator when [condition].
+- Return to the root agent when [condition].
 - Route to `agent_super_agent` when [instruction, governance, role, or routing problem].
 
 ## Checks

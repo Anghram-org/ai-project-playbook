@@ -19,7 +19,7 @@ Classify your situation before reading further:
 
 Read only the governance files needed for your current task:
 
-- Standard workflow or operating rules: `governance/ORCHESTRATOR_WORKFLOW.md`
+- Standard workflow or operating rules: `governance/ORCHESTRATION_WORKFLOW.md`
 - Values and principles: `governance/VALUES.md`
 - Agent role model: `governance/AGENT_ROLES.md`
 - New project setup: `governance/PROJECT_BOOTSTRAP.md`
@@ -37,6 +37,7 @@ For an existing project, compare the current project to `templates/project_skele
 Create or update project-local memory files as needed:
 
 - `AGENTS.md`
+- `WORKFLOW.md`
 - `PROJECT_SPEC.md`
 - `ARCHITECTURE.md`
 - `DESIGN_SYSTEM.md` for UI projects
@@ -45,12 +46,12 @@ For new project bootstrap or existing project retrofit, creating or repairing lo
 
 Do not create changelog files or decision catalogs by default. Add project memory only when it gives future agents current context they would otherwise have to rediscover.
 
-The local instruction system should contain the operating rules that agents in your project must follow. In Codex projects, keep `AGENTS.md` as a thin router to project memory and `.codex/agents/*.toml`; put role-specific workflow inside the native agent definitions.
+The local instruction system should contain the operating rules that agents in your project must follow. In Codex projects, keep `AGENTS.md` as a thin router to project memory and `WORKFLOW.md`; use `.codex/agents/*.toml` only for the Super Agent and optional executors.
 
 At minimum, define:
 
-- The default Orchestrator workflow through the local Orchestrator agent definition.
-- The canonical Super Agent and Orchestrator role text in the local agent mechanism.
+- The default root-agent workflow through local `WORKFLOW.md`, without a duplicate Orchestrator agent.
+- The canonical Super Agent role text in the local agent mechanism.
 - The canonical Super Agent audit and execute-verify-repair capabilities in the local workflow mechanism.
 - Any optional executor agents that are useful for the project.
 - Universal rules, instruction authority, and agent-specific boundaries.
@@ -63,12 +64,12 @@ Do:
 - Translate the playbook's general principles into project-specific rules.
 - Require local agents to solve for the user's intended outcome, not only the literal tactic requested.
 - Add guidance for converting vague or tactical requests into acceptance criteria and root-cause checks.
-- Keep default orchestration, explicitly requested Super Agent work, implementation, review, QA, and security responsibilities distinct.
+- Keep root-agent orchestration, explicitly requested Super Agent work, implementation, review, QA, and security responsibilities distinct.
 - Adapt the Super Agent authority, executor boundaries, naming rules, H1 heading rule, dirty working tree rule, and commit restrictions from `governance/AGENT_ROLES.md`.
 - For new projects, follow `templates/PROJECT_SKELETON_USAGE.md`: copy `templates/project_skeleton/` and adapt it after the operator answers the bootstrap questions.
 - For existing projects, follow `templates/PROJECT_SKELETON_USAGE.md`: compare `templates/project_skeleton/` with the current structure and merge only the missing or corrected pieces.
 - Use `templates/executors/CUSTOM_AGENT_TEMPLATE.md` for project-specific executor agents.
-- For Codex projects, use `templates/project_skeleton/.codex/agents/` for separate `.codex/agents/*.toml` files, use `templates/project_skeleton/.agents/skills/` for the two required Super Agent workflows, and keep `AGENTS.md` as a thin router.
+- For Codex projects, use `templates/project_skeleton/WORKFLOW.md` for ordinary root-agent work, `.codex/agents/` for Super Agent and optional executor definitions, `.agents/skills/` for the two required Super Agent workflows, and keep `AGENTS.md` as a thin router.
 - Add local build, test, lint, typecheck, and verification commands.
 - Record project-specific architecture, product scope, commands, constraints, and other current context in local files when that context helps future agents.
 - Ask the user only for real product, security, cost, scope, or reversibility decisions.
@@ -83,7 +84,7 @@ Do not:
 - Add speculative processes, roles, or documents that do not help the current project.
 - Lock the project into only the roles listed in this playbook when a new executor role would make recurring work clearer.
 - Treat optional executor agents as required in every project.
-- Let the Orchestrator or executor agents edit instructions directly.
+- Let the root agent handling ordinary work or executor agents edit instructions directly.
 - Skip local project context because the playbook contains generic guidance.
 - Create standalone agent `.md` files and claim they are callable agents unless the local platform explicitly loads that format.
 - Leave agent definitions as abstract advice when the project has a native agent configuration format.

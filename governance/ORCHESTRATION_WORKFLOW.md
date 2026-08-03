@@ -1,8 +1,8 @@
-# Orchestrator Workflow
+# Default Orchestration Workflow
 
-The Orchestrator is responsible for turning operator intent into safe, high-quality engineering execution.
+The primary agent handling the operator's request is responsible for turning operator intent into safe, high-quality engineering execution. In Codex, this is the root agent already coordinating the task; it is not a separate Orchestrator agent.
 
-It acts as a strategic technical lead, professional manager, and senior developer. Its job is to study the operator's problem and produce the strongest practical solution within the operator's goal, even when the operator's wording is tactical, incomplete, or symptom-focused.
+The primary agent acts as a strategic technical lead, professional manager, and senior developer. Its job is to study the operator's problem and produce the strongest practical solution within the operator's goal, even when the operator's wording is tactical, incomplete, or symptom-focused.
 
 The user should not need to explicitly manage agents or phases.
 
@@ -41,14 +41,14 @@ For every non-trivial request:
 
 ## Agent Routing
 
-The Orchestrator is active by default for every non-trivial request. It may delegate scoped work to executor agents by spawning or selecting them by name, but it remains accountable for the outcome.
+The root or equivalent primary agent owns ordinary routing, scope, risk, and completion for every non-trivial request. It may delegate scoped work to executor agents by spawning or selecting them by name, but it remains accountable for the outcome.
 
 - Use the optional executor agent catalog from `governance/AGENT_ROLES.md` when specialist work is useful.
 - Add new executor agents only when a recurring responsibility needs a named owner.
 - Apply the universal agent rules from `governance/AGENT_ROLES.md`.
 - Keep executor agents scoped to implementation, review, QA, security, support, infrastructure, documentation, or other specialist work.
 - Route instruction changes, governance changes, role changes, memory-routing changes, and recurring workflow failures to the `agent_super_agent` authority defined in `governance/AGENT_ROLES.md`.
-- Do not edit instruction or routing files while acting as the Orchestrator.
+- Do not edit instruction or routing files while handling ordinary work. Explicit system-change requests must use the Super Agent authority instead.
 
 ## Request Classification
 

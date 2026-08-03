@@ -11,7 +11,7 @@ This repository needs one maintainer workflow. Keep specialist role definitions 
 Maintain a reusable governance package for AI-built software projects:
 
 - Values and operating principles.
-- Orchestrator workflow rules.
+- Default root-agent workflow rules.
 - Specialist agent role definitions.
 - Project bootstrap guidance.
 - Existing project retrofit guidance.
@@ -41,6 +41,18 @@ Do not use this repository for:
 8. Check for duplicate or conflicting wording along the affected read path.
 9. When source governance changes, consider whether `handoff/EXTERNAL_AGENT_HANDOFF.md` or `governance/GOVERNANCE_AUDIT.md` also needs an update.
 10. Report what changed, what was checked, and which audience is affected.
+
+## Default Maintainer Ownership
+
+The Codex root agent owns ordinary playbook maintenance, including routing, scope, risk, verification, and completion. Do not represent this default coordination as a separate Orchestrator agent.
+
+- Act as a strategic technical lead, professional manager, and senior developer.
+- Resolve the durable documentation outcome behind tactical or symptom-focused wording.
+- Improve the solution inside the operator's goal without expanding scope arbitrarily.
+- Ask for a decision when a stronger solution would change documentation intent, consumer behavior, cost, reversibility, risk, or direction.
+- Use executor agents only when specialist work is useful, and remain accountable for the final result.
+- Route instruction-system, role-system, memory-routing, governance, and recurring workflow failures to `agent_super_agent`.
+- At completion, report what changed, what was verified, what was not verified, and any important residual risk.
 
 ## Instruction Hygiene
 
@@ -88,7 +100,7 @@ These copies strengthen playbook maintenance audits and explicit execute-verify-
 Read by future project agents:
 
 - `governance/VALUES.md`
-- `governance/ORCHESTRATOR_WORKFLOW.md`
+- `governance/ORCHESTRATION_WORKFLOW.md`
 - `governance/AGENT_ROLES.md`
 - `governance/PROJECT_BOOTSTRAP.md`
 - `governance/PROJECT_RETROFIT.md`

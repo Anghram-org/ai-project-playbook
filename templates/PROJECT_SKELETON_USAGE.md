@@ -9,11 +9,11 @@ The transferable skeleton is `templates/project_skeleton/`. Treat it as the desi
 1. Confirm the target project root.
 2. Inspect the target root before writing files.
 3. Ask the operator for a short project description before copying files, unless the current request already provides enough context.
-4. Copy the contents of `templates/project_skeleton/` into the target project root, including hidden paths such as `.codex/agents/` and `.agents/skills/`.
+4. Copy the contents of `templates/project_skeleton/` into the target project root, including `WORKFLOW.md` and hidden paths such as `.codex/agents/` and `.agents/skills/`.
 5. Adapt every `ADAPT` marker to known project context.
 6. Remove unused placeholders and omit undecided details from final project files.
 7. Remove `DESIGN_SYSTEM.md` when the project has no UI.
-8. Do not write application code until project memory, routing, and core agent definitions are usable.
+8. Do not write application code until project memory, default routing, and the Super Agent definition are usable.
 
 ## Existing Project
 
@@ -30,11 +30,12 @@ The transferable skeleton is `templates/project_skeleton/`. Treat it as the desi
 ## Skeleton Contract
 
 - `AGENTS.md` is a thin router and authority boundary, not a role prompt dump.
-- For Codex projects, `.codex/agents/` contains the required native Super Agent and Orchestrator definitions.
+- `WORKFLOW.md` contains the ordinary root-agent operating contract; `AGENTS.md` routes the root agent to it.
+- For Codex projects, `.codex/agents/` contains the required native Super Agent definition and any optional executor definitions, not a duplicate Orchestrator agent.
 - For Codex projects, `.agents/skills/` contains the required `$audit-project-system` and `$execute-verify-repair` workflows used by Super Agent.
-- For non-Codex projects, transfer the core roles and both workflow capabilities into the platform's native agent and workflow mechanisms. If no skill mechanism exists, preserve the essential gates inside the Super Agent definition without claiming callable skills exist.
+- For non-Codex projects, transfer the default workflow, Super Agent role, and both workflow capabilities into the platform's native instruction and workflow mechanisms. If no skill mechanism exists, preserve the essential gates inside the Super Agent definition without claiming callable skills exist.
 - Do not leave copied `.codex/` or `.agents/skills/` paths in a project whose runtime does not load them. Adapt their behavior first, then remove the inert platform-specific copies.
 - `PROJECT_SPEC.md`, `ARCHITECTURE.md`, and optional `DESIGN_SYSTEM.md` hold current project memory.
 - Optional executor agents are not part of the base skeleton. Add them only when a recurring responsibility has a clear trigger, boundaries, inputs, output, handoff, and checks.
 - Only the Super Agent may edit instructions, workflow rules, role definitions, governance rules, or memory-routing rules.
-- Orchestrator and executor agents may edit ordinary project files within their task boundaries.
+- The root agent and executor agents may edit ordinary project files within their task boundaries.

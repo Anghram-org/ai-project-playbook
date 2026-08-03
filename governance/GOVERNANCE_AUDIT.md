@@ -11,11 +11,12 @@ Determine whether the current project's agent instructions, workflow, and projec
 Read:
 
 - Governance `VALUES.md`
-- Governance `ORCHESTRATOR_WORKFLOW.md`
+- Governance `ORCHESTRATION_WORKFLOW.md`
 - Governance `AGENT_ROLES.md`
 - Governance `PROJECT_RETROFIT.md` when auditing an existing project against a newer playbook
-- Portable core agent definitions and Super Agent workflow skills under `templates/project_skeleton/`
+- Portable `WORKFLOW.md`, Super Agent definition, and Super Agent workflow skills under `templates/project_skeleton/`
 - Project `AGENTS.md`
+- Project `WORKFLOW.md`
 - Project native agent definitions and workflow skills
 - Project `PROJECT_SPEC.md`
 - Project `ARCHITECTURE.md`
@@ -26,30 +27,30 @@ Read:
 Check:
 
 - Do instructions require agents to resolve user intent before implementation?
-- Is the Orchestrator described as a strategic technical lead, professional manager, and senior developer?
-- Does the Orchestrator improve solutions inside the operator's goal instead of only following literal wording?
+- Is the root or equivalent primary agent instructed to act as a strategic technical lead, professional manager, and senior developer?
+- Does the root agent improve solutions inside the operator's goal instead of only following literal wording?
 - Do agents improve solutions within the user's goal without adding speculative scope?
 - Do instructions require agents to distinguish root problems from requested tactics or visible symptoms?
 - Do agents define acceptance criteria for vague or tactical requests before implementation?
-- Does the project require default Orchestrator routing before implementation?
+- Does the project route ordinary work through a reachable default workflow owned by the root agent?
 - Is `agent_super_agent` spawned or selected by name only when explicitly requested, instead of active by default?
-- Does the project include the canonical Super Agent and Orchestrator role authority from `templates/project_skeleton/`?
+- Does the project include the canonical default workflow and Super Agent authority from `templates/project_skeleton/`?
 - Is the Super Agent the only role allowed to create, edit, reorganize, or delete agent instructions, governance rules, role definitions, and memory routing?
-- Is the Orchestrator forbidden from changing instructions?
-- Do explicit instruction-change requests route to `agent_super_agent` by spawning or selecting that subagent instead of granting instruction-edit authority to the Orchestrator?
+- Is the root agent forbidden from changing instructions while handling ordinary work?
+- Do explicit instruction-change requests route to `agent_super_agent` by spawning or selecting that subagent instead of granting instruction-edit authority to the ordinary root workflow?
 - Are executor agents forbidden from changing instructions directly?
 - Does the project explain how agents are represented in the local toolchain?
 - Are platform-native agent definitions used when available?
-- For Codex projects, do Super Agent and Orchestrator exist as `.codex/agents/*.toml` instead of only prose in `AGENTS.md`?
+- For Codex projects, does Super Agent exist as `.codex/agents/agent_super_agent.toml`, while ordinary coordination remains with the root agent through `WORKFLOW.md` and no redundant Orchestrator agent exists?
 - For Codex projects, do `$audit-project-system` and `$execute-verify-repair` exist under `.agents/skills/` and remain wired from `agent_super_agent`?
 - For other platforms, are equivalent audit and execute-verify-repair capabilities implemented in the native workflow mechanism without falsely claiming callable skills?
 - Does the audit capability require reproducible consequences and counterexample checks before reporting a finding?
 - Does the execute-verify-repair capability independently verify consequences and stop on non-idempotence, lack of progress, authority boundaries, or a real operator decision?
 - Are standalone agent `.md` files absent unless the platform explicitly loads them as agent definitions?
 - Does each available executor agent define trigger, responsibilities, boundaries, inputs, output, handoffs, and checks?
-- Does every agent have a role-based name?
-- Does every active agent start operator-facing responses with an H1 heading that exactly matches its selected display name from `nickname_candidates` or the project's equivalent display-name field?
-- Are only Super Agent and Orchestrator treated as required roles?
+- Does every custom agent have a role-based name?
+- Does every active custom agent start operator-facing responses with an H1 heading that exactly matches its selected display name from `nickname_candidates` or the project's equivalent display-name field?
+- Is Super Agent the only required custom-agent role, with root orchestration treated as a workflow responsibility rather than another agent?
 - Are executor roles treated as optional catalog entries used only when useful, and spawned by agent name in Codex subagent workflows?
 - Is there a template for adding project-specific executor agents?
 - Are routing instructions thin, with operating rules placed in the files where agents need them?

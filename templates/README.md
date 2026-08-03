@@ -4,7 +4,7 @@ These files support projects that consume this playbook.
 
 They are not active instructions for maintaining this repository. External agents use them when bootstrapping a new project or retrofitting an existing project.
 
-The primary transferable artifact is `project_skeleton/`. It is the complete base structure to copy into a new project or compare against an existing project.
+The primary transferable artifact is `project_skeleton/`. It is the complete base structure to copy into a new project or compare against an existing project, including `WORKFLOW.md` for ordinary root-agent coordination.
 
 Read `PROJECT_SKELETON_USAGE.md` before copying or merging the skeleton.
 

@@ -24,14 +24,14 @@ Before designing a new agent, decide whether the work really needs a separate ro
 Create a new executor only when it has:
 
 - A recurring trigger.
-- A responsibility that is clearer or safer when separated from Orchestrator.
+- A responsibility that is clearer or safer when separated from the root agent's ordinary workflow.
 - Boundaries that prevent scope creep.
 - Required inputs.
 - Expected output.
-- Handoffs back to Orchestrator or Super Agent.
+- Handoffs back to the root agent or Super Agent.
 - Checks or verification expectations.
 
-If the role would be one-off, vague, overlapping, or only a bundle of generic good behavior, recommend using the Orchestrator or an existing executor instead.
+If the role would be one-off, vague, overlapping, or only a bundle of generic good behavior, recommend using the root agent's ordinary workflow or an existing executor instead.
 
 ## Design Workflow
 

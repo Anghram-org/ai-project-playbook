@@ -20,7 +20,7 @@ That file explains which best-practice files to read and how to adapt them into 
 These files are the reusable best practices for future AI-built projects:
 
 - `governance/VALUES.md`
-- `governance/ORCHESTRATOR_WORKFLOW.md`
+- `governance/ORCHESTRATION_WORKFLOW.md`
 - `governance/AGENT_ROLES.md`
 - `governance/PROJECT_BOOTSTRAP.md`
 - `governance/PROJECT_RETROFIT.md`
