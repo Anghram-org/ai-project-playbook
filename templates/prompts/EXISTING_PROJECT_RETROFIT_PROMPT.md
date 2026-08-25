@@ -14,7 +14,7 @@ Then:
 - Ask whether I approve changes to roles, instruction files, workflow rules, and memory routing before editing them.
 - If I do not approve instruction changes, produce a read-only audit with recommended updates.
 - If approved, follow `templates/PROJECT_SKELETON_USAGE.md`: compare the existing project to `templates/project_skeleton/` and merge only the missing or corrected pieces without destroying useful project-specific context.
-- For Codex projects, create or update `WORKFLOW.md`, `.codex/agents/agent_super_agent.toml`, plus `$audit-project-system` and `$execute-verify-repair` from `templates/project_skeleton/`; remove a redundant Orchestrator agent after preserving any unique ordinary-work instructions.
+- For Codex projects, create or update `WORKFLOW.md`, `.codex/agents/agent_super_agent.toml`, plus `$audit-project-system`, `$execute-verify-repair`, and the explicit-only root-agent `$accept` workflow from `templates/project_skeleton/`; remove a redundant Orchestrator agent after preserving any unique ordinary-work instructions.
 - Keep `AGENTS.md` as a thin router to local memory, `WORKFLOW.md`, and custom-agent definitions.
 - Do not create standalone agent `.md` files unless the local platform explicitly loads that path and format as agent definitions.
 - Recommend missing executor agents and create only the ones that are useful now.

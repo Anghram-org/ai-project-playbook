@@ -27,7 +27,7 @@ If the operator does not approve instruction changes, perform only a read-only a
 4. Ask the operator about current project goals, recurring workflows, known agent failures, and roles or processes that must be preserved.
 5. Audit current instructions against `governance/GOVERNANCE_AUDIT.md`.
 6. Follow `templates/PROJECT_SKELETON_USAGE.md`: compare the existing project to `templates/project_skeleton/` and merge the missing or corrected structure without overwriting useful local context.
-7. Merge the default root-agent workflow, canonical Super Agent, and required Super Agent workflow capabilities into the local mechanisms, using `templates/project_skeleton/WORKFLOW.md`, `.codex/agents/`, and `.agents/skills/` for Codex projects.
+7. Merge the default root-agent workflow, canonical Super Agent and its required workflow capabilities, and the explicit-only `$accept` Git workflow into the local mechanisms, using `templates/project_skeleton/WORKFLOW.md`, `.codex/agents/`, and `.agents/skills/` for Codex projects.
 8. Preserve useful local executor roles, but repair their triggers, responsibilities, boundaries, required inputs, expected output, handoffs, and checks.
 9. Recommend missing executor agents based on the project and create only the ones useful now.
 10. Update project instructions and memory so `AGENTS.md`, `WORKFLOW.md`, `PROJECT_SPEC.md`, `ARCHITECTURE.md`, and `DESIGN_SYSTEM.md` when present reflect current project truth.
@@ -52,6 +52,7 @@ Every retrofitted project must include:
 - A real local Super Agent definition in the native mechanism when one exists.
 - For Codex projects, `WORKFLOW.md` and `.codex/agents/agent_super_agent.toml` from `templates/project_skeleton/`.
 - For Codex projects, `.agents/skills/audit-project-system/` and `.agents/skills/execute-verify-repair/` from `templates/project_skeleton/.agents/skills/`, wired from `agent_super_agent`.
+- For Codex projects, the explicit-only `.agents/skills/accept/` workflow from `templates/project_skeleton/.agents/skills/`, available to the root agent and not wired from `agent_super_agent`.
 - For projects without a native callable mechanism, preserve the default workflow and represent Super Agent as a section or phase in the project instructions.
 - For platforms without a native skill mechanism, equivalent proof, consequence, convergence, and blocker gates inside the Super Agent workflow without claiming callable skills exist.
 
@@ -80,6 +81,7 @@ Create an executor only when it has:
 - `AGENTS.md` is thin and routes the root agent to the default workflow and explicit system work to `agent_super_agent`.
 - The default workflow is reachable, and a native Super Agent definition exists when the platform supports it.
 - Required Super Agent audit and execute-verify-repair capabilities exist in the local workflow mechanism and are reachable through their canonical triggers.
+- In Codex projects, the explicit-only `$accept` Git workflow is available to the root agent.
 - Agent definitions are represented in a locally usable mechanism.
 - Existing useful roles are preserved or migrated.
 - Conflicting, duplicate, stale, and overloaded routing is removed or reported.

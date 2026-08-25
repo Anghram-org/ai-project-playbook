@@ -43,6 +43,7 @@ Check:
 - Are platform-native agent definitions used when available?
 - For Codex projects, does Super Agent exist as `.codex/agents/agent_super_agent.toml`, while ordinary coordination remains with the root agent through `WORKFLOW.md` and no redundant Orchestrator agent exists?
 - For Codex projects, do `$audit-project-system` and `$execute-verify-repair` exist under `.agents/skills/` and remain wired from `agent_super_agent`?
+- For Codex projects, does the explicit-only `$accept` workflow exist under `.agents/skills/` without being wired from `agent_super_agent`?
 - For other platforms, are equivalent audit and execute-verify-repair capabilities implemented in the native workflow mechanism without falsely claiming callable skills?
 - Does the audit capability require reproducible consequences and counterexample checks before reporting a finding?
 - Does the execute-verify-repair capability independently verify consequences and stop on non-idempotence, lack of progress, authority boundaries, or a real operator decision?

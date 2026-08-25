@@ -25,7 +25,7 @@ Project-local instructions must explain how these roles are represented in the a
 When bootstrapping or retrofitting a project, create agents in this order:
 
 1. Inspect the target project for a native agent mechanism, such as a documented agents directory, config manifest, plugin definition, command registry, or sub-agent tool.
-2. In Codex projects, keep ordinary coordination in project `WORKFLOW.md`, create `.codex/agents/agent_super_agent.toml` from `templates/project_skeleton/.codex/agents/`, then copy the Super Agent workflow skills from `templates/project_skeleton/.agents/skills/`.
+2. In Codex projects, keep ordinary coordination in project `WORKFLOW.md`, create `.codex/agents/agent_super_agent.toml` from `templates/project_skeleton/.codex/agents/`, then copy the Super Agent workflow skills and the explicit-only root-agent `$accept` workflow from `templates/project_skeleton/.agents/skills/`.
 3. If another native mechanism exists, create or update agents only in that mechanism and in the exact format it requires.
 4. If no native mechanism exists, do not create separate agent files. Preserve the default workflow and represent Super Agent and executor agents as named sections, modes, or phases in the project instructions.
 5. Use `templates/project_skeleton/` as the default source and `templates/executors/` only for optional project-specific executor agents.
@@ -40,6 +40,8 @@ Every project must give Super Agent two bounded system-maintenance capabilities:
 - explicit command execution with independent consequence checks and a convergent repair loop that stops for non-idempotence, lack of progress, authority boundaries, or real operator decisions.
 
 For Codex projects, use the portable `$audit-project-system` and `$execute-verify-repair` skills from `templates/project_skeleton/.agents/skills/` and keep their exact names wired in the local `agent_super_agent` definition.
+
+Keep the portable `$accept` skill explicit-only and available to the root agent. Do not wire it into `agent_super_agent`; it authorizes a bounded Git workflow only when the operator invokes it.
 
 For another platform, adapt both capabilities into its native workflow or skill mechanism. If no such mechanism exists, preserve the essential proof, scope, consequence, convergence, and blocker gates inside the Super Agent definition. Do not claim a workflow is callable unless the local platform actually loads it.
 

@@ -86,14 +86,14 @@ Read by agents editing this repository:
 
 These files explain how to maintain the playbook itself.
 
-### Maintainer Workflow Skill Layer
+### Repository Workflow Skill Layer
 
-Read by Playbook Super Agent for recurring system work:
+Repository workflow skills are split by responsible agent:
 
-- `.agents/skills/audit-project-system/`
-- `.agents/skills/execute-verify-repair/`
+- Playbook Super Agent uses `.agents/skills/audit-project-system/` and `.agents/skills/execute-verify-repair/` for recurring system work.
+- The root agent uses the explicit-only Git workflow at `.agents/skills/accept/`; it is not a Super Agent workflow.
 
-These copies strengthen playbook maintenance audits and explicit execute-verify-repair cycles. Portable consumer variants live under `templates/project_skeleton/.agents/skills/`; changes intended for future projects must trace both audiences instead of assuming the maintainer copies propagate automatically.
+Portable consumer variants live under `templates/project_skeleton/.agents/skills/`; changes intended for future projects must trace both audiences instead of assuming the maintainer copies propagate automatically.
 
 ### Governance Source Layer
 

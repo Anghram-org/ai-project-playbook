@@ -32,7 +32,7 @@ The transferable skeleton is `templates/project_skeleton/`. Treat it as the desi
 - `AGENTS.md` is a thin router and authority boundary, not a role prompt dump.
 - `WORKFLOW.md` contains the ordinary root-agent operating contract; `AGENTS.md` routes the root agent to it.
 - For Codex projects, `.codex/agents/` contains the required native Super Agent definition and any optional executor definitions, not a duplicate Orchestrator agent.
-- For Codex projects, `.agents/skills/` contains the required `$audit-project-system` and `$execute-verify-repair` workflows used by Super Agent.
+- For Codex projects, `.agents/skills/` contains the required `$audit-project-system` and `$execute-verify-repair` workflows used by Super Agent, plus the explicit-only `$accept` Git workflow used by the root agent when the operator invokes it.
 - For non-Codex projects, transfer the default workflow, Super Agent role, and both workflow capabilities into the platform's native instruction and workflow mechanisms. If no skill mechanism exists, preserve the essential gates inside the Super Agent definition without claiming callable skills exist.
 - Do not leave copied `.codex/` or `.agents/skills/` paths in a project whose runtime does not load them. Adapt their behavior first, then remove the inert platform-specific copies.
 - `PROJECT_SPEC.md`, `ARCHITECTURE.md`, and optional `DESIGN_SYSTEM.md` hold current project memory.

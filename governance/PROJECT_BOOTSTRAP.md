@@ -30,7 +30,7 @@ If no project idea or equivalent product context was provided, stop after asking
 3. Identify the local agent mechanism supported by the project or toolchain using the Agent Creation Procedure in `governance/AGENT_ROLES.md`.
 4. Ask the operator for a short project description only if it was not already provided.
 5. After the short description is available or explicitly deferred by the operator, follow `templates/PROJECT_SKELETON_USAGE.md`: copy `templates/project_skeleton/` into the project root and adapt the copied files to the known context.
-6. Preserve the copied default root-agent workflow, canonical Super Agent, and required Super Agent workflow capabilities in the local mechanisms.
+6. Preserve the copied default root-agent workflow, canonical Super Agent and its required workflow capabilities, and the explicit-only `$accept` Git workflow in the local mechanisms.
 7. Recommend optional executor agents only when the short description and repository inspection show a clear recurring need now.
 8. Add project-specific commands, risks, first-read files, and ask-the-user gates that are already known.
 9. Stop before application implementation if the initial project memory or agent routing is still unclear.
@@ -57,7 +57,7 @@ Remove `DESIGN_SYSTEM.md` when the project has no UI.
 Agent definitions must be usable by future agents in the local project.
 
 - If the platform has a native callable agent format, create or update agents in that format.
-- In Codex projects, keep the copied `WORKFLOW.md`, create `.codex/agents/agent_super_agent.toml` from `templates/project_skeleton/.codex/agents/`, and copy `$audit-project-system` and `$execute-verify-repair` from `templates/project_skeleton/.agents/skills/`.
+- In Codex projects, keep the copied `WORKFLOW.md`, create `.codex/agents/agent_super_agent.toml` from `templates/project_skeleton/.codex/agents/`, and copy `$audit-project-system`, `$execute-verify-repair`, and the explicit-only root-agent `$accept` workflow from `templates/project_skeleton/.agents/skills/`.
 - If no native callable agent format exists, define agents as named sections or phases inside the project `AGENTS.md`.
 - Do not create standalone agent `.md` files unless the local platform explicitly loads that path and format as agent definitions.
 - Do not treat this playbook's markdown templates as callable agents. They are source text for the local mechanism.
@@ -103,6 +103,7 @@ For Codex projects, create:
 - `.codex/agents/agent_super_agent.toml` from `templates/project_skeleton/.codex/agents/agent_super_agent.toml`
 - `.agents/skills/audit-project-system/` from `templates/project_skeleton/.agents/skills/audit-project-system/`
 - `.agents/skills/execute-verify-repair/` from `templates/project_skeleton/.agents/skills/execute-verify-repair/`
+- `.agents/skills/accept/` from `templates/project_skeleton/.agents/skills/accept/`
 
 For non-Codex native mechanisms, adapt the default workflow, Super Agent role text, and both required Super Agent workflow capabilities into the platform's real instruction and workflow mechanisms.
 
@@ -157,6 +158,7 @@ Before application code starts:
 - `AGENTS.md` exists as a thin router and points to the default `WORKFLOW.md` and explicitly requested `agent_super_agent`.
 - The default workflow is reachable by the root agent, and the canonical Super Agent exists in the native mechanism when available.
 - The required Super Agent audit and execute-verify-repair capabilities are available in the local workflow mechanism and wired to the canonical triggers.
+- In Codex projects, the explicit-only `$accept` Git workflow is available to the root agent.
 - Agent definitions are represented in a locally usable mechanism.
 - Optional executor agents are used only when useful and have clear boundaries.
 - `PROJECT_SPEC.md` captures the short project description and any currently known scope details.

@@ -69,7 +69,7 @@ Do:
 - For new projects, follow `templates/PROJECT_SKELETON_USAGE.md`: copy `templates/project_skeleton/` and adapt it after the operator answers the bootstrap questions.
 - For existing projects, follow `templates/PROJECT_SKELETON_USAGE.md`: compare `templates/project_skeleton/` with the current structure and merge only the missing or corrected pieces.
 - Use `templates/executors/CUSTOM_AGENT_TEMPLATE.md` for project-specific executor agents.
-- For Codex projects, use `templates/project_skeleton/WORKFLOW.md` for ordinary root-agent work, `.codex/agents/` for Super Agent and optional executor definitions, `.agents/skills/` for the two required Super Agent workflows, and keep `AGENTS.md` as a thin router.
+- For Codex projects, use `templates/project_skeleton/WORKFLOW.md` for ordinary root-agent work, `.codex/agents/` for Super Agent and optional executor definitions, `.agents/skills/` for the two required Super Agent workflows and the explicit-only root-agent `$accept` workflow, and keep `AGENTS.md` as a thin router.
 - Add local build, test, lint, typecheck, and verification commands.
 - Record project-specific architecture, product scope, commands, constraints, and other current context in local files when that context helps future agents.
 - Ask the user only for real product, security, cost, scope, or reversibility decisions.
