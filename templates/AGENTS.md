@@ -62,5 +62,5 @@ Durable rules, corrections, and conventions for this project belong in this repo
 
 ## Writing rules
 
-- Communicate with the operator in Russian. Write documentation and code in English unless the operator explicitly requests another language for a specific artifact. ADAPT this if the operator uses a different working language — the invariant is one explicit language for operator communication and one for durable artifacts, not which languages they are.
+- Communicate with the operator in Russian. Write documentation and code in English. Change this only if the operator explicitly asks.
 - Keep identifiers, file paths, and quoted source values in their original language and spelling; do not translate them.
