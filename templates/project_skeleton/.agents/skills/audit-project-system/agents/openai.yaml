@@ -1,4 +1,0 @@
-interface:
-  display_name: "Audit Project System"
-  short_description: "Audit project-system integrity"
-  default_prompt: "Use $audit-project-system to perform an evidence-backed audit of the requested project-system scope and report only proven consequential problems."

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Execute Verify Repair"
-  short_description: "Run scoped commands to convergence"
-  default_prompt: "Use $execute-verify-repair to run my explicit playbook-system command, verify bounded consequences, and repair in-scope failures until convergence or a real blocker."

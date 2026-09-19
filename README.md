@@ -1,51 +1,19 @@
 # AI Project Playbook
 
-This repository contains reusable governance for software projects built mostly or entirely by AI agents.
-
-It has two separate instruction audiences:
-
-- The agent maintaining this playbook repository.
-- Agents working in future projects that consume this playbook.
+Reusable governance for software projects built mostly or entirely by AI agents, designed to work identically under **Codex** and **Claude Code**.
 
 ## For External Agents
 
-If you are an agent working in another project and this playbook was provided as reference material, start here:
+If you are an agent working in another project and this playbook was provided as reference material, start with [`templates/ADOPTION.md`](templates/ADOPTION.md). That file explains how to adopt, retrofit, or audit a project against this playbook.
 
-- `handoff/EXTERNAL_AGENT_HANDOFF.md`
+## For Playbook Maintainers
 
-That file explains which best-practice files to read and how to adapt them into your own project.
+If you are editing this repository, start with [`AGENTS.md`](AGENTS.md).
 
-## Governance
+## Structure
 
-These files are the reusable best practices for future AI-built projects:
+- `AGENTS.md` / `CLAUDE.md` — this repository's own operator contract.
+- `.agents/skills/` / `.claude/skills/` — mirrored skill definitions used to maintain this repository.
+- `templates/` — the portable payload: `AGENTS.md`, `CLAUDE.md`, mirrored `.agents/skills/` and `.claude/skills/` (including `accept` and `project-architect`) for consuming projects to copy and adapt, plus `ADOPTION.md` explaining how.
 
-- `governance/VALUES.md`
-- `governance/ORCHESTRATION_WORKFLOW.md`
-- `governance/AGENT_ROLES.md`
-- `governance/PROJECT_BOOTSTRAP.md`
-- `governance/PROJECT_RETROFIT.md`
-- `governance/GOVERNANCE_AUDIT.md`
-- `templates/`
-
-They are not working rules for maintaining this repository. They are the playbook content that external agents adapt into their own projects.
-
-`templates/` contains the portable project skeleton, prompts, and custom executor-agent template.
-
-## Maintainer Instructions
-
-Use these when editing this repository:
-
-- `AGENTS.md`
-- `PLAYBOOK_MAINTAINER_WORKFLOW.md`
-
-These files define how to maintain the playbook without confusing it with an application project.
-
-## Consumer Instructions
-
-Use these in future AI-built software projects:
-
-- the `governance/` files listed above
-- `handoff/EXTERNAL_AGENT_HANDOFF.md`
-- `templates/` when creating or retrofitting project-local instructions
-
-These files define how project agents should plan, implement, review, and verify product work.
+There is no separate architecture, workflow, or role-catalog document. Every project this playbook produces — including this one — is one `AGENTS.md` contract plus mirrored skills for recurring work.
