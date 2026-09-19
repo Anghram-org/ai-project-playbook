@@ -77,7 +77,7 @@ Durable rules, corrections, and conventions for this repository belong in `AGENT
 
 ## Writing rules
 
-- Communicate with the operator in Russian. Write documentation and code in English unless the operator explicitly requests another language for a specific artifact.
+- Communicate with the operator in Russian. Write documentation in English. Change this only if the operator explicitly asks.
 - Use "this repository" only for the playbook repository; use "the project" or "future project" for consumer software projects.
 - Avoid instructions that make a future project agent think it should edit this playbook, or that make a playbook maintainer think it should build product code.
 - Keep examples short and clearly marked as examples.
