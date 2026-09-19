@@ -10,7 +10,7 @@ This playbook, and every project it produces, is designed to work identically un
 
 - `AGENTS.md` is the single operator contract. Codex reads it directly.
 - `CLAUDE.md` is a one-line stub that loads `AGENTS.md` (`@AGENTS.md`), so Claude Code follows the same rules without a second copy of the text.
-- Specialized or recurring work is a skill, not a platform-specific custom agent. Each skill exists as two identical copies: `.agents/skills/<name>/` for Codex and `.claude/skills/<name>/` for Claude Code. `.agents/skills/` is the canonical copy — edit there first, then copy the directory verbatim into `.claude/skills/<name>/`. Confirm the copies match with `diff -r .agents/skills .claude/skills` before finishing a skill change.
+- Specialized or recurring work is a skill, not a platform-specific custom agent. Each skill exists as two identical copies, `.agents/skills/<name>/` for Codex and `.claude/skills/<name>/` for Claude Code — separately for this repository's own skills and for the portable payload's skills under `templates/`. The `.agents/skills/` (or `templates/.agents/skills/`) side is canonical — edit there first, then copy verbatim. `playbook-architect` owns the verification mechanics; route there when a skill change needs checking.
 - Do not add a platform-specific instruction unless the two harnesses genuinely diverge; when they do, state the difference explicitly instead of hiding it in one copy.
 - Do not create standalone agent definition files (`.codex/agents/*.toml`, `.claude/agents/*.md`, or similar) for work a skill can describe. A skill is callable by both harnesses without per-platform prompts.
 
@@ -29,7 +29,7 @@ Non-goals: building an application, choosing a tech stack for a specific product
 2. Read the affected files before editing.
 3. Classify the change as maintainer contract, portable template, or skill.
 4. Ask a focused question before editing if the intent is unclear enough that the change would be guesswork.
-5. Edit the smallest set of files that keeps the repository consistent, and keep `.agents/skills/` and `.claude/skills/` mirrored.
+5. Edit the smallest set of files that keeps the repository consistent, and keep each skill's canonical/Claude copy pair mirrored — `.agents/skills/`↔`.claude/skills/` for this repository's own skills, `templates/.agents/skills/`↔`templates/.claude/skills/` for the portable payload's skills.
 6. Check for duplicate or conflicting wording along the affected read path.
 7. Report what changed, what was checked, and which audience is affected.
 

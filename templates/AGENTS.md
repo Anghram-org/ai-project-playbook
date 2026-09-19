@@ -10,7 +10,7 @@ This project's instructions work identically under Codex and Claude Code:
 
 - `AGENTS.md` is the single operator contract.
 - `CLAUDE.md` is a one-line stub that loads it (`@AGENTS.md`), so both harnesses follow the same rules.
-- Specialized or recurring work is a skill, not a platform-specific custom agent. Each skill exists as two identical copies: `.agents/skills/<name>/` for Codex and `.claude/skills/<name>/` for Claude Code. `.agents/skills/` is the canonical copy — edit there first, then copy the directory verbatim into `.claude/skills/<name>/`. Confirm the copies match with `diff -r .agents/skills .claude/skills` before finishing a skill change.
+- Specialized or recurring work is a skill, not a platform-specific custom agent. Each skill exists as two identical copies: `.agents/skills/<name>/` for Codex and `.claude/skills/<name>/` for Claude Code. `.agents/skills/` is canonical — edit there first, then copy verbatim. `project-architect` owns the verification mechanics; route there when a skill change needs checking.
 
 ## Operator contract
 
