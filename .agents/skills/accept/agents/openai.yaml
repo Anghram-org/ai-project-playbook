@@ -1,7 +1,0 @@
-interface:
-  display_name: "Accept Changes"
-  short_description: "Review, commit, and push current task changes"
-  default_prompt: "Use $accept to review, commit, and push the current task's changes."
-
-policy:
-  allow_implicit_invocation: false
