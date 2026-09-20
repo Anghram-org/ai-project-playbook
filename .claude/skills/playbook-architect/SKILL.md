@@ -54,10 +54,12 @@ Use this only when the operator explicitly names a command to run and verify.
 State plainly:
 
 - what was checked (scope) and what was excluded;
-- proven problems, with the exact evidence and the smallest valid fix;
+- the findings, delivered as described below;
 - changed files, or `none`;
 - what future maintainers or consuming-project agents will do differently as a result;
 - verification performed, including the mirror check when skills changed;
 - residual risk or unresolved evidence, or `none`.
+
+Deliver the findings one at a time. Each one is three paragraphs — the context a reader needs, the problem with its evidence, and the smallest proposed fix — and cites every file as `path:line`. Then stop and ask whether to continue: do not name, count, or preview what is still queued, and finish the rest of the report only once the findings are done.
 
 A true observation is not a finding: report it only when leaving it would make an agent act wrongly. `Nothing to fix` is a complete answer — say it directly instead of manufacturing a recommendation.

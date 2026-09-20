@@ -48,6 +48,8 @@ Use this only when the operator explicitly names a command to run and verify.
 
 ## Report
 
-State plainly: what was checked, proven problems with exact evidence and the smallest valid fix, changed files or `none`, what future agents will do differently, verification performed (including the mirror check when skills changed), and residual risk or `none`.
+State plainly: what was checked, the findings, changed files or `none`, what future agents will do differently, verification performed (including the mirror check when skills changed), and residual risk or `none`.
+
+Deliver the findings one at a time. Each one is three paragraphs — the context a reader needs, the problem with its evidence, and the smallest proposed fix — and cites every file as `path:line`. Then stop and ask whether to continue: do not name, count, or preview what is still queued, and finish the rest of the report only once the findings are done.
 
 A true observation is not a finding: report it only when leaving it would make an agent act wrongly. `Nothing to fix` is a complete answer — say it directly instead of manufacturing a recommendation.
