@@ -61,6 +61,6 @@ State plainly:
 - verification performed, including the mirror check when skills changed;
 - residual risk or unresolved evidence, or `none`.
 
-Deliver the findings one at a time. Each one is three paragraphs — the context a reader needs, the problem with its evidence, and the smallest proposed fix — and cites every file as `path:line`. Then stop and ask whether to continue: do not name, count, or preview what is still queued, and finish the rest of the report only once the findings are done.
+Deliver the findings one at a time. Each one is three labelled paragraphs — the context a reader needs, the problem with its evidence, and the smallest proposed fix — and cites every file as `path:line`. Stop after it and ask whether to continue only while another finding is still queued, without naming, counting or previewing it. When none is left, go straight on to the rest of the report.
 
 A true observation is not a finding: report it only when leaving it would make an agent act wrongly. `Nothing to fix` is a complete answer — say it directly instead of manufacturing a recommendation.
