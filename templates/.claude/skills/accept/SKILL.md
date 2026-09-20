@@ -5,7 +5,7 @@ description: Commit and push the current task's reviewed changes when the operat
 
 # Accept Changes
 
-Create one atomic commit for the current task and push the current branch. If the previous `$accept` attempt for the same current task created that commit but its push failed or delivery could not be confirmed, a new explicit invocation may instead use the recovery path below. Each explicit invocation authorizes only review and checks, one refresh of the configured upstream remote, scoped staging, at most one new commit, and one push of that commit or the valid recovery commit. It does not authorize amend, reset, rebase, upstream or Git configuration changes, or unrelated Git mutations.
+Create one atomic commit for the current task and push the current branch. If the previous `$accept` attempt for the same current task created that commit but its push failed or delivery could not be confirmed, a new explicit invocation may instead use the recovery path below. Each explicit invocation authorizes only review and checks, one refresh of the configured upstream remote, scoped staging, at most one new commit, and one push of that commit or the valid recovery commit. It does not authorize amend, reset, rebase, upstream or Git configuration changes, or unrelated Git mutations. It applies only to the repository that contains the current working directory; committing or pushing in any other repository requires the operator's explicit authorization naming that repository.
 
 ## Review and scope
 
