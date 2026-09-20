@@ -39,6 +39,7 @@ Use this only when the operator explicitly names a command to run and verify.
 
 ## Rules
 
+- The reader of instruction text is an agent, not a human. Optimize for unambiguous execution over reading comfort, and cut what only helps a human skim; keep a rationale when it decides a borderline case.
 - Prefer deleting, merging, or moving existing instruction text over adding new text. Add only what the operator asked for or what a proven failure requires — an anticipated future need is not evidence — and explain why reusing existing text was not enough.
 - Write each rule at the widest wording that still decides the case correctly, instead of naming the case that prompted it. Name a concrete case only when the general wording would mislead a reader, and mark it as an example.
 - Do not enumerate or count items unless the reader's decision depends on the exact set; a list kept for illustration ages into a defect.
