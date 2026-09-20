@@ -39,7 +39,9 @@ Use this only when the operator explicitly names a command to run and verify.
 
 ## Rules
 
-- Prefer deleting, merging, or moving existing instruction text over adding new text. Explain why deletion, merge, or movement was not enough before adding a narrow new rule.
+- Prefer deleting, merging, or moving existing instruction text over adding new text. Add only what the operator asked for or what a proven failure requires — an anticipated future need is not evidence — and explain why reusing existing text was not enough.
+- Write each rule at the widest wording that still decides the case correctly, instead of naming the case that prompted it. Name a concrete case only when the general wording would mislead a reader, and mark it as an example.
+- Do not enumerate or count items unless the reader's decision depends on the exact set; a list kept for illustration ages into a defect.
 - When creating a new skill for this repository or for `templates/`, start from `templates/skills/SKILL_TEMPLATE.md` for the section shape, then adapt it. `SKILL_TEMPLATE.md` itself never ships into a consuming project; it is a playbook-repository-only authoring aid.
 - Keep `AGENTS.md` thin: routing and authority boundaries, not workflow detail that belongs in a skill.
 - Every skill must exist as identical copies within its own payload: `.agents/skills/<name>/` and `.claude/skills/<name>/` for this repository's skills, `templates/.agents/skills/<name>/` and `templates/.claude/skills/<name>/` for the portable payload's skills. A skill in only one location, or copies that differ, is a defect to fix in the same change.
@@ -58,4 +60,4 @@ State plainly:
 - verification performed, including the mirror check when skills changed;
 - residual risk or unresolved evidence, or `none`.
 
-If no candidate passes the proof gate, say so directly instead of manufacturing a recommendation.
+A true observation is not a finding: report it only when leaving it would make an agent act wrongly. `Nothing to fix` is a complete answer — say it directly instead of manufacturing a recommendation.

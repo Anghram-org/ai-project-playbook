@@ -38,7 +38,9 @@ Use this only when the operator explicitly names a command to run and verify.
 
 ## Rules
 
-- Prefer deleting, merging, or moving existing instruction text over adding new text.
+- Prefer deleting, merging, or moving existing instruction text over adding new text. Add only what the operator asked for or what a proven failure requires; an anticipated future need is not evidence.
+- Write each rule at the widest wording that still decides the case correctly, instead of naming the case that prompted it. Name a concrete case only when the general wording would mislead a reader, and mark it as an example.
+- Do not enumerate or count items unless the reader's decision depends on the exact set; a list kept for illustration ages into a defect.
 - Keep `AGENTS.md` thin: routing and project context, not workflow detail that belongs in a skill.
 - Every skill must exist as identical copies in `.agents/skills/<name>/` and `.claude/skills/<name>/`. A skill in only one location, or copies that differ, is a defect to fix in the same change.
 - A single wording fix is in scope when the file instructs an agent, and out of scope when it does not.
@@ -48,4 +50,4 @@ Use this only when the operator explicitly names a command to run and verify.
 
 State plainly: what was checked, proven problems with exact evidence and the smallest valid fix, changed files or `none`, what future agents will do differently, verification performed (including the mirror check when skills changed), and residual risk or `none`.
 
-If no candidate passes the proof gate, say so directly instead of manufacturing a recommendation.
+A true observation is not a finding: report it only when leaving it would make an agent act wrongly. `Nothing to fix` is a complete answer — say it directly instead of manufacturing a recommendation.
