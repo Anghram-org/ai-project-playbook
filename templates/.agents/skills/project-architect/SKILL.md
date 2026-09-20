@@ -14,9 +14,7 @@ It is invoked by name and covers instructions alone; it does not take over produ
 ## Use this skill when
 
 - Any file that instructs an agent is to be changed, whatever the size of the change.
-- `AGENTS.md` or a skill has drifted, become redundant, or conflicts with another rule.
-- Skill responsibilities overlap, are missing, or a skill exists in only one of `.agents/skills/` or `.claude/skills/`.
-- Routing is unclear: an agent picking up the project would not know which file or skill to use next.
+- Instructions need repair although no edit was requested: they have drifted, become redundant, conflict, leave a reader unsure which file or skill to use next, or a skill's mirrored copies are missing or differ.
 - The operator explicitly asks to run a specific command and verify its result and repair what it breaks.
 
 ## Audit workflow
