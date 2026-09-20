@@ -31,6 +31,11 @@ ADAPT: stack, main modules, data flow, external services, and constraints future
 
 ADAPT: install, build, test, lint, typecheck — only the ones that actually apply. Remove this whole section for a project with no code stack (a knowledge base, a support workflow, an ops process).
 
+## Instruction authority
+
+- Every edit to a file that instructs an agent goes through the `project-architect` skill, whatever its size. Invoke it by name; it is not active by default.
+- Everything else, product code included, is ordinary work: change it directly.
+
 ## Skills
 
 Specialized or recurring work belongs in a skill, not a persistent named role. Infer the smallest applicable skill from plain language. Do not announce which skill was loaded and do not answer in the voice of a named role — the operator sees the work, not the routing.
@@ -38,7 +43,7 @@ Specialized or recurring work belongs in a skill, not a persistent named role. I
 - Honor an explicitly named skill unless it conflicts with safety or repository policy.
 - If routing is ambiguous, choose the smallest safe interpretation and state it briefly. Ask the operator to choose only for workflow redesign, skill comparison, or a genuine routing conflict.
 - `accept` — explicit-only commit-and-push workflow. Invoke only when the operator explicitly asks to commit or push.
-- `project-architect` — audits and repairs this project's own instruction system: `AGENTS.md` routing, skill boundaries, and cross-platform mirror integrity. Use for instruction-system, routing, or skill-boundary problems, not for ordinary product work.
+- `project-architect` — carries out every instruction edit in this project and repairs the instruction system itself.
 - ADAPT: add a project-specific skill only when a recurring responsibility needs a stable, verifiable home — a repeated review checklist, a domain-specific workflow. A skill is a directory with `SKILL.md`: `name` and a routing `description` in the frontmatter, then mission, triggers, rules, boundaries, required inputs, and expected output. Keep `.agents/skills/<name>/` and `.claude/skills/<name>/` identical. Remove this line once real project-specific skills are listed here.
 
 ## Git discipline

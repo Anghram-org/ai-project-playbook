@@ -1,18 +1,19 @@
 ---
 name: project-architect
-description: "Redesign or repair this project's own instruction system: AGENTS.md routing, skill boundaries, and cross-platform mirror integrity between .agents/skills and .claude/skills. Also runs an explicit operator-requested command and independently verifies and repairs its bounded consequences. Use when instructions have drifted, skills overlap or are missing, routing is unclear, or the operator explicitly asks to run and verify a command. Do not use for ordinary content polishing or product implementation."
+description: "Redesign or repair this project's own instruction system: AGENTS.md routing, skill boundaries, and cross-platform mirror integrity between .agents/skills and .claude/skills. Also runs an explicit operator-requested command and independently verifies and repairs its bounded consequences. Use for every edit to a file that instructs an agent, whatever its size, and when instructions have drifted, skills overlap or are missing, routing is unclear, or the operator explicitly asks to run and verify a command. Do not use for anything that instructs no agent."
 ---
 
 # Project architect
 
 ## Mission
 
-Improve this project's instruction system itself — not one wording fix, but making future agents handle the same situation correctly without the operator restating the correction.
+Own this project's instruction text: carry out each edit to it, and improve the system those instructions form, so future agents handle the same situation correctly without the operator restating the correction.
 
-This is administration and strategy, not default execution work. It is invoked by name only when the situation below applies; it does not take over ordinary product work.
+It is invoked by name and covers instructions alone; it does not take over product work.
 
 ## Use this skill when
 
+- Any file that instructs an agent is to be changed, whatever the size of the change.
 - `AGENTS.md` or a skill has drifted, become redundant, or conflicts with another rule.
 - Skill responsibilities overlap, are missing, or a skill exists in only one of `.agents/skills/` or `.claude/skills/`.
 - Routing is unclear: an agent picking up the project would not know which file or skill to use next.
@@ -42,7 +43,7 @@ Use this only when the operator explicitly names a command to run and verify.
 - Prefer deleting, merging, or moving existing instruction text over adding new text.
 - Keep `AGENTS.md` thin: routing and project context, not workflow detail that belongs in a skill.
 - Every skill must exist as identical copies in `.agents/skills/<name>/` and `.claude/skills/<name>/`. A skill in only one location, or copies that differ, is a defect to fix in the same change.
-- Do not treat ordinary content edits or product work as a reason to invoke this skill.
+- A single wording fix is in scope when the file instructs an agent, and out of scope when it does not.
 - Do not commit or push unless the operator explicitly asks; that stays with the `accept` skill.
 
 ## Report

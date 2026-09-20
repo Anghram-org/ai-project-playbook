@@ -27,7 +27,7 @@ Non-goals: building an application, choosing a tech stack for a specific product
 
 1. Resolve the operator's intent and the documentation outcome they are trying to achieve.
 2. Read the affected files before editing.
-3. Classify the change as maintainer contract, portable template, or skill.
+3. Classify the change as maintainer contract, portable template, or skill, and route it through `playbook-architect` if it instructs an agent.
 4. Ask a focused question before editing if the intent is unclear enough that the change would be guesswork.
 5. Edit the smallest set of files that keeps the repository consistent, and keep each skill's canonical/Claude copy pair mirrored — `.agents/skills/`↔`.claude/skills/` for this repository's own skills, `templates/.agents/skills/`↔`templates/.claude/skills/` for the portable payload's skills.
 6. Check for duplicate or conflicting wording along the affected read path.
@@ -47,15 +47,15 @@ Do not clutter this file or `templates/` with duplicate, upstream, premature, or
 
 ## Instruction authority
 
-- Ordinary maintenance — fixing wording, updating a stale reference, adjusting a skill's own rules — is not privileged; make the smallest correct edit directly.
-- Restructuring the instruction system itself — routing, skill boundaries, cross-platform mirror integrity, or recurring workflow failures — goes through the `playbook-architect` skill. Invoke it by name; it is not active by default.
+- Every edit to a file that instructs an agent goes through the `playbook-architect` skill, whatever its size. Invoke it by name; it is not active by default.
+- Everything else is ordinary content: edit it directly.
 
 ## Skills
 
 - Honor an explicitly named skill unless it conflicts with safety or repository policy.
 - If routing between `accept` and `playbook-architect` is ambiguous, choose the smallest safe interpretation and state it briefly; ask the operator only for a genuine routing conflict.
 - `accept` — explicit-only commit-and-push workflow. Invoke only when the operator explicitly asks to commit or push.
-- `playbook-architect` — audits and repairs this repository's own instruction system: routing, skill boundaries, hygiene, and cross-platform mirror integrity. Use for instruction-system, routing, skill-boundary, or recurring workflow-failure problems, not for ordinary content edits.
+- `playbook-architect` — carries out every instruction edit in this repository and repairs the instruction system itself.
 
 ## Git discipline
 

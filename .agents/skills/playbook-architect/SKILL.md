@@ -1,18 +1,19 @@
 ---
 name: playbook-architect
-description: "Redesign or repair this playbook's own instruction system: AGENTS.md routing, skill boundaries, cross-platform mirror integrity between .agents/skills and .claude/skills, and the templates/ payload consumer projects copy. Also runs an explicit operator-requested command and independently verifies and repairs its bounded consequences within this repository. Use when instructions have drifted, skills overlap or are missing, routing is unclear, or the operator explicitly asks to run and verify a command. Do not use for ordinary content polishing or product implementation."
+description: "Redesign or repair this playbook's own instruction system: AGENTS.md routing, skill boundaries, cross-platform mirror integrity between .agents/skills and .claude/skills, and the templates/ payload consumer projects copy. Also runs an explicit operator-requested command and independently verifies and repairs its bounded consequences within this repository. Use for every edit to a file that instructs an agent, whatever its size, and when instructions have drifted, skills overlap or are missing, routing is unclear, or the operator explicitly asks to run and verify a command. Do not use for anything that instructs no agent."
 ---
 
 # Playbook architect
 
 ## Mission
 
-Improve the playbook's instruction system itself — not one wording fix, but making future maintainers and future project agents handle the same situation correctly without the operator restating the correction.
+Own the playbook's instruction text: carry out each edit to it, and improve the system those instructions form, so future maintainers and future project agents handle the same situation correctly without the operator restating the correction.
 
-This is administration and strategy, not default execution work. It is invoked by name only when the situation below applies; it does not take over ordinary maintenance.
+It is invoked by name and covers instructions alone; it does not take over work on files that instruct no agent.
 
 ## Use this skill when
 
+- Any file that instructs an agent is to be changed, whatever the size of the change.
 - Instructions in `AGENTS.md`, a skill, or `templates/` have drifted, become redundant, or conflict.
 - Skill responsibilities overlap, are missing, or a skill exists in only one of `.agents/skills/`/`.claude/skills/` or one of `templates/.agents/skills/`/`templates/.claude/skills/`.
 - Routing is unclear: a maintainer or a consuming-project agent would not know which file to read next.
@@ -45,7 +46,7 @@ Use this only when the operator explicitly names a command to run and verify.
 - Keep `AGENTS.md` thin: routing and authority boundaries, not workflow detail that belongs in a skill.
 - Every skill must exist as identical copies within its own payload: `.agents/skills/<name>/` and `.claude/skills/<name>/` for this repository's skills, `templates/.agents/skills/<name>/` and `templates/.claude/skills/<name>/` for the portable payload's skills. A skill in only one location, or copies that differ, is a defect to fix in the same change.
 - Do not weaken the cross-platform contract, the explicit-only nature of `accept`, or the audience boundaries between this repository and `templates/`.
-- Do not treat ordinary content edits, product work, or a single wording fix as a reason to invoke this skill.
+- A single wording fix is in scope when the file instructs an agent, and out of scope when it does not.
 - Do not commit or push unless the operator explicitly asks; that stays with the `accept` skill.
 
 ## Report
