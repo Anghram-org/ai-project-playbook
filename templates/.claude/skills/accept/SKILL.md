@@ -27,8 +27,8 @@ Create one atomic commit for the current task and push the current branch. If th
 
 1. After the normal branch-state check passes, stage only explicit reviewed paths or hunks. If a file contains both in-scope and unrelated changes, stage only the reviewed in-scope hunks; stop and ask the operator if they cannot be separated safely. Never use `git add -A`, `git add .`, or a broad `git add -u`.
 2. Recheck the staged patch, ensure it is non-empty, and repeat the task-scope and sensitive or generated-artifact review on the complete staged diff.
-3. Write a concise commit subject that matches the repository's recent convention and describes the change. Do not add a co-author trailer unless the operator requests one.
-4. Commit without `--amend` and without bypassing Git hooks.
+3. Compose a commit message whose subject is concise, matches the repository's recent convention, and describes the change; do not add a co-author trailer unless the operator requests one. Write it with the file-writing tool to the path `git rev-parse --absolute-git-dir` reports, named `COMMIT_EDITMSG`, and commit with `git commit --file=<path>`, without `--amend` and without bypassing Git hooks. Never pass message text through the shell — not with `-m`, `--file=-`, `echo`, a heredoc, or a here-string: a quote form or delimiter the current shell parses differently is absorbed into the message instead of failing.
+4. Before pushing, print `git log -1 --format=%B` and confirm the message is exactly the intended text: the intended subject on the first line, no stray quoting or delimiter characters, nothing blank or truncated. If it is not, stop and report; a pushed message is permanent in shared history.
 5. Push only to the configured upstream. If it is absent or ambiguous, stop and ask; do not configure or change an upstream.
 6. Run `git status` after the push and report the commit hash, branch, configured upstream, checks run, and any checks not run.
 
