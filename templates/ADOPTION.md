@@ -7,6 +7,7 @@ Do not copy this playbook verbatim. Build a local instruction system that fits t
 ## Principles this playbook carries into every project
 
 - One operator contract: `AGENTS.md`, plus a one-line `CLAUDE.md` stub (`@AGENTS.md`) so Claude Code follows the same rules Codex reads directly. No separate architecture, product-spec, or design-system files — that context lives inside `AGENTS.md`'s `Project context` section, or in a skill when it is workflow-specific rather than descriptive.
+- Do not create `openai.yaml` in the project.
 - Specialized or recurring work is a skill, callable by name or inferred from plain language — not a persistent named agent identity that announces itself or takes over by default.
 - Every skill exists as two identical copies: `.agents/skills/<name>/` for Codex and `.claude/skills/<name>/` for Claude Code. Neither copy links to the other.
 - Only an explicit `accept`-style invocation commits or pushes; ordinary work never does, and the agent never offers or raises the possibility itself.
