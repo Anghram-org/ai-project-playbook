@@ -4,6 +4,15 @@ This repository is the playbook source: reusable governance for AI-built softwar
 
 Read this file when maintaining the playbook itself. If you are an agent working in another project that received this playbook as reference material, read [`templates/ADOPTION.md`](templates/ADOPTION.md) instead and stop reading here.
 
+## Documentation protocol (mandatory)
+
+The operator resets sessions between steps; only `docs/` carries state across them. Run this protocol with the `docs-keeper` skill, which holds the steps; `docs/README.md` is the map.
+
+- Start of a step: read `docs/README.md`, `docs/STATE.md` and `docs/invariants.md`, then only what the step needs.
+- Write at the moment of the change; `accept` only verifies and repairs gaps, it is not where documentation is written from memory. A step is not finished until the `docs-keeper` end-of-step list is done and `node scripts/docs-check.mjs` passes. Say in the reply which docs changed.
+- One fact lives in one place: facts in `docs/`, method in skills, agent rules here. Link instead of restating.
+- `docs/` is maintainer memory, not an instruction file and not part of the payload; editing it is ordinary work. Its consumer-facing counterparts are `templates/docs/` and `templates/scripts/`.
+
 ## Cross-platform contract
 
 This playbook, and every project it produces, is designed to work identically under Codex and Claude Code:
@@ -54,7 +63,8 @@ Do not clutter this file or `templates/` with duplicate, upstream, premature, or
 
 - Honor an explicitly named skill unless it conflicts with safety or repository policy.
 - If routing between `accept` and `playbook-architect` is ambiguous, choose the smallest safe interpretation and state it briefly; ask the operator only for a genuine routing conflict.
-- `accept` — explicit-only commit-and-push workflow. Invoke only when the operator explicitly asks to commit or push.
+- `accept` — explicit-only step-closing workflow: it checks the session, `docs/`, the instructions and the change, repairs what it finds, then commits and pushes. Invoke only when the operator explicitly asks to commit or push.
+- `docs-keeper` — runs the documentation protocol: reading at the start of a step, updating state, log, backlog, decisions and invariants at its end, and the docs check. Use it in every working step.
 - `playbook-architect` — carries out every instruction edit in this repository and repairs the instruction system itself.
 
 ## Git discipline
@@ -66,12 +76,13 @@ Do not clutter this file or `templates/` with duplicate, upstream, premature, or
 
 ## Persistence
 
-Durable rules, corrections, and conventions for this repository belong in `AGENTS.md`, `templates/`, or a skill's `SKILL.md` — not in the root agent's own cross-session memory (Claude's auto-memory, an equivalent Codex feature, or similar). That memory store is per-machine and per-user; it does not travel with the repository and silently diverges from what other agents or machines see. If the operator asks to "remember" something here, write it into the repository at the appropriate location and say where it went, instead of also saving it to that memory.
+Durable rules, corrections, and conventions for this repository belong in `AGENTS.md`, `templates/`, or a skill's `SKILL.md`; maintainer state and decisions go into `docs/` — not in the root agent's own cross-session memory (Claude's auto-memory, an equivalent Codex feature, or similar). That memory store is per-machine and per-user; it does not travel with the repository and silently diverges from what other agents or machines see. If the operator asks to "remember" something here, write it into the repository at the appropriate location and say where it went, instead of also saving it to that memory.
 
 ## Repository layout
 
 - `AGENTS.md`, `CLAUDE.md` — this contract.
 - `.agents/skills/`, `.claude/skills/` — mirrored skill definitions used while maintaining this repository.
+- `docs/` — maintainer memory (state, backlog, log, decisions, invariants); `scripts/docs-check.mjs` verifies it.
 - `templates/` — the portable payload that consuming projects copy and adapt; see [`templates/ADOPTION.md`](templates/ADOPTION.md) for what it contains and how to use it.
 - `README.md` — short public-facing overview.
 

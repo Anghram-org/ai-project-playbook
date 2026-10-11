@@ -4,6 +4,15 @@
 
 ADAPT: one or two sentences describing what this project is and who it is for.
 
+## Documentation protocol (mandatory)
+
+The operator resets sessions between steps; only `docs/` carries state across them. Run this protocol with the `docs-keeper` skill, which holds the steps; `docs/README.md` is the map.
+
+- Start of a step: read `docs/README.md`, `docs/STATE.md` and `docs/invariants.md`, then only what the step needs.
+- Write at the moment of the change; `accept` only verifies and repairs gaps, it is not where documentation is written from memory. A step is not finished until the `docs-keeper` end-of-step list is done and `node scripts/docs-check.mjs` passes. Say in the reply which docs changed.
+- One fact lives in one place: facts in `docs/`, method in skills, agent rules here. Link instead of restating.
+- `docs/` is project knowledge, not an instruction file; editing it is ordinary work.
+
 ## Cross-platform contract
 
 This project's instructions work identically under Codex and Claude Code:
@@ -43,7 +52,8 @@ Specialized or recurring work belongs in a skill, not a persistent named role. I
 
 - Honor an explicitly named skill unless it conflicts with safety or repository policy.
 - If routing is ambiguous, choose the smallest safe interpretation and state it briefly. Ask the operator to choose only for workflow redesign, skill comparison, or a genuine routing conflict.
-- `accept` — explicit-only commit-and-push workflow. Invoke only when the operator explicitly asks to commit or push.
+- `accept` — explicit-only step-closing workflow: it checks the session, `docs/`, the instructions and the change, repairs what it finds, then commits and pushes. Invoke only when the operator explicitly asks to commit or push.
+- `docs-keeper` — runs the documentation protocol: reading at the start of a step, updating state, log, backlog, decisions and invariants at its end, and the docs check. Use it in every working step.
 - `project-architect` — carries out every instruction edit in this project and repairs the instruction system itself.
 - ADAPT: add a project-specific skill only when a recurring responsibility needs a stable, verifiable home — a repeated review checklist, a domain-specific workflow. A skill is a directory with `SKILL.md`: `name` and a routing `description` in the frontmatter, then mission, triggers, rules, boundaries, required inputs, and expected output. Keep `.agents/skills/<name>/` and `.claude/skills/<name>/` identical. Remove this line once real project-specific skills are listed here.
 
@@ -64,7 +74,7 @@ ADAPT: known gates for decisions that affect product behavior, scope, data, secu
 
 ## Persistence
 
-Durable rules, corrections, and conventions for this project belong in this repository — `AGENTS.md` or a skill's `SKILL.md` — not in the root agent's own cross-session memory (Claude's auto-memory, an equivalent Codex feature, or similar). That memory store is per-machine and per-user; it does not travel with the repository and silently diverges from what other agents or machines see. If the operator asks to "remember" something for this project, write it into the repository at the appropriate location and say where it went, instead of also saving it to that memory.
+Durable rules, corrections, and conventions for this project belong in this repository — `AGENTS.md` or a skill's `SKILL.md`; project facts (state, decisions, project rules) go into `docs/` — not in the root agent's own cross-session memory (Claude's auto-memory, an equivalent Codex feature, or similar). That memory store is per-machine and per-user; it does not travel with the repository and silently diverges from what other agents or machines see. If the operator asks to "remember" something for this project, write it into the repository at the appropriate location and say where it went, instead of also saving it to that memory.
 
 ## Writing rules
 

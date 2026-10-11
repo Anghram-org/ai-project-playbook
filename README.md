@@ -14,6 +14,7 @@ If you are editing this repository, start with [`AGENTS.md`](AGENTS.md).
 
 - `AGENTS.md` / `CLAUDE.md` — this repository's own operator contract.
 - `.agents/skills/` / `.claude/skills/` — mirrored skill definitions used to maintain this repository.
-- `templates/` — the portable payload: `AGENTS.md`, `CLAUDE.md`, mirrored `.agents/skills/` and `.claude/skills/` (including `accept` and `project-architect`) for consuming projects to copy and adapt, plus `ADOPTION.md` explaining how.
+- `docs/` / `scripts/docs-check.mjs` — this repository's own memory (state, backlog, log, decisions, invariants) and its consistency check.
+- `templates/` — the portable payload: `AGENTS.md`, `CLAUDE.md`, mirrored `.agents/skills/` and `.claude/skills/` (including `accept`, `docs-keeper` and `project-architect`), a `docs/` skeleton and `scripts/docs-check.mjs` for consuming projects to copy and adapt, plus `ADOPTION.md` explaining how.
 
-There is no separate architecture, workflow, or role-catalog document. Every project this playbook produces — including this one — is one `AGENTS.md` contract plus mirrored skills for recurring work.
+There is no separate role-catalog or architecture document. Every project this playbook produces — including this one — is one `AGENTS.md` contract, mirrored skills for recurring work, and `docs/` as the memory that survives session resets.
