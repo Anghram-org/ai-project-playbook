@@ -6,7 +6,7 @@ Overwrite this file at the end of every step; it must let a fresh session contin
 
 ## Where we are
 
-- The docs-memory scheme taken from the hyperframes project is in place for this repository and for the `templates/` payload ([ADR 0001](decisions/0001-docs-memory-scheme.md)): `docs/`, `scripts/docs-check.mjs`, the `docs-keeper` skill and the five-stage `accept`, in both skill trees and both mirrors.
+- The docs-memory scheme taken from the hyperframes project is in place for this repository and for the `templates/` payload ([ADR 0001](decisions/0001-docs-memory-scheme.md)): `docs/`, `scripts/docs-check.mjs`, and the `docs-keeper` skill, in both skill trees and both mirrors. Step closing is the global `anghram-accept`; there is no local `accept` ([ADR 0004](decisions/0004-global-anghram-accept.md)).
 - `node scripts/docs-check.mjs` passes. The template docs under `templates/docs/` carry `ADAPT` and `YYYY-MM-DD` markers by design and are not checked here.
 - Line endings are pinned to LF by `.gitattributes` ([ADR 0002](decisions/0002-gitattributes-lf.md)).
 - The tracked `.DS_Store` files are deleted from the working tree and `.gitignore` ignores them.

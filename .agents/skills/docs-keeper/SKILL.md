@@ -22,7 +22,7 @@ description: "Keep the project's documentation in docs/ complete and consistent:
 
 ## During a step
 
-Write at the moment it happens, not at the end of the step and not at `accept` (which only verifies and repairs gaps; documentation reconstructed from memory loses dates, reasons and operator attribution):
+Write at the moment it happens, not at the end of the step and not at `/anghram-accept` (which only verifies and repairs gaps; documentation reconstructed from memory loses dates, reasons and operator attribution):
 
 - A fact that stops being true is corrected at its owner at once, so no stale statement survives into the next action.
 - A correction of agent behavior goes into `AGENTS.md` or a skill at once, through the instruction-system skill named in `AGENTS.md`; do not leave it in the chat or in `docs/`.

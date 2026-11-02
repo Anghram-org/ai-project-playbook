@@ -9,7 +9,7 @@ Read this file when maintaining the playbook itself. If you are an agent working
 The operator resets sessions between steps; only `docs/` carries state across them. Run this protocol with the `docs-keeper` skill, which holds the steps; `docs/README.md` is the map.
 
 - Start of a step: read `docs/README.md`, `docs/STATE.md` and `docs/invariants.md`, then only what the step needs.
-- Write at the moment of the change; `accept` only verifies and repairs gaps, it is not where documentation is written from memory. A step is not finished until the `docs-keeper` end-of-step list is done and `node scripts/docs-check.mjs` passes. Say in the reply which docs changed.
+- Write at the moment of the change; `/anghram-accept` only verifies and repairs gaps, it is not where documentation is written from memory. A step is not finished until the `docs-keeper` end-of-step list is done and `node scripts/docs-check.mjs` passes. Say in the reply which docs changed.
 - One fact lives in one place: facts in `docs/`, method in skills, agent rules here. Link instead of restating.
 - `docs/` is maintainer memory, not an instruction file and not part of the payload; editing it is ordinary work. Its consumer-facing counterparts are `templates/docs/` and `templates/scripts/`.
 
@@ -62,8 +62,7 @@ Do not clutter this file or `templates/` with duplicate, upstream, premature, or
 ## Skills
 
 - Honor an explicitly named skill unless it conflicts with safety or repository policy.
-- If routing between `accept` and `playbook-architect` is ambiguous, choose the smallest safe interpretation and state it briefly; ask the operator only for a genuine routing conflict.
-- `accept` — explicit-only step-closing workflow: it checks the session, `docs/`, the instructions and the change, repairs what it finds, then commits and pushes. Invoke only when the operator explicitly asks to commit or push.
+- `anghram-accept` — global, explicit-only step-closing workflow (checks, repairs, commits, pushes); not defined in this repository. Invoke only when the operator explicitly asks to commit or push.
 - `docs-keeper` — runs the documentation protocol: reading at the start of a step, updating state, log, decisions and invariants at its end, and the docs check. Use it in every working step.
 - `anghram-backlog` — the project's task backlog lives in the central backlog tool, not in `docs/`; read and change tasks only through this skill.
 - `playbook-architect` — carries out every instruction edit in this repository and repairs the instruction system itself.
@@ -71,7 +70,7 @@ Do not clutter this file or `templates/` with duplicate, upstream, premature, or
 ## Git discipline
 
 - Check the working tree before editing. If it contains changes unrelated to the current request, stop and warn the operator instead of mixing work. Read-only analysis may continue while the worktree is dirty; the gate is on edits, not on reading.
-- Do not commit or push unless the operator explicitly asks for that git action; use the `accept` skill for that.
+- Do not commit or push unless the operator explicitly asks for that git action; use the global `anghram-accept` skill for that.
 - Never raise a git-state mutation yourself. Do not ask whether to commit or push, do not offer to, and do not mention the possibility in a report — the operator initiates it, not the agent.
 - When commits are requested, keep each commit scoped to one task.
 

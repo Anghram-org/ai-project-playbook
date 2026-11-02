@@ -45,7 +45,7 @@ Use this only when the operator explicitly names a command to run and verify.
 - Keep `AGENTS.md` thin: routing and project context, not workflow detail that belongs in a skill.
 - Every skill must exist as identical copies in `.agents/skills/<name>/` and `.claude/skills/<name>/`. A skill in only one location, or copies that differ, is a defect to fix in the same change.
 - A single wording fix is in scope when the file instructs an agent, and out of scope when it does not.
-- Do not commit or push unless the operator explicitly asks; that stays with the `accept` skill.
+- Do not commit or push unless the operator explicitly asks; that stays with the global `anghram-accept` skill.
 
 ## Report
 

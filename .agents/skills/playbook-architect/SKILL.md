@@ -46,9 +46,9 @@ Use this only when the operator explicitly names a command to run and verify.
 - When creating a new skill for this repository or for `templates/`, start from `templates/skills/SKILL_TEMPLATE.md` for the section shape, then adapt it. `SKILL_TEMPLATE.md` itself never ships into a consuming project; it is a playbook-repository-only authoring aid.
 - Keep `AGENTS.md` thin: routing and authority boundaries, not workflow detail that belongs in a skill.
 - Every skill must exist as identical copies within its own payload: `.agents/skills/<name>/` and `.claude/skills/<name>/` for this repository's skills, `templates/.agents/skills/<name>/` and `templates/.claude/skills/<name>/` for the portable payload's skills. A skill in only one location, or copies that differ, is a defect to fix in the same change.
-- Do not weaken the cross-platform contract, the explicit-only nature of `accept`, or the audience boundaries between this repository and `templates/`.
+- Do not weaken the cross-platform contract, the explicit-only nature of `anghram-accept`, or the audience boundaries between this repository and `templates/`.
 - A single wording fix is in scope when the file instructs an agent, and out of scope when it does not.
-- Do not commit or push unless the operator explicitly asks; that stays with the `accept` skill.
+- Do not commit or push unless the operator explicitly asks; that stays with the global `anghram-accept` skill.
 
 ## Report
 
