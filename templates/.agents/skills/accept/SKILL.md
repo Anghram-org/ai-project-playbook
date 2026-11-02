@@ -21,7 +21,7 @@ Everything from stage 1 must exist in its one home in `docs/` (map and ownership
 
 - `docs/STATE.md` describes the situation now and a next step that can start without questions; `Updated:` is today.
 - `docs/LOG.md` has an entry for this step, including what was verified and what was not.
-- Every operator remark and every deferral is a `docs/BACKLOG.md` item; every decision is an ADR with its index row, and a replaced decision is marked `Superseded by`; every new always/never rule is an invariant with a `Check:`.
+- Every operator remark and every deferral is a backlog task (`anghram-backlog` skill); every decision is an ADR with its index row, and a replaced decision is marked `Superseded by`; every new always/never rule is an invariant with a `Check:`.
 - A document the change left stale has not been written: facts that changed are edited at their owner.
 - Write only what the session actually settled. Mark a date or an attribution you cannot confirm instead of inventing it.
 

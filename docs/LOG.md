@@ -26,3 +26,8 @@ Append only; one `## YYYY-MM-DD: title` entry per working step, oldest first. Ea
 ## 2026-10-11: review cleanup
 - Converted the four working-copy files that still had CRLF (`AGENTS.md`, `README.md`, `templates/AGENTS.md`, `templates/ADOPTION.md`) to LF; content unchanged. Deleted the stray `.DS_Store` files (root and `templates/`) and added a `.gitignore` for them; the deletion is left unstaged.
 - Verified: `git ls-files --eol` shows w/lf for the four files; `node scripts/docs-check.mjs` run after this entry.
+
+## 2026-11-03: central backlog
+- Operator decision ([ADR 0003](decisions/0003-central-backlog.md)): tasks live in the central backlog tool. Linked project `ai-project-playbook`, moved P-01 to T-001, removed `docs/BACKLOG.md` and `templates/docs/BACKLOG.md`, dropped it from both `docs-check.mjs`, rewrote the backlog wording in `docs-keeper`, `accept` (all four copies), both `AGENTS.md`, both `docs/README.md`, `templates/ADOPTION.md` and `README.md`.
+- Verified: `node scripts/docs-check.mjs`, mirror and shared-copy diffs. Not verified: adoption of the new wording in a real consuming project (T-001).
+- Follow-up: `templates/ADOPTION.md` now states how the tool is introduced: the skill is global and outside the payload, new projects create no task file (the first `add` links the project), existing projects move tasks by the skill's `Adopting a project` rule, and a missing skill is reported to the operator instead of recreating a table.

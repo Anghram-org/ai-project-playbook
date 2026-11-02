@@ -12,5 +12,6 @@ Rules:
 
 | ADR | Decision | Status |
 | --- | --- | --- |
-| [0001](0001-docs-memory-scheme.md) | Project memory is `docs/`, taken from the hyperframes scheme | Accepted |
+| [0001](0001-docs-memory-scheme.md) | Project memory is `docs/`, taken from the hyperframes scheme | Accepted (amended by 0003) |
 | [0002](0002-gitattributes-lf.md) | Line endings are fixed by `.gitattributes`, not by machine settings | Accepted |
+| [0003](0003-central-backlog.md) | Tasks live in the central backlog tool, not in `docs/` | Accepted |

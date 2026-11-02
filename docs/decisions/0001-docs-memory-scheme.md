@@ -1,6 +1,6 @@
 # 0001 Project memory is `docs/`, taken from the hyperframes scheme
 
-- Status: Accepted
+- Status: Accepted (amended by [0003](0003-central-backlog.md))
 - Date: 2026-10-11 (operator)
 
 ## Context

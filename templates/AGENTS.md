@@ -53,7 +53,8 @@ Specialized or recurring work belongs in a skill, not a persistent named role. I
 - Honor an explicitly named skill unless it conflicts with safety or repository policy.
 - If routing is ambiguous, choose the smallest safe interpretation and state it briefly. Ask the operator to choose only for workflow redesign, skill comparison, or a genuine routing conflict.
 - `accept` — explicit-only step-closing workflow: it checks the session, `docs/`, the instructions and the change, repairs what it finds, then commits and pushes. Invoke only when the operator explicitly asks to commit or push.
-- `docs-keeper` — runs the documentation protocol: reading at the start of a step, updating state, log, backlog, decisions and invariants at its end, and the docs check. Use it in every working step.
+- `docs-keeper` — runs the documentation protocol: reading at the start of a step, updating state, log, decisions and invariants at its end, and the docs check. Use it in every working step.
+- `anghram-backlog` — the project's task backlog lives in the central backlog tool, not in `docs/`; read and change tasks only through this skill.
 - `project-architect` — carries out every instruction edit in this project and repairs the instruction system itself.
 - ADAPT: add a project-specific skill only when a recurring responsibility needs a stable, verifiable home — a repeated review checklist, a domain-specific workflow. A skill is a directory with `SKILL.md`: `name` and a routing `description` in the frontmatter, then mission, triggers, rules, boundaries, required inputs, and expected output. Keep `.agents/skills/<name>/` and `.claude/skills/<name>/` identical. Remove this line once real project-specific skills are listed here.
 

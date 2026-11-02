@@ -9,7 +9,7 @@ This folder is the project's memory. It is tracked in Git. A new session knows n
 1. This file.
 2. [STATE.md](STATE.md): where we stopped and the next step.
 3. [invariants.md](invariants.md): rules that must not be broken.
-4. Only what the next step needs: [BACKLOG.md](BACKLOG.md), the relevant ADRs in [decisions/](decisions/README.md).
+4. Only what the next step needs: the relevant ADRs in [decisions/](decisions/README.md). Open tasks come from the backlog tool (below).
 
 Do not read [LOG.md](LOG.md) as a whole; search it when the history of something is needed.
 
@@ -18,7 +18,7 @@ Do not read [LOG.md](LOG.md) as a whole; search it when the history of something
 | File | Holds | Changes |
 | --- | --- | --- |
 | [STATE.md](STATE.md) | current state and next step; at most 60 lines | overwritten at the end of every step |
-| [BACKLOG.md](BACKLOG.md) | plan items (P-xx) and open issues (I-xx) with status | when work or a remark appears or closes |
+| backlog tool (`anghram-backlog` skill), outside the repository | tasks with status, priority and category | when work or a remark appears or closes |
 | [LOG.md](LOG.md) | dated record of what was done and verified | append only |
 | [decisions/](decisions/README.md) | one ADR per decision, with status | new file per decision; old ones are never rewritten, only marked `Superseded by` |
 | [invariants.md](invariants.md) | numbered rules with a way to check each | when a new always/never rule appears |

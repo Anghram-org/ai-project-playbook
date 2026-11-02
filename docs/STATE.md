@@ -1,6 +1,6 @@
 # State
 
-Updated: 2026-10-11
+Updated: 2026-11-03
 
 Overwrite this file at the end of every step; it must let a fresh session continue without reading anything else first. Keep it at 60 lines or fewer; history goes to [LOG.md](LOG.md).
 
@@ -10,11 +10,12 @@ Overwrite this file at the end of every step; it must let a fresh session contin
 - `node scripts/docs-check.mjs` passes. The template docs under `templates/docs/` carry `ADAPT` and `YYYY-MM-DD` markers by design and are not checked here.
 - Line endings are pinned to LF by `.gitattributes` ([ADR 0002](decisions/0002-gitattributes-lf.md)).
 - The tracked `.DS_Store` files are deleted from the working tree and `.gitignore` ignores them.
+- Tasks live in the central backlog tool, project `ai-project-playbook` (`anghram-backlog` skill), for this repository and the `templates/` payload ([ADR 0003](decisions/0003-central-backlog.md)); `BACKLOG.md` is gone from both.
 - Not yet tried on a real consuming project: the `templates/ADOPTION.md` steps for the new `docs/` were not run end to end.
 
 ## Next step (start here)
 
-1. Adopt the scheme in one real project (new or existing) following `templates/ADOPTION.md`, and fix the template wherever it fails ([P-01](BACKLOG.md)).
+1. Adopt the scheme in one real project (new or existing) following `templates/ADOPTION.md`, and fix the template wherever it fails (backlog task T-001).
 
 ## Blockers and waiting on the operator
 

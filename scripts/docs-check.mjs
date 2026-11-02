@@ -28,7 +28,7 @@ function walk(dir, filter = () => true) {
 }
 
 // 1. Required files
-for (const r of ['README.md', 'STATE.md', 'BACKLOG.md', 'LOG.md', 'invariants.md', 'decisions/README.md']) {
+for (const r of ['README.md', 'STATE.md', 'LOG.md', 'invariants.md', 'decisions/README.md']) {
   if (!existsSync(join(docs, r))) fail(`missing docs/${r}`);
 }
 

@@ -64,7 +64,8 @@ Do not clutter this file or `templates/` with duplicate, upstream, premature, or
 - Honor an explicitly named skill unless it conflicts with safety or repository policy.
 - If routing between `accept` and `playbook-architect` is ambiguous, choose the smallest safe interpretation and state it briefly; ask the operator only for a genuine routing conflict.
 - `accept` — explicit-only step-closing workflow: it checks the session, `docs/`, the instructions and the change, repairs what it finds, then commits and pushes. Invoke only when the operator explicitly asks to commit or push.
-- `docs-keeper` — runs the documentation protocol: reading at the start of a step, updating state, log, backlog, decisions and invariants at its end, and the docs check. Use it in every working step.
+- `docs-keeper` — runs the documentation protocol: reading at the start of a step, updating state, log, decisions and invariants at its end, and the docs check. Use it in every working step.
+- `anghram-backlog` — the project's task backlog lives in the central backlog tool, not in `docs/`; read and change tasks only through this skill.
 - `playbook-architect` — carries out every instruction edit in this repository and repairs the instruction system itself.
 
 ## Git discipline
@@ -82,7 +83,7 @@ Durable rules, corrections, and conventions for this repository belong in `AGENT
 
 - `AGENTS.md`, `CLAUDE.md` — this contract.
 - `.agents/skills/`, `.claude/skills/` — mirrored skill definitions used while maintaining this repository.
-- `docs/` — maintainer memory (state, backlog, log, decisions, invariants); `scripts/docs-check.mjs` verifies it.
+- `docs/` — maintainer memory (state, log, decisions, invariants; tasks are in the central backlog); `scripts/docs-check.mjs` verifies it.
 - `templates/` — the portable payload that consuming projects copy and adapt; see [`templates/ADOPTION.md`](templates/ADOPTION.md) for what it contains and how to use it.
 - `README.md` — short public-facing overview.
 
