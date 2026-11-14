@@ -39,3 +39,7 @@ Append only; one `## YYYY-MM-DD: title` entry per working step, oldest first. Ea
 ## 2026-11-14: binary files in .gitattributes
 - Operator decision ([ADR 0005](decisions/0005-gitattributes-binary.md)): `.gitattributes` and `templates/.gitattributes` now mark common binary types (images, audio, video, fonts, 3D models, WebAssembly, PDF, archives) as `binary`. ADR 0002 marked as amended.
 - Verified: both copies identical (INV-03); `git check-attr` shows `binary` set for `*.png` and `text=auto eol=lf` for `*.md`. `node scripts/docs-check.mjs` passes.
+
+## 2026-11-14: adoption confirmed
+- Operator: the playbook has been adopted in real projects many times and works. The "not verified on a real project" notes in earlier entries are superseded; removed the open item and the T-001 next step from `STATE.md`. T-001 itself had already been closed and archived by the operator; `STATE.md` had not been updated then.
+- Verified: the backlog `list` for `ai-project-playbook` shows no open tasks; `node scripts/docs-check.mjs` passes.
