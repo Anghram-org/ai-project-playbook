@@ -43,3 +43,7 @@ Append only; one `## YYYY-MM-DD: title` entry per working step, oldest first. Ea
 ## 2026-11-14: adoption confirmed
 - Operator: the playbook has been adopted in real projects many times and works. The "not verified on a real project" notes in earlier entries are superseded; removed the open item and the T-001 next step from `STATE.md`. T-001 itself had already been closed and archived by the operator; `STATE.md` had not been updated then.
 - Verified: the backlog `list` for `ai-project-playbook` shows no open tasks; `node scripts/docs-check.mjs` passes.
+
+## 2026-11-14: no git state in docs/
+- Operator rule: `docs/` does not record state git already shows. Added to the "One fact, one place" rule of `docs-keeper`, all four copies. Removed the stale `.DS_Store` git-state line from `STATE.md`.
+- Verified: `diff -r` of both skill-tree mirrors and of the repository copy against the `templates/` copy shows no difference; `node scripts/docs-check.mjs` passes.

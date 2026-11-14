@@ -72,7 +72,7 @@ Check: how to verify it mechanically or by inspection.
 
 ## Rules
 
-- One fact, one place. Skills hold method; facts, numbers, file names and choices that belong to this project live in `docs/`.
+- One fact, one place. Skills hold method; facts, numbers, file names and choices that belong to this project live in `docs/`. State that git already shows (for example, whether a change is committed or pushed) is not written into `docs/` at all: it duplicates git and turns false at the next commit or push.
 - ADR numbers and item IDs are never reused or renumbered.
 - Record facts that were measured or confirmed, and mark what was not verified as unverified.
 - Documentation is written in English; identifiers, paths and quoted source text keep their original spelling.
