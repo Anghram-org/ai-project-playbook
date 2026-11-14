@@ -35,3 +35,7 @@ Append only; one `## YYYY-MM-DD: title` entry per working step, oldest first. Ea
 ## 2026-11-03: drop local accept (T-002)
 - Operator decision ([ADR 0004](decisions/0004-global-anghram-accept.md)): deleted the `accept` skill from `.agents/`, `.claude/`, `templates/.agents/` and `templates/.claude/`; both `AGENTS.md`, `docs-keeper`, `playbook-architect`, `project-architect`, `templates/ADOPTION.md`, `README.md` now point to the global `anghram-accept`; removed the `accept`/`playbook-architect` routing line; INV-02 narrowed to `docs-keeper`.
 - Verified: `node scripts/docs-check.mjs`, both mirror diffs, grep for leftover `accept` references. Historic LOG entries and ADR 0001 text keep the old name by design.
+
+## 2026-11-14: binary files in .gitattributes
+- Operator decision ([ADR 0005](decisions/0005-gitattributes-binary.md)): `.gitattributes` and `templates/.gitattributes` now mark common binary types (images, audio, video, fonts, 3D models, WebAssembly, PDF, archives) as `binary`. ADR 0002 marked as amended.
+- Verified: both copies identical (INV-03); `git check-attr` shows `binary` set for `*.png` and `text=auto eol=lf` for `*.md`. `node scripts/docs-check.mjs` passes.

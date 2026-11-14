@@ -1,1 +1,24 @@
 * text=auto eol=lf
+
+# Binary files: never convert line endings or diff as text.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.mp3 binary
+*.ogg binary
+*.wav binary
+*.mp4 binary
+*.webm binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.glb binary
+*.wasm binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.7z binary

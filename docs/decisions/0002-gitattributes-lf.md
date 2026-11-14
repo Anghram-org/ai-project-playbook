@@ -1,6 +1,6 @@
 # 0002 Line endings are fixed by `.gitattributes`, not by machine settings
 
-- Status: Accepted
+- Status: Accepted (amended by [0005](0005-gitattributes-binary.md))
 - Date: 2026-10-11 (operator)
 
 ## Context
